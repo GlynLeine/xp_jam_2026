@@ -468,6 +468,7 @@ MonoBehaviour:
   - {fileID: -6288072647309666549}
   - {fileID: 7518938298396184218}
   - {fileID: -1410297666881709256}
+  - {fileID: 3084369425723666366}
 --- !u!114 &853819529557874667
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -778,6 +779,58 @@ MonoBehaviour:
   contribution:
     m_OverrideState: 1
     m_Value: 0
+--- !u!114 &3084369425723666366
+MonoBehaviour:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ca49a13ef3662c744b04febb0687ab5c, type: 3}
+  m_Name: VolumetricFogVolumeComponent
+  m_EditorClassIdentifier: Assembly-CSharp::VolumetricFogVolumeComponent
+  active: 1
+  resolutionScale:
+    m_OverrideState: 1
+    m_Value: 0.25
+  stepCount:
+    m_OverrideState: 1
+    m_Value: 100
+  fogDensity:
+    m_OverrideState: 1
+    m_Value: 0.1
+  scatteringCoefficients:
+    m_OverrideState: 1
+    m_Value: {r: 1, g: 1, b: 1, a: 1}
+  absorptionCoefficients:
+    m_OverrideState: 1
+    m_Value: {r: 0, g: 0, b: 0, a: 0}
+  lightScale:
+    m_OverrideState: 1
+    m_Value: 1
+  fadeHeight:
+    m_OverrideState: 1
+    m_Value: 5
+  fadeDistance:
+    m_OverrideState: 1
+    m_Value: 4
+  minFogHeight:
+    m_OverrideState: 1
+    m_Value: 0
+  maxMarchDistance:
+    m_OverrideState: 1
+    m_Value: 100
+  jitterDistance:
+    m_OverrideState: 1
+    m_Value: 0.1
+  nearFieldAggressiveness:
+    m_OverrideState: 1
+    m_Value: 0.8
+  fogHistoryContribution:
+    m_OverrideState: 1
+    m_Value: 0.2
 --- !u!114 &3959858460715838825
 MonoBehaviour:
   m_ObjectHideFlags: 3
