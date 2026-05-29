@@ -1,5 +1,34 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-3938706425617708389
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c79195dafe0e6a448a6016c5752ada44, type: 3}
+  m_Name: Volumetric Fog
+  m_EditorClassIdentifier: Assembly-CSharp::VolumetricFogRenderFeature
+  m_Active: 1
+  settings:
+    resolutionScale: 0.25
+    stepCount: 100
+    fogDensity: 0.1
+    scatteringCoefficients: {r: 1, g: 1, b: 1, a: 1}
+    absorptionCoefficients: {r: 0, g: 0, b: 0, a: 1}
+    lightScale: 1
+    fadeHeight: 5
+    fadeDistance: 4
+    minFogHeight: 0
+    maxMarchDistance: 100
+    jitterDistance: 0.1
+    nearFieldAggressiveness: 0.8
+    fogHistoryContribution: 0.2
+    blueNoiseTextures: []
+  shader: {fileID: 0}
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -24,8 +53,9 @@ MonoBehaviour:
     probeSamplingDebugMesh: {fileID: -3555484719484374845, guid: 57d7c4c16e2765b47a4d2069b311bffe, type: 3}
     probeSamplingDebugTexture: {fileID: 2800000, guid: 24ec0e140fb444a44ab96ee80844e18e, type: 3}
     probeVolumeBlendStatesCS: {fileID: 7200000, guid: b9a23f869c4fd45f19c5ada54dd82176, type: 3}
-  m_RendererFeatures: []
-  m_RendererFeatureMap: 
+  m_RendererFeatures:
+  - {fileID: -3938706425617708389}
+  m_RendererFeatureMap: 9b0a82c25fe756c9
   m_UseNativeRenderPass: 1
   xrSystemData: {fileID: 0}
   postProcessData: {fileID: 11400000, guid: 41439944d30ece34e96484bdb6645b55, type: 2}
