@@ -201,11 +201,8 @@ namespace cherrydev
 
         public void moveToNext(InputAction.CallbackContext context)
         {
-            if (context.performed)
-            {
-                Debug.Log("Performed");
+            if(context.control.IsPressed())
                 nextSentence = true;
-            }
         }
 
         /// <summary>
@@ -659,7 +656,8 @@ namespace cherrydev
             {
                 if (_isCurrentSentenceSkipped)
                 {
-                    DialogTextSkipped?.Invoke(text);
+                    DialogTextSkipped?.Invoke(text); 
+                    nextSentence = false;
                     _isCurrentSentenceTyping = false;
                     break;
                 }
@@ -757,13 +755,15 @@ namespace cherrydev
         /// <returns></returns>
         private bool CheckNextSentenceKeyCodes()
         {
-            if (nextSentence)
+            for (int i = 0; i < _nextSentenceKeyCodes.Count; i++)
             {
-                nextSentence = false;
-                return true;
+                if (nextSentence)
+                {
+                    return true;
+                }
             }
+
             return false;
         }
     }
-
 }
