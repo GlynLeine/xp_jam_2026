@@ -9,7 +9,6 @@ float QuantizeAttenuation(float attenuation, float steps)
 	return ceil(saturate(attenuation) * steps) * stepSize;
 }
 
-#if !defined(SHADERGRAPH_PREVIEW)
 float3 LightingToonSpecular(float3 lightColor, float lightAttenuation, float3 lightDir, float3 normal, float3 viewDir, half smoothness)
 {
 	float3 halfVec = SafeNormalize(lightDir + viewDir);
@@ -27,10 +26,10 @@ float3 SampleMainLight(float3 positionWS, float3 normalWS, float3 viewDirectionW
 	const float3 diffuse = light.color * light.distanceAttenuation * QuantizeAttenuation(attenuation, steps);
 	
 	const float3 specular = LightingToonSpecular(light.color, light.distanceAttenuation * attenuation, light.direction, normalWS, viewDirectionWS, smoothness);
-	
 	return diffuse + specular;
 }
 
+#if !defined(SHADERGRAPH_PREVIEW)
 float3 SampleAdditionalLight(uint lightIndex, float3 positionWS, float3 normalWS, float3 viewDirectionWS, float smoothness, float steps, half4 shadowMask)
 {
 	const AdditionalLight_GLU light = GetAdditionalLight_GLU(lightIndex, positionWS, shadowMask);
