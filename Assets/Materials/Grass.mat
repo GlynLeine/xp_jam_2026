@@ -77,7 +77,7 @@ Material:
     - _EdgeFade: 1
     - _FractalStrength: 0.233
     - _Lightness: 1.027
-    - _PivotHeightOffset: -1.2
+    - _PivotHeightOffset: 0
     - _QueueControl: 0
     - _QueueOffset: 0
     - _Saturation: 1
