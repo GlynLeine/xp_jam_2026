@@ -305,12 +305,17 @@ public abstract class GameCharacterController : MonoBehaviour
     public void OnTriggerEnter(Collider other)
     {
         WeaponCollider weaponCollider = other.transform.parent.GetComponent<WeaponCollider>();
-        if (weaponCollider is null || weaponCollider.characterController == this)
+        if (weaponCollider is not null && weaponCollider.characterController != this)
         {
+            weaponCollider.characterController.OnAttackHit(this);
             return;
         }
-
-        weaponCollider.characterController.OnAttackHit(this);
+        
+        Destination destination = other.transform.parent.GetComponent<Destination>();
+        if (destination is not null && !destination.isStart)
+        {
+            Debug.Log($"Yay! Reached {destination.name}!");
+        }
     }
 
     public void Hurt(float damage)
