@@ -5,6 +5,11 @@ public class NextSeasonButton : MonoBehaviour
 {
     private void Awake()
     {
+        if (GameManager.instance == null)
+        {
+            return;
+        }
+        
         if (GameManager.instance.nextScene >= SceneManager.sceneCountInBuildSettings)
         {
             gameObject.SetActive(false);
