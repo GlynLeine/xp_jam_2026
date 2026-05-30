@@ -9,6 +9,9 @@ public class PlayerController : GameCharacterController
     public Transform aimVisual;
     public MeshRenderer aimRenderer;
     public Transform aimSelect;
+    public bool unlockAllWeapons;
+
+    public Destination[] destinations;
 
     public MaskPedestal interactingPedestal { get; set; }
     
@@ -46,6 +49,26 @@ public class PlayerController : GameCharacterController
         {
             attacks[i].selectionDirection = math.normalize(attacks[i].selectionDirection);
         }
+        
+        if (unlockAllWeapons)
+        {
+            for (int i = 0; i < 4; ++i)
+            {
+                UnlockWeapon(i);
+            }
+
+            m_attackIndex = 0;
+        }
+        
+        Debug.Assert(destinations.Length == 2);
+
+        for (int i = 0; i < 2; ++i)
+        {
+            if (destinations[i].isStart)
+            {
+                transform.position = destinations[i].spawnLocation.position;
+            }
+        }
     }
 
     protected override float3 GetAimInput()
@@ -80,6 +103,13 @@ public class PlayerController : GameCharacterController
         aimSelect.forward = math.mul(quaternion.Euler(0.0f, math.radians(m_gameCamera.transform.eulerAngles.y), 0.0f), math.forward());
     }
 
+    private void UnlockWeapon(int index)
+    {
+        attacks[index].unlocked = true;
+        attacks[index].selectionVisual.SetActive(true);
+        attacks[index].timeBuffer = attacks[index].duration;
+    }
+    
     protected override bool OnHandleAttacking(ref float3 movement, ref bool doMovement)
     {
         if (!m_isAttacking && m_input.changeMask && math.lengthsq(m_aimInput) > math.EPSILON)
@@ -113,10 +143,8 @@ public class PlayerController : GameCharacterController
         {
             if (m_input.attack)
             {
-                attacks[interactingPedestal.maskIndex].unlocked = true;
-                attacks[interactingPedestal.maskIndex].selectionVisual.SetActive(true);
-                m_attackIndex =  interactingPedestal.maskIndex;
-                attacks[interactingPedestal.maskIndex].timeBuffer = attacks[interactingPedestal.maskIndex].duration;
+                UnlockWeapon(interactingPedestal.maskIndex);
+                m_attackIndex = interactingPedestal.maskIndex;
             }
 
             return false;
