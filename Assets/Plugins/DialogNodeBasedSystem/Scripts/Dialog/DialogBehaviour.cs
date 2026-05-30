@@ -148,7 +148,7 @@ namespace cherrydev
 
         private void Update() => HandleSentenceSkipping();
 
-        private void LateUpdate()
+        private void FixedUpdate()
         {
             nextSentence = false;
         }
