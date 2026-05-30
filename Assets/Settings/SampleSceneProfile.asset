@@ -115,7 +115,7 @@ MonoBehaviour:
     m_Value: 1
   stepCount:
     m_OverrideState: 1
-    m_Value: 200
+    m_Value: 400
   fogDensity:
     m_OverrideState: 1
     m_Value: 0
@@ -130,16 +130,16 @@ MonoBehaviour:
     m_Value: 8
   fadeHeight:
     m_OverrideState: 1
-    m_Value: 10
+    m_Value: 2
   fadeDistance:
     m_OverrideState: 1
-    m_Value: 8
+    m_Value: 0.5
   minFogHeight:
     m_OverrideState: 0
     m_Value: 0
   maxMarchDistance:
     m_OverrideState: 1
-    m_Value: 32
+    m_Value: 100
   jitterDistance:
     m_OverrideState: 1
     m_Value: 1
@@ -148,7 +148,7 @@ MonoBehaviour:
     m_Value: 0.3
   fogHistoryContribution:
     m_OverrideState: 1
-    m_Value: 0.9
+    m_Value: 0.25
 --- !u!114 &-265171948101915381
 MonoBehaviour:
   m_ObjectHideFlags: 3

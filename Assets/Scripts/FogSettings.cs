@@ -7,11 +7,13 @@ public class FogSettings : MonoBehaviour
 {
     private Volume m_volume;
     private VolumetricFogVolumeComponent m_volumetricFog;
+    private float m_historyContribution;
 
     private void Start()
     {
         m_volume = GetComponent<Volume>();
         m_volume.profile.TryGet(out m_volumetricFog);
+        m_historyContribution = m_volumetricFog.fogHistoryContribution.value;
     }
 
     public float resolution
@@ -44,7 +46,7 @@ public class FogSettings : MonoBehaviour
     void Update()
     {
         float framerate = 1f / Time.unscaledDeltaTime;
-        m_volumetricFog.fogHistoryContribution.value = math.lerp(0.1f, 0.9f, math.saturate(framerate / 60f - 1f));
+        m_volumetricFog.fogHistoryContribution.value = math.lerp(0.0f, m_historyContribution, math.saturate(framerate / 60f - 1f));
         m_volumetricFog.fogHistoryContribution.overrideState = true;
     }
 }
