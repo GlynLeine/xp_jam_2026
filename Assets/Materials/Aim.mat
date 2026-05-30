@@ -21,9 +21,9 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: Aim
-  m_Shader: {fileID: -6465566751694194690, guid: 1a83e6a305363824592460da1a455de5, type: 3}
-  m_Parent: {fileID: 0}
-  m_ModifiedSerializedProperties: 0
+  m_Shader: {fileID: -6465566751694194690, guid: 0b048f210b8466a45a21963a6c142318, type: 3}
+  m_Parent: {fileID: 2100000, guid: 15161e679abe4034fb1b069f2c670a13, type: 2}
+  m_ModifiedSerializedProperties: 16
   m_ValidKeywords: []
   m_InvalidKeywords: []
   m_LightmapFlags: 4
@@ -37,25 +37,14 @@ Material:
   m_SavedProperties:
     serializedVersion: 3
     m_TexEnvs:
-    - unity_Lightmaps:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - unity_LightmapsInd:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - unity_ShadowMasks:
+    - _MainTex:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
-    - _CurrentWeaponFill: 0
-    - _QueueControl: 0
     - _QueueOffset: 20
-    m_Colors:
-    - _Cooldown_Color: {r: 0.24999997, g: 0.24999997, b: 0.24999997, a: 1}
-    - _CurrentWeaponColor: {r: 0.5, g: 0, b: 1, a: 1}
+    - _Smoothness: 0.5
+    m_Colors: []
   m_BuildTextureStacks: []
   m_AllowLocking: 1
