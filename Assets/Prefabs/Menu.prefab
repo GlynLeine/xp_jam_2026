@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 6270396179533342915}
   - component: {fileID: 6964686947285821736}
   - component: {fileID: 4058068814779208943}
-  - component: {fileID: 9166287480970447617}
+  - component: {fileID: 5173515572937783833}
   m_Layer: 5
   m_Name: Menu
   m_TagString: Untagged
@@ -53,7 +53,7 @@ Canvas:
   m_RenderMode: 1
   m_Camera: {fileID: 0}
   m_PlaneDistance: 5
-  m_PixelPerfect: 0
+  m_PixelPerfect: 1
   m_ReceivesEvents: 1
   m_OverrideSorting: 0
   m_OverridePixelPerfect: 0
@@ -80,7 +80,7 @@ MonoBehaviour:
   m_UiScaleMode: 0
   m_ReferencePixelsPerUnit: 100
   m_ScaleFactor: 1
-  m_ReferenceResolution: {x: 800, y: 600}
+  m_ReferenceResolution: {x: 800, y: 450}
   m_ScreenMatchMode: 0
   m_MatchWidthOrHeight: 0
   m_PhysicalUnit: 3
@@ -88,7 +88,7 @@ MonoBehaviour:
   m_DefaultSpriteDPI: 96
   m_DynamicPixelsPerUnit: 1
   m_PresetInfoIsWorld: 0
---- !u!114 &9166287480970447617
+--- !u!114 &5173515572937783833
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -97,14 +97,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 3154560389379384938}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dc42784cf147c0c48a680349fa168899, type: 3}
+  m_Script: {fileID: 11500000, guid: dd39f7300549830449808238c62c611d, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.GraphicRaycaster
+  m_EditorClassIdentifier: Assembly-CSharp::CustomResolutionGraphicRayCaster
   m_IgnoreReversedGraphics: 0
   m_BlockingObjects: 0
   m_BlockingMask:
     serializedVersion: 2
-    m_Bits: 32
+    m_Bits: 4294967295
+  canvas: {fileID: 6964686947285821736}
 --- !u!1 &3312961594798218872
 GameObject:
   m_ObjectHideFlags: 0
@@ -601,6 +602,7 @@ GameObject:
   - component: {fileID: 1139730172463740036}
   - component: {fileID: 3104271848725184263}
   - component: {fileID: 1964100986071547464}
+  - component: {fileID: 8639420706280519098}
   m_Layer: 5
   m_Name: Start
   m_TagString: Untagged
@@ -709,7 +711,32 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 3104271848725184263}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 8639420706280519098}
+        m_TargetAssemblyTypeName: SwitchScene, Assembly-CSharp
+        m_MethodName: SwitchActiveScene
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &8639420706280519098
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8938343368448068273}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe829c1b4f5dd64438f7a8efd3d9378c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::SwitchScene
+  targetSceneBuildIndex: 3
 --- !u!1 &9092568451049361096
 GameObject:
   m_ObjectHideFlags: 0
@@ -802,7 +829,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 70.5
+  m_fontSize: 72
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1

@@ -99,6 +99,11 @@ public class PlayerController : GameCharacterController
 
     protected override void OnAim()
     {
+        if (m_gameCamera == null)
+        {
+            return;
+        }
+        
         aimVisual.forward = m_aimDirection;
         aimSelect.forward = math.mul(quaternion.Euler(0.0f, math.radians(m_gameCamera.transform.eulerAngles.y), 0.0f), math.forward());
     }
