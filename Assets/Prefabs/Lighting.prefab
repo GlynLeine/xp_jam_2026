@@ -44,6 +44,7 @@ GameObject:
   - component: {fileID: 207716957259936276}
   - component: {fileID: 4202760955476572027}
   - component: {fileID: 7982775850198324872}
+  - component: {fileID: 9050945561289396676}
   m_Layer: 0
   m_Name: Directional Light
   m_TagString: Untagged
@@ -160,6 +161,20 @@ MonoBehaviour:
   m_ShadowLayerMask: 1
   m_RenderingLayers: 1
   m_ShadowRenderingLayers: 1
+--- !u!114 &9050945561289396676
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 949567162438697394}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 027628a56f967024c976ae7d56d147ac, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ToonLighting
+  steps: 2
+  ambientLight: {r: 0.5, g: 0.5, b: 0.5, a: 1}
 --- !u!1 &6847611256364321091
 GameObject:
   m_ObjectHideFlags: 0
