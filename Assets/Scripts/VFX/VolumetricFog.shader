@@ -53,6 +53,7 @@ Shader "CustomEffects/Volumetric Fog"
 			float _JitterDistance;
 			float2 _JitterTexcoordOffset;
 			float _NearFieldAggressiveness;
+			float4 _AmbientLight;
 			
             Texture2D _FogHistoryTexture;
 			float _FogHistoryContribution;
@@ -68,10 +69,10 @@ Shader "CustomEffects/Volumetric Fog"
             {
                 float3 worldPos = ComputeWorldSpacePosition(texcoord, SampleSceneDepth(texcoord), UNITY_MATRIX_I_VP);
                 float3 rayDir = normalize(worldPos - _PrevWorldSpaceCameraPos);
-            	float4 hpositionCS = mul(_PrevViewProjMatrix, rayDir * _ProjectionParams.y);
+            	float4 hpositionCS = mul(_PrevViewProjMatrix, float4(rayDir * _ProjectionParams.y, 0.0));
             	hpositionCS.xy = (hpositionCS.xy / hpositionCS.w) * 0.5 + float2(0.5, 0.5);
             	hpositionCS.y = 1.0 - hpositionCS.y;
-				return hpositionCS;
+				return hpositionCS.xy;
             }
 
             float3 SampleSceneRadiance(float2 texcoord)
@@ -122,6 +123,7 @@ Shader "CustomEffects/Volumetric Fog"
 			{
 				Light light = GetMainLight(TransformWorldToShadowCoord(samplePoint), samplePoint, half4(1, 1, 1, 1));
 				float3 inscatter = _Scattering.rgb * light.color * light.shadowAttenuation * _LightScale * mainLightPhaseFunction * extinction;
+				inscatter += _Scattering.rgb * _AmbientLight.rgb * extinction * INV_TWO_PI;
 				
                 // Get additional lights
                 #if defined(_ADDITIONAL_LIGHTS)

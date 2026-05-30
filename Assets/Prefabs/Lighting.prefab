@@ -76,7 +76,7 @@ Light:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 949567162438697394}
   m_Enabled: 1
-  serializedVersion: 12
+  serializedVersion: 13
   m_Type: 1
   m_Color: {r: 0.972549, g: 0.9607843, b: 0.8784314, a: 1}
   m_Intensity: 3.030782
@@ -128,7 +128,7 @@ Light:
   m_UseBoundingSphereOverride: 0
   m_UseViewFrustumForShadowCasterCull: 1
   m_ForceVisible: 0
-  m_ShadowRadius: 0
+  m_ShapeRadius: 0
   m_ShadowAngle: 0
   m_LightUnit: 1
   m_LuxAtDistance: 1
@@ -195,9 +195,9 @@ MonoBehaviour:
   season: 0
   debugTimeScale: 1
   fogSettings: {fileID: 6645666829772717181}
-  morningDensity: 0.1
+  morningDensity: 0.5
   normalDensity: 0
-  morningFogEndTime: 56
+  morningFogEndTime: 42
 --- !u!1 &6847611256364321091
 GameObject:
   m_ObjectHideFlags: 0
