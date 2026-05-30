@@ -318,7 +318,7 @@ GameObject:
   - component: {fileID: 2668789269266758373}
   - component: {fileID: 7250229689785646963}
   - component: {fileID: 7766932276470276865}
-  - component: {fileID: 7612029419836746815}
+  - component: {fileID: 8884970464884411998}
   m_Layer: 0
   m_Name: Dialog Prefab
   m_TagString: Untagged
@@ -379,7 +379,7 @@ MonoBehaviour:
   _dialogBehaviour: {fileID: 7250229689785646963}
   _dialogSentencePanel: {fileID: 6183068862884026198}
   _dialogAnswerPanel: {fileID: 5848802027117998450}
---- !u!114 &7612029419836746815
+--- !u!114 &8884970464884411998
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -457,19 +457,7 @@ MonoBehaviour:
     m_ActionId: 32b35790-4ed0-4e9a-aa41-69ac6d629449
     m_ActionName: 'UI/Point[/Mouse/position]'
   - m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 7250229689785646963}
-        m_TargetAssemblyTypeName: cherrydev.DialogBehaviour, Assembly-CSharp-firstpass
-        m_MethodName: moveToNext
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
     m_ActionId: 3c7022bf-7922-4f7c-a998-c437916075ad
     m_ActionName: 'UI/Click[/Mouse/leftButton]'
   - m_PersistentCalls:

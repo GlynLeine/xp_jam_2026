@@ -17,7 +17,6 @@ namespace cherrydev
         [SerializeField] private float _dialogCharDelay;
         [SerializeField] private List<KeyCode> _nextSentenceKeyCodes;
         [SerializeField] private bool _isCanSkippingText = true;
-
         bool nextSentence;
 
 #if UNITY_LOCALIZATION
@@ -148,7 +147,7 @@ namespace cherrydev
 
         private void Update() => HandleSentenceSkipping();
 
-        private void LateUpdate()
+        private void FixedUpdate()
         {
             nextSentence = false;
         }
@@ -181,6 +180,7 @@ namespace cherrydev
             Action<DialogVariablesHandler> onVariablesHandlerInitialized = null, 
             Action<DialogVariablesHandler> onDialogFinished = null)
         {
+            //player.GetComponent<PlayerInput>().enabled = false;
             _isDialogStarted = true;
             _boundFunctionNames.Clear();
 
@@ -757,13 +757,13 @@ namespace cherrydev
         /// <returns></returns>
         private bool CheckNextSentenceKeyCodes()
         {
-            for (int i = 0; i < _nextSentenceKeyCodes.Count; i++)
+            if (nextSentence)
             {
-                if (nextSentence)
-                {
-                    return true;
-                }
+                return true;
             }
+            /*for (int i = 0; i < _nextSentenceKeyCodes.Count; i++)
+            {
+            }*/
 
             return false;
         }
