@@ -31,6 +31,15 @@ public class FogSettings : MonoBehaviour
             m_volumetricFog.stepCount.overrideState = true;
         }
     }
+
+    public float density
+    {
+        set
+        {
+            m_volumetricFog.fogDensity.value = value;
+            m_volumetricFog.fogDensity.overrideState = true;
+        }
+    }
     
     void Update()
     {
