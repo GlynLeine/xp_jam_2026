@@ -195,7 +195,7 @@ MonoBehaviour:
   season: 0
   debugTimeScale: 1
   fogSettings: {fileID: 6645666829772717181}
-  morningDensity: 0.5
+  morningDensity: 0.1
   normalDensity: 0
   morningFogEndTime: 42
 --- !u!1 &6847611256364321091
