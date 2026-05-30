@@ -12,6 +12,7 @@ public class DayTime : MonoBehaviour
 
     public float season = 1f;
 
+    public bool loop = false;
     public float debugTimeScale = 1f;
 
     public float seasonInterpolator
@@ -101,6 +102,11 @@ public class DayTime : MonoBehaviour
     {
         if (dawnOffsetTime >= dayTimeDuration)
         {
+            if (loop)
+            {
+                season = (season + 1) % 4;
+                StartDay();
+            }
             return;
         }
 
