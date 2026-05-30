@@ -17,7 +17,7 @@ namespace cherrydev
         [SerializeField] private float _dialogCharDelay;
         [SerializeField] private List<KeyCode> _nextSentenceKeyCodes;
         [SerializeField] private bool _isCanSkippingText = true;
-        bool nextSentence;
+        bool nextSentence = false;
 
 #if UNITY_LOCALIZATION
         [SerializeField] private bool _reloadTextOnLanguageChange = true;
@@ -147,10 +147,6 @@ namespace cherrydev
 
         private void Update() => HandleSentenceSkipping();
 
-        private void FixedUpdate()
-        {
-            nextSentence = false;
-        }
 
         /// <summary>
         /// Disable dialog panel
@@ -203,9 +199,13 @@ namespace cherrydev
             HandleDialogGraphCurrentNode(_currentNode);
         }
 
-        public void moveToNext()
+        public void moveToNext(InputAction.CallbackContext context)
         {
-            nextSentence = true;
+            if (context.performed)
+            {
+                Debug.Log("Performed");
+                nextSentence = true;
+            }
         }
 
         /// <summary>
@@ -759,13 +759,11 @@ namespace cherrydev
         {
             if (nextSentence)
             {
+                nextSentence = false;
                 return true;
             }
-            /*for (int i = 0; i < _nextSentenceKeyCodes.Count; i++)
-            {
-            }*/
-
             return false;
         }
     }
+
 }

@@ -572,12 +572,12 @@
                 },
                 {
                     "name": "NextSentence",
-                    "type": "PassThrough",
+                    "type": "Button",
                     "id": "3e71a29b-6aca-4c79-a23f-076c46fdd057",
-                    "expectedControlType": "Button",
+                    "expectedControlType": "",
                     "processors": "",
-                    "interactions": "Press(pressPoint=1,behavior=1)",
-                    "initialStateCheck": true
+                    "interactions": "",
+                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -1001,8 +1001,8 @@
                 },
                 {
                     "name": "",
-                    "id": "00ba0b99-65a7-41c4-b54a-912062a02254",
-                    "path": "<Keyboard>/space",
+                    "id": "bb8d8dd9-4483-4db1-9478-349c06b303b2",
+                    "path": "<Mouse>/leftButton",
                     "interactions": "",
                     "processors": "",
                     "groups": ";Keyboard&Mouse",
@@ -1012,8 +1012,8 @@
                 },
                 {
                     "name": "",
-                    "id": "bb8d8dd9-4483-4db1-9478-349c06b303b2",
-                    "path": "<Mouse>/leftButton",
+                    "id": "5361c7ea-1b62-4cef-a081-58de8c66744b",
+                    "path": "<Keyboard>/space",
                     "interactions": "",
                     "processors": "",
                     "groups": ";Keyboard&Mouse",
