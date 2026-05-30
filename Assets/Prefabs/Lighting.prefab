@@ -45,6 +45,7 @@ GameObject:
   - component: {fileID: 4202760955476572027}
   - component: {fileID: 7982775850198324872}
   - component: {fileID: 9050945561289396676}
+  - component: {fileID: 4698433802515116717}
   m_Layer: 0
   m_Name: Directional Light
   m_TagString: Untagged
@@ -61,7 +62,7 @@ Transform:
   m_GameObject: {fileID: 949567162438697394}
   serializedVersion: 2
   m_LocalRotation: {x: 0.40821788, y: -0.23456968, z: 0.10938163, w: 0.8754261}
-  m_LocalPosition: {x: 39.455, y: 0, z: 7.815}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -78,7 +79,7 @@ Light:
   serializedVersion: 12
   m_Type: 1
   m_Color: {r: 0.972549, g: 0.9607843, b: 0.8784314, a: 1}
-  m_Intensity: 2
+  m_Intensity: 3.030782
   m_Range: 10
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
@@ -121,7 +122,7 @@ Light:
   m_LightShadowCasterMode: 0
   m_AreaSize: {x: 1, y: 1}
   m_BounceIntensity: 1
-  m_ColorTemperature: 5500
+  m_ColorTemperature: 4300
   m_UseColorTemperature: 1
   m_BoundingSphereOverride: {x: 2.2e-44, y: 0, z: 0, w: 2.3164883}
   m_UseBoundingSphereOverride: 0
@@ -175,6 +176,28 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::ToonLighting
   steps: 2
   ambientLight: {r: 0.5, g: 0.5, b: 0.5, a: 1}
+--- !u!114 &4698433802515116717
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 949567162438697394}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ca22f05f5cbf8be43b35f96f6e4d8184, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::DayTime
+  summerDayTimeDuration: 240
+  winterDayTimeDuration: 150
+  winterDawnTime: 32
+  unnormalizedTime: 0
+  season: 0
+  debugTimeScale: 1
+  fogSettings: {fileID: 6645666829772717181}
+  morningDensity: 0.1
+  normalDensity: 0
+  morningFogEndTime: 56
 --- !u!1 &6847611256364321091
 GameObject:
   m_ObjectHideFlags: 0
@@ -203,7 +226,7 @@ Transform:
   m_GameObject: {fileID: 6847611256364321091}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -1.68871, y: -0.0532, z: 4.62027}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []

@@ -114,11 +114,11 @@ MonoBehaviour:
     m_OverrideState: 1
     m_Value: 1
   stepCount:
-    m_OverrideState: 0
-    m_Value: 100
+    m_OverrideState: 1
+    m_Value: 200
   fogDensity:
     m_OverrideState: 1
-    m_Value: 0.05
+    m_Value: 0
   scatteringCoefficients:
     m_OverrideState: 0
     m_Value: {r: 1, g: 1, b: 1, a: 1}
