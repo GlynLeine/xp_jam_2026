@@ -12,6 +12,10 @@ PrefabInstance:
       propertyPath: weaponType
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 1953784154354638781, guid: 4d600e8c9fe02ee4989216618e97e855, type: 3}
+      propertyPath: m_Avatar
+      value: 
+      objectReference: {fileID: 9000000, guid: 642d4865f04ab164b9f9e68f1b0cc781, type: 3}
     - target: {fileID: 4964348896996501086, guid: 4d600e8c9fe02ee4989216618e97e855, type: 3}
       propertyPath: m_Name
       value: Scythe Enemy
@@ -57,7 +61,8 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
-    m_RemovedGameObjects: []
+    m_RemovedGameObjects:
+    - {fileID: 1059328817819935084, guid: 4d600e8c9fe02ee4989216618e97e855, type: 3}
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4d600e8c9fe02ee4989216618e97e855, type: 3}

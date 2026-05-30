@@ -82,7 +82,7 @@
                     "name": "Sprint",
                     "type": "Button",
                     "id": "641cd816-40e6-41b4-8c3d-04687c349290",
-                    "expectedControlType": "Button",
+                    "expectedControlType": "",
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
@@ -522,7 +522,7 @@
                     "id": "3c7022bf-7922-4f7c-a998-c437916075ad",
                     "expectedControlType": "Button",
                     "processors": "",
-                    "interactions": "",
+                    "interactions": "Press",
                     "initialStateCheck": true
                 },
                 {
@@ -569,6 +569,15 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
+                },
+                {
+                    "name": "NextSentence",
+                    "type": "PassThrough",
+                    "id": "3e71a29b-6aca-4c79-a23f-076c46fdd057",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": true
                 }
             ],
             "bindings": [
@@ -987,6 +996,17 @@
                     "processors": "",
                     "groups": "XR",
                     "action": "TrackedDeviceOrientation",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "00ba0b99-65a7-41c4-b54a-912062a02254",
+                    "path": "<Keyboard>/space",
+                    "interactions": "Press",
+                    "processors": "",
+                    "groups": ";Keyboard&Mouse",
+                    "action": "NextSentence",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

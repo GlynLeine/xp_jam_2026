@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.InputSystem;
 #if UNITY_LOCALIZATION
 using UnityEngine.Localization;
 using UnityEngine.Localization.Settings;
@@ -16,6 +17,9 @@ namespace cherrydev
         [SerializeField] private float _dialogCharDelay;
         [SerializeField] private List<KeyCode> _nextSentenceKeyCodes;
         [SerializeField] private bool _isCanSkippingText = true;
+
+        bool nextSentence;
+
 #if UNITY_LOCALIZATION
         [SerializeField] private bool _reloadTextOnLanguageChange = true;
 #endif
@@ -144,6 +148,11 @@ namespace cherrydev
 
         private void Update() => HandleSentenceSkipping();
 
+        private void LateUpdate()
+        {
+            nextSentence = false;
+        }
+
         /// <summary>
         /// Disable dialog panel
         /// </summary>
@@ -192,6 +201,11 @@ namespace cherrydev
             DefineFirstNode(dialogNodeGraph);
             CalculateMaxAmountOfAnswerButtons();
             HandleDialogGraphCurrentNode(_currentNode);
+        }
+
+        public void moveToNext()
+        {
+            nextSentence = true;
         }
 
         /// <summary>
@@ -745,8 +759,10 @@ namespace cherrydev
         {
             for (int i = 0; i < _nextSentenceKeyCodes.Count; i++)
             {
-                if (Input.GetKeyDown(_nextSentenceKeyCodes[i]))
+                if (nextSentence)
+                {
                     return true;
+                }
             }
 
             return false;
