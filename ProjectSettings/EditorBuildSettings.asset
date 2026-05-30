@@ -12,6 +12,9 @@ EditorBuildSettings:
     path: Assets/Scenes/Menu.unity
     guid: 6f3baae59061d90478421e0e600f3b26
   - enabled: 1
+    path: Assets/Scenes/EndOfDay.unity
+    guid: dc424f2ad6d544443ba3985c58767509
+  - enabled: 1
     path: Assets/Scenes/GlynScene.unity
     guid: 28e4129715ce32e4ab6364a66c49ab52
   m_configObjects:

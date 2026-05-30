@@ -312,9 +312,9 @@ public abstract class GameCharacterController : MonoBehaviour
         }
         
         Destination destination = other.transform.parent.GetComponent<Destination>();
-        if (destination is not null && !destination.isStart)
+        if (destination is not null)// && !destination.isStart)
         {
-            Debug.Log($"Yay! Reached {destination.name}!");
+            destination.EndScene();
         }
     }
 

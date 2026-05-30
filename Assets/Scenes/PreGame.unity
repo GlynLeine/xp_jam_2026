@@ -129,7 +129,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1789718200}
   - component: {fileID: 1789718202}
-  - component: {fileID: 1789718201}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -152,19 +151,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1789718201
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1789718199}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fe829c1b4f5dd64438f7a8efd3d9378c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::SwitchScene
-  targetSceneBuildIndex: 1
 --- !u!114 &1789718202
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -177,6 +163,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aad944e284be4534cacc6e9feef17ff6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GameManager
+  nextScene: 0
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
