@@ -12,6 +12,10 @@ PrefabInstance:
       propertyPath: weaponType
       value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: 1277832191396596660, guid: 4d600e8c9fe02ee4989216618e97e855, type: 3}
+      propertyPath: visionRange
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 1953784154354638781, guid: 4d600e8c9fe02ee4989216618e97e855, type: 3}
       propertyPath: m_Avatar
       value: 
@@ -20,6 +24,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: Rifle Enemy
       objectReference: {fileID: 0}
+    - target: {fileID: 8090608967262825452, guid: 4d600e8c9fe02ee4989216618e97e855, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 15161e679abe4034fb1b069f2c670a13, type: 2}
+    - target: {fileID: 8090608967262825452, guid: 4d600e8c9fe02ee4989216618e97e855, type: 3}
+      propertyPath: 'm_Materials.Array.data[1]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 15161e679abe4034fb1b069f2c670a13, type: 2}
+    - target: {fileID: 8090608967262825452, guid: 4d600e8c9fe02ee4989216618e97e855, type: 3}
+      propertyPath: 'm_Materials.Array.data[2]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 15161e679abe4034fb1b069f2c670a13, type: 2}
     - target: {fileID: 9201438970193530504, guid: 4d600e8c9fe02ee4989216618e97e855, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0

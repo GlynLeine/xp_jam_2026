@@ -82,7 +82,7 @@ public class EnemyBrain : InputDriver
         {
             m_aimDirection = detectionInfo.toPlayer2D;
         }
-
+        
         bool inReach = detectionInfo.playerDistanceSq > (attackInfo.aoe.y * attackInfo.aoe.y);
         if (inReach || math.all(math.abs(math.normalize(new float2(transform.forward.x, transform.forward.z)) - detectionInfo.toPlayer2D) >= 0.1f))
         {
