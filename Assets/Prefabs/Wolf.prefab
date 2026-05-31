@@ -344,6 +344,26 @@ MonoBehaviour:
   maxHealth: 10
   attackPreview: {fileID: 1381075725294918031}
   attacks:
+  - duration: 0.1
+    cooldown: 0.15
+    aoe:
+      x: 90
+      y: 2
+    damage: 1
+    knockbackForce: 1
+    movement:
+      x: 0
+      y: 0
+      z: 0
+    value0: 0
+    selectionDirection:
+      x: 0
+      y: 1
+    color: {r: 0.013572444, g: 0.5754717, b: 0.013572444, a: 1}
+    selectionVisual: {fileID: 0}
+    weaponCollider: {fileID: 6765459113493019662}
+    unlocked: 0
+    timeBuffer: 0
   - duration: 0.4
     cooldown: 1
     aoe:
@@ -364,6 +384,46 @@ MonoBehaviour:
     weaponCollider: {fileID: 7036338304473332449}
     unlocked: 0
     timeBuffer: 0
+  - duration: 0.2
+    cooldown: 0.4
+    aoe:
+      x: 120
+      y: 4
+    damage: 2.5
+    knockbackForce: 3.5
+    movement:
+      x: 0
+      y: 0
+      z: 0
+    value0: 0
+    selectionDirection:
+      x: 0
+      y: -1
+    color: {r: 1, g: 0.17174745, b: 0, a: 1}
+    selectionVisual: {fileID: 0}
+    weaponCollider: {fileID: 2013017769319125077}
+    unlocked: 0
+    timeBuffer: 0
+  - duration: 1
+    cooldown: 2
+    aoe:
+      x: 1
+      y: 10
+    damage: 12.5
+    knockbackForce: 7.5
+    movement:
+      x: 0
+      y: 0
+      z: 0
+    value0: 0
+    selectionDirection:
+      x: -1
+      y: 0
+    color: {r: 0.058823522, g: 0.70112956, b: 0.83137256, a: 1}
+    selectionVisual: {fileID: 0}
+    weaponCollider: {fileID: 2883235942437888604}
+    unlocked: 0
+    timeBuffer: 0
 --- !u!114 &8764917046918941378
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -377,7 +437,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EnemyBrain
   analogMovement: 0
-  weaponType: 0
+  weaponType: 1
   attackPreviewDuration: 0.3
   reactionTime: 0.3
   visionRange: 10
@@ -2591,6 +2651,21 @@ PrefabInstance:
 --- !u!4 &665190266833150601 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1296532988546341929, guid: b969e75b51ec0c9438bb6ff3c4e5a8b4, type: 3}
+  m_PrefabInstance: {fileID: 1784849215965527712}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &2013017769319125077 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 228172960158101237, guid: b969e75b51ec0c9438bb6ff3c4e5a8b4, type: 3}
+  m_PrefabInstance: {fileID: 1784849215965527712}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &2883235942437888604 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3514568266102365436, guid: b969e75b51ec0c9438bb6ff3c4e5a8b4, type: 3}
+  m_PrefabInstance: {fileID: 1784849215965527712}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &6765459113493019662 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4982867811403317934, guid: b969e75b51ec0c9438bb6ff3c4e5a8b4, type: 3}
   m_PrefabInstance: {fileID: 1784849215965527712}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &7036338304473332449 stripped
