@@ -16,11 +16,10 @@ public class ProximitySpawner : MonoBehaviour
 
     void Update()
     {
-        if (Vector3.Distance(player.position, transform.position) <= spawnRadius && enemyCount <= spawnAmount && spawnerConsumed == false)
+        if ((Vector3.Distance(player.position, transform.position) <= spawnRadius) && (enemyCount <= spawnAmount) && !spawnerConsumed)
         {
             SpawnEnemy();
-            enemyCount ++;
-
+            enemyCount++;
         }
         else
         {
