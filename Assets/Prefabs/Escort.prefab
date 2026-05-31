@@ -1217,7 +1217,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EscortBrain
   analogMovement: 0
-  attackPreviewDuration: 0.5
   reactionTime: 0.2
   attackInfo:
     duration: 1
@@ -1277,7 +1276,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8154b9617434e664bbaf076bc4c3d5f4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EscortController
-  movementSpeed: 5.335
+  movementSpeed: 4
   rotationSmoothTime: 0.12
   speedChangeRate: 10
   footstepAudioClips:

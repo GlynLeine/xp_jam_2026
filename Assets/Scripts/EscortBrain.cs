@@ -11,7 +11,8 @@ public class EscortBrain : InputDriver
     
     private PlayerController m_player;
     private float m_attackTimeBuffer;
-    private float2 m_aimDirection;
+    public Transform player;
+    public float escortRadius = 3f;
 
     private void Awake()
     {
@@ -32,7 +33,7 @@ public class EscortBrain : InputDriver
         toPlayer2D *= math.rsqrt(playerDistanceSq);
 
         bool inReach = playerDistanceSq > (attackInfo.aoe.y * attackInfo.aoe.y);
-        if (inReach || math.all(math.abs(math.normalize(new float2(transform.forward.x, transform.forward.z)) - toPlayer2D) >= 0.1f))
+        if ((Vector3.Distance(player.position, transform.position) <= escortRadius) && inReach || math.all(math.abs(math.normalize(new float2(transform.forward.x, transform.forward.z)) - toPlayer2D) >= 0.1f))
         {
             movementInput = toPlayer2D;
         }
