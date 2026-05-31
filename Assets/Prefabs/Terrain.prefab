@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 7316473400869982965}
   - component: {fileID: 463154974543754043}
   - component: {fileID: 8839021569597882963}
+  - component: {fileID: 623205000961168114}
   m_Layer: 0
   m_Name: Terrain
   m_TagString: Untagged
@@ -94,6 +95,19 @@ TerrainCollider:
   serializedVersion: 2
   m_TerrainData: {fileID: 15600000, guid: 63611a6afbdcc8848b6ad2d1bea3782d, type: 2}
   m_EnableTreeColliders: 1
+--- !u!114 &623205000961168114
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 33420404878365507}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2e94717a291820444a44f1c63adfaa6d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::GrassColor
+  terrain: {fileID: 463154974543754043}
 --- !u!1 &4378209214594138589
 GameObject:
   m_ObjectHideFlags: 0
