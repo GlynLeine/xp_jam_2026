@@ -14,5 +14,10 @@ public class NextSeasonButton : MonoBehaviour
         {
             gameObject.SetActive(false);
         }
+
+        if (!GameManager.instance.succeededSeason)
+        {
+            gameObject.GetComponentInChildren<TMPro.TMP_Text>().text = "Retry Season";
+        }
     }
 }
