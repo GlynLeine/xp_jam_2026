@@ -15,8 +15,8 @@ MonoBehaviour:
   NodeGraph: {fileID: 11400000}
   Rect:
     serializedVersion: 2
-    x: 574.8298
-    y: 142.16669
+    x: 309.83008
+    y: 339.1667
     width: 190
     height: 135
   IsDragging: 1
@@ -25,7 +25,7 @@ MonoBehaviour:
     CharacterName: Antony
     Text: Ah well, you know now. You must be from a warmer area! I've personally
       had stiff knees since I was 14 years old. Winter can prove dangerous!
-    CharacterSprite: {fileID: 0}
+    CharacterSprite: {fileID: 21300000, guid: 54a8fe2cde0b87d4492176b014f57b00, type: 3}
   ParentNodes:
   - {fileID: -733813390783554543}
   ChildNode: {fileID: 4509703217024038868}
@@ -48,8 +48,8 @@ MonoBehaviour:
   NodeGraph: {fileID: 11400000}
   Rect:
     serializedVersion: 2
-    x: 107.50186
-    y: 47.49996
+    x: -157.49805
+    y: 244.5
     width: 190
     height: 135
   IsDragging: 1
@@ -58,7 +58,7 @@ MonoBehaviour:
     CharacterName: Antony
     Text: It's almost as bad as the winter. Did you know that most crops don't grow
       during winter?
-    CharacterSprite: {fileID: 0}
+    CharacterSprite: {fileID: 21300000, guid: 54a8fe2cde0b87d4492176b014f57b00, type: 3}
   ParentNodes:
   - {fileID: 3873290849104699940}
   ChildNode: {fileID: -733813390783554543}
@@ -81,8 +81,8 @@ MonoBehaviour:
   NodeGraph: {fileID: 11400000}
   Rect:
     serializedVersion: 2
-    x: 328.8339
-    y: 62.83323
+    x: 63.833984
+    y: 259.83325
     width: 190
     height: 135
   IsDragging: 1
@@ -121,33 +121,6 @@ MonoBehaviour:
   NodeToDrawLineFrom: {fileID: 0}
   LinePosition: {x: 0, y: 0}
   IsLocalizationSetUp: 0
---- !u!114 &3131969057037730888
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e1717f3c6dba9fa40844ddacac301510, type: 3}
-  m_Name: Answer Node
-  m_EditorClassIdentifier: Assembly-CSharp-firstpass::cherrydev.AnswerNode
-  NodeGraph: {fileID: 11400000}
-  Rect:
-    serializedVersion: 2
-    x: 1124
-    y: 83.33336
-    width: 190
-    height: 115
-  IsDragging: 1
-  IsSelected: 0
-  Answers:
-  - On it.
-  AnswerKeys: []
-  ParentNodes:
-  - {fileID: 4509703217024038868}
-  ChildNodes: []
 --- !u!114 &3873290849104699940
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -163,8 +136,8 @@ MonoBehaviour:
   NodeGraph: {fileID: 11400000}
   Rect:
     serializedVersion: 2
-    x: -138.49826
-    y: 27.499718
+    x: -403.49805
+    y: 224.49973
     width: 190
     height: 135
   IsDragging: 0
@@ -172,7 +145,7 @@ MonoBehaviour:
   _sentence:
     CharacterName: Antony
     Text: Good going today. Thank you again, you will save us from the blight.
-    CharacterSprite: {fileID: 0}
+    CharacterSprite: {fileID: 21300000, guid: 54a8fe2cde0b87d4492176b014f57b00, type: 3}
   ParentNodes: []
   ChildNode: {fileID: -3159357416470282714}
   _isExternalFunc: 0
@@ -194,21 +167,21 @@ MonoBehaviour:
   NodeGraph: {fileID: 11400000}
   Rect:
     serializedVersion: 2
-    x: 955.49774
-    y: 92.16675
+    x: 690.49805
+    y: 289.16675
     width: 190
     height: 135
   IsDragging: 1
-  IsSelected: 0
+  IsSelected: 1
   _sentence:
     CharacterName: Antony
     Text: Anyway, it's not too hard to walk on the ice. But it's quite dangerous.
       Take care!
-    CharacterSprite: {fileID: 0}
+    CharacterSprite: {fileID: 21300000, guid: 54a8fe2cde0b87d4492176b014f57b00, type: 3}
   ParentNodes:
   - {fileID: -5632558177291155182}
   - {fileID: 8682897742858041230}
-  ChildNode: {fileID: 3131969057037730888}
+  ChildNode: {fileID: 0}
   _isExternalFunc: 0
   _externalFunctionName: 
   CharacterNameKey: 
@@ -228,8 +201,8 @@ MonoBehaviour:
   NodeGraph: {fileID: 11400000}
   Rect:
     serializedVersion: 2
-    x: 574.8298
-    y: 14.833244
+    x: 309.83008
+    y: 211.83325
     width: 190
     height: 135
   IsDragging: 1
@@ -238,7 +211,7 @@ MonoBehaviour:
     CharacterName: Antony
     Text: You truly are a good travelling companion. Yes! Winter can prove to be
       incredibly hazardous for all people. It gets really bad here.
-    CharacterSprite: {fileID: 0}
+    CharacterSprite: {fileID: 21300000, guid: 54a8fe2cde0b87d4492176b014f57b00, type: 3}
   ParentNodes:
   - {fileID: -733813390783554543}
   ChildNode: {fileID: 4509703217024038868}

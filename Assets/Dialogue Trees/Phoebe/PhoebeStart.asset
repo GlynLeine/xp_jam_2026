@@ -15,8 +15,8 @@ MonoBehaviour:
   NodeGraph: {fileID: 11400000}
   Rect:
     serializedVersion: 2
-    x: 730
-    y: 85.33333
+    x: 937
+    y: 266.3333
     width: 190
     height: 135
   IsDragging: 1
@@ -25,7 +25,7 @@ MonoBehaviour:
     CharacterName: Princess Phoebe
     Text: My uncle has found out about the blight and wants to hurt the villagers.
       It's up to us to save them. Now go!
-    CharacterSprite: {fileID: 0}
+    CharacterSprite: {fileID: 21300000, guid: 5bd4b2b8bc298e3469a74e7430c6fa93, type: 3}
   ParentNodes:
   - {fileID: 797772073130292597}
   - {fileID: -2130465191852238924}
@@ -49,8 +49,8 @@ MonoBehaviour:
   NodeGraph: {fileID: 11400000}
   Rect:
     serializedVersion: 2
-    x: 504.66663
-    y: -83.33334
+    x: 711.6666
+    y: 97.66666
     width: 190
     height: 135
   IsDragging: 1
@@ -59,7 +59,7 @@ MonoBehaviour:
     CharacterName: Princess Phoebe
     Text: I am princess Phoebe. I suppose it's good you can't recognise me like this,
       considering I'm travelling incognito.
-    CharacterSprite: {fileID: 0}
+    CharacterSprite: {fileID: 21300000, guid: 5bd4b2b8bc298e3469a74e7430c6fa93, type: 3}
   ParentNodes:
   - {fileID: 8204960061254235967}
   ChildNode: {fileID: -7893179390970575694}
@@ -106,8 +106,8 @@ MonoBehaviour:
   NodeGraph: {fileID: 11400000}
   Rect:
     serializedVersion: 2
-    x: 494
-    y: 78
+    x: 701
+    y: 259
     width: 190
     height: 135
   IsDragging: 1
@@ -115,7 +115,7 @@ MonoBehaviour:
   _sentence:
     CharacterName: Princess Phoebe
     Text: Come on now, obey your princess! We must exeunt immediately!
-    CharacterSprite: {fileID: 0}
+    CharacterSprite: {fileID: 21300000, guid: 5bd4b2b8bc298e3469a74e7430c6fa93, type: 3}
   ParentNodes:
   - {fileID: 8204960061254235967}
   ChildNode: {fileID: -7893179390970575694}
@@ -138,8 +138,8 @@ MonoBehaviour:
   NodeGraph: {fileID: 11400000}
   Rect:
     serializedVersion: 2
-    x: 5.3332977
-    y: -8.666672
+    x: 212.3333
+    y: 172.33333
     width: 190
     height: 135
   IsDragging: 1
@@ -147,7 +147,7 @@ MonoBehaviour:
   _sentence:
     CharacterName: Noble
     Text: Quickly. Turn around. Now. I must leave.
-    CharacterSprite: {fileID: 0}
+    CharacterSprite: {fileID: 21300000, guid: 5bd4b2b8bc298e3469a74e7430c6fa93, type: 3}
   ParentNodes: []
   ChildNode: {fileID: 8204960061254235967}
   _isExternalFunc: 0
@@ -169,8 +169,8 @@ MonoBehaviour:
   NodeGraph: {fileID: 11400000}
   Rect:
     serializedVersion: 2
-    x: 234.66666
-    y: -8.666672
+    x: 441.66666
+    y: 172.33333
     width: 190
     height: 135
   IsDragging: 1
