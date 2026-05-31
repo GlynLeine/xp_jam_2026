@@ -1,3 +1,4 @@
+using NUnit.Framework.Constraints;
 using UnityEngine;
 using UnityEngine.Serialization;
 
@@ -6,18 +7,25 @@ public class ProximitySpawner : MonoBehaviour
     public GameObject[] enemyPrefabs; // Array to hold different enemy types
     public Transform[] spawnPoints;
     public Transform player;
-    public float spawnDelay = 3f;
     public float spawnRadius = 10f;
 
     private float nextSpawnTime;
+    private float enemyCount;
+    private bool spawnerConsumed = false;
 
     void Update()
     {
-        if (Time.time > nextSpawnTime && Vector3.Distance(player.position, transform.position) <= spawnRadius)
+        if (Vector3.Distance(player.position, transform.position) <= spawnRadius && enemyCount <= 5 && spawnerConsumed == false)
         {
             SpawnEnemy();
-            nextSpawnTime = Time.time + spawnDelay;
+            enemyCount ++;
+
         }
+        else
+        {
+            spawnerConsumed = true;
+        }
+
     }
 
     void SpawnEnemy()
