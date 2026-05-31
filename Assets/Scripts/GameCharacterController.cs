@@ -26,6 +26,8 @@ public class AttackInfo
 [RequireComponent(typeof(CharacterController))]
 public abstract class GameCharacterController : MonoBehaviour
 {
+    public EscortBrain escort;
+    
     [Header("Movement")]
     public float movementSpeed = 5.335f;
     [Range(0.0f, 0.3f)] public float rotationSmoothTime = 0.12f;
@@ -310,9 +312,14 @@ public abstract class GameCharacterController : MonoBehaviour
             weaponCollider.characterController.OnAttackHit(this);
             return;
         }
+
+        if (escort is null)
+        {
+            return;
+        }
         
         Destination destination = other.transform.parent.GetComponent<Destination>();
-        if (destination is not null && !destination.isStart)
+        if (destination is not null && !destination.isStart && escort.isFollowingPlayer)
         {
             destination.EndScene();
         }
