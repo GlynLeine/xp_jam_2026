@@ -10,8 +10,14 @@ public class LinkDialog : MonoBehaviour
     
     private void Start()
     {
-        if (SceneManager.GetActiveScene().buildIndex > 1)
+        int activeSceneIndex = SceneManager.GetActiveScene().buildIndex;
+        if (activeSceneIndex > 1)
         {
+            if (activeSceneIndex >= 3)
+            {
+                GameManager.instance.dialogIndex = (activeSceneIndex - 3) * 4;
+            }
+
             startDialogue();
         }
     }

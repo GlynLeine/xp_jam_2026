@@ -17,6 +17,7 @@ public class EscortController : GameCharacterController
     protected override void OnDeath()
     {
         GameManager.instance.succeededSeason = false;
+        GameManager.instance.nextScene = SceneManager.GetActiveScene().buildIndex;
         blackScreen.onFadeFinished = () => SceneManager.LoadScene(2);
         blackScreen.StartFade();
     }

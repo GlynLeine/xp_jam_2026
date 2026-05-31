@@ -14,7 +14,8 @@ public class GameManager : MonoBehaviour
     public DialogNodeGraph[] JamesNodes;
     public DialogNodeGraph[] PhoebeNodes;
     public static GameManager instance;
-    int i = 0;
+    [NonSerialized]
+    public int dialogIndex = 0;
     
     [NonSerialized]
     public int nextScene = 1;
@@ -32,28 +33,33 @@ public class GameManager : MonoBehaviour
 
     public void startDialogue(DialogBehaviour dialogBehaviour)
     {
-        if(i <= 3)
+        if (!succeededSeason && SceneManager.GetActiveScene().buildIndex == 2)
         {
-            dialogBehaviour.StartDialog(AntonyNodes[i]);
-            i++;
             return;
         }
-        if(i <= 7)
+        
+        if(dialogIndex <= 3)
         {
-            dialogBehaviour.StartDialog(SamanthaNodes[(i-4)]);
-            i++;
+            dialogBehaviour.StartDialog(AntonyNodes[dialogIndex]);
+            dialogIndex++;
             return;
         }
-        if(i <= 11)
+        if(dialogIndex <= 7)
         {
-            dialogBehaviour.StartDialog(JamesNodes[(i-8)]);
-            i++;
+            dialogBehaviour.StartDialog(SamanthaNodes[(dialogIndex-4)]);
+            dialogIndex++;
             return;
         }
-        if (i <= 15)
+        if(dialogIndex <= 11)
         {
-            dialogBehaviour.StartDialog(PhoebeNodes[(i-12)]);
-            i++;
+            dialogBehaviour.StartDialog(JamesNodes[(dialogIndex-8)]);
+            dialogIndex++;
+            return;
+        }
+        if (dialogIndex <= 15)
+        {
+            dialogBehaviour.StartDialog(PhoebeNodes[(dialogIndex-12)]);
+            dialogIndex++;
             return;
         }
     }
