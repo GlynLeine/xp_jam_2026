@@ -41,6 +41,7 @@ public class FogSettings : MonoBehaviour
             m_volumetricFog.fogDensity.value = value;
             m_volumetricFog.fogDensity.overrideState = true;
         }
+        get => m_volumetricFog.fogDensity.value;
     }
     
     void Update()

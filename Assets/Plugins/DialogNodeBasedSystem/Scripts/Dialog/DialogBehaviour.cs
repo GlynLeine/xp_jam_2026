@@ -50,6 +50,11 @@ namespace cherrydev
         private bool _isCurrentSentenceSkipped;
         private bool _isCurrentSentenceTyping;
 
+        public bool isDialogActive
+        {
+            get => _isDialogStarted;
+        }
+        
         private readonly List<string> _boundFunctionNames = new();
 
         public bool IsActive { get; set; } = true;
@@ -199,10 +204,9 @@ namespace cherrydev
             HandleDialogGraphCurrentNode(_currentNode);
         }
 
-        public void moveToNext(InputAction.CallbackContext context)
+        public void moveToNext()
         {
-            if(context.control.IsPressed())
-                nextSentence = true;
+            nextSentence = true;
         }
 
         /// <summary>
@@ -755,15 +759,7 @@ namespace cherrydev
         /// <returns></returns>
         private bool CheckNextSentenceKeyCodes()
         {
-            for (int i = 0; i < _nextSentenceKeyCodes.Count; i++)
-            {
-                if (nextSentence)
-                {
-                    return true;
-                }
-            }
-
-            return false;
+            return nextSentence;
         }
     }
 }

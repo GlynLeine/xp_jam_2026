@@ -5,7 +5,6 @@ using UnityEngine.Serialization;
 
 public class EscortBrain : InputDriver
 {
-    
     public float reactionTime = 0.3f;
     
     [HideInInspector] public AttackInfo attackInfo;

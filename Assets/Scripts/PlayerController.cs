@@ -1,10 +1,12 @@
 using UnityEngine;
 using Unity.Mathematics;
+using UnityEngine.SceneManagement;
 
 [RequireComponent(typeof(CharacterController))]
 public class PlayerController : GameCharacterController
 {
-    [Header("Player Specific")]
+    [Header("Player Specific")] 
+    public BlackScreen blackScreen;
     public Transform cameraTarget;
     public Transform aimVisual;
     public MeshRenderer aimRenderer;
@@ -175,6 +177,8 @@ public class PlayerController : GameCharacterController
 
     protected override void OnDeath()
     {
-        Destroy(gameObject);
+        GameManager.instance.succeededSeason = false;
+        blackScreen.onFadeFinished = () => SceneManager.LoadScene(2);
+        blackScreen.StartFade();
     }
 }

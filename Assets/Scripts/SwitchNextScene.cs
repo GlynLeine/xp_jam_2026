@@ -2,8 +2,11 @@ using UnityEngine;
 
 public class SwitchNextScene : MonoBehaviour
 {
+    public BlackScreen blackScreen;
+
     public void SwitchActiveScene()
     {
-        GameManager.instance.LoadNextScene();
+        blackScreen.onFadeFinished = GameManager.instance.LoadNextScene;
+        blackScreen.StartFade();
     }
 }
