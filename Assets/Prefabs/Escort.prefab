@@ -1134,9 +1134,10 @@ GameObject:
   m_Component:
   - component: {fileID: 7017002954961105557}
   - component: {fileID: 6170748436524980557}
-  - component: {fileID: 2877094909808522977}
-  - component: {fileID: 8566072523740640819}
-  - component: {fileID: 368873506548523395}
+  - component: {fileID: 7747833852934598383}
+  - component: {fileID: 9189633433508517700}
+  - component: {fileID: 4519250245804450086}
+  - component: {fileID: 2046709045695910053}
   m_Layer: 8
   m_Name: Escort
   m_TagString: Untagged
@@ -1182,7 +1183,28 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!114 &2877094909808522977
+--- !u!65 &7747833852934598383
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5103350488655530155}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 2.67, y: 4, z: 6.8}
+  m_Center: {x: 0, y: 1.22, z: -3.07}
+--- !u!114 &9189633433508517700
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1191,13 +1213,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 5103350488655530155}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e14ecebead8eae24eb659e9841489bed, type: 3}
+  m_Script: {fileID: 11500000, guid: f38b0cfea87ee644f97e87433cb10e49, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::EnemyBrain
+  m_EditorClassIdentifier: Assembly-CSharp::EscortBrain
   analogMovement: 0
-  weaponType: 0
-  attackPreviewDuration: 0.3
-  reactionTime: 0.3
+  attackPreviewDuration: 0.5
+  reactionTime: 0.2
   attackInfo:
     duration: 1
     cooldown: 2
@@ -1219,7 +1240,7 @@ MonoBehaviour:
     weaponCollider: {fileID: 0}
     unlocked: 0
     timeBuffer: 0
---- !u!143 &8566072523740640819
+--- !u!143 &4519250245804450086
 CharacterController:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1237,14 +1258,14 @@ CharacterController:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Height: 1
-  m_Radius: 0.5
+  m_Height: 1.8
+  m_Radius: 0.28
   m_SlopeLimit: 45
-  m_StepOffset: 0.3
-  m_SkinWidth: 0.08
-  m_MinMoveDistance: 0.001
-  m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &368873506548523395
+  m_StepOffset: 0.25
+  m_SkinWidth: 0.02
+  m_MinMoveDistance: 0
+  m_Center: {x: 0, y: 93, z: 0}
+--- !u!114 &2046709045695910053
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1253,23 +1274,23 @@ MonoBehaviour:
   m_GameObject: {fileID: 5103350488655530155}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c7eeaff1aa6c8dc4489bcfca4275ab94, type: 3}
+  m_Script: {fileID: 11500000, guid: 8154b9617434e664bbaf076bc4c3d5f4, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::EnemyController
+  m_EditorClassIdentifier: Assembly-CSharp::EscortController
   movementSpeed: 5.335
   rotationSmoothTime: 0.12
   speedChangeRate: 10
   footstepAudioClips:
-  - {fileID: 8300000, guid: 72f526a6a9890f643a88e85a61c86c8a, type: 3}
-  - {fileID: 8300000, guid: 85016e0f2b01da248b9663dd49a161b0, type: 3}
-  - {fileID: 8300000, guid: 186de84b3207156479abe98f4958fed0, type: 3}
-  - {fileID: 8300000, guid: 1a91fcd19acf1e54bba0945d9f390849, type: 3}
-  - {fileID: 8300000, guid: 14e8a8d2158bec840b56c54f5266e692, type: 3}
-  - {fileID: 8300000, guid: 29841e7d5bbfb5b419c9ad16ca8bc4c1, type: 3}
-  - {fileID: 8300000, guid: dd1af302b8902684d9381de1f2d3a5af, type: 3}
-  - {fileID: 8300000, guid: 67c8b33e424ccdc4486edf538ab91c5a, type: 3}
-  - {fileID: 8300000, guid: 274649b0e221539409070ebf6c18918b, type: 3}
-  - {fileID: 8300000, guid: a3194b8bbc96ef84fab1f98f4b7dae3e, type: 3}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   footstepAudioVolume: 0.3
   dodgeDistance: 4.268
   dodgeTime: 0.6
@@ -1285,87 +1306,7 @@ MonoBehaviour:
   landingAudioClip: {fileID: 8300000, guid: ff697d3070687ce4583faa0561a145a2, type: 3}
   maxHealth: 10
   attackPreview: {fileID: 0}
-  attacks:
-  - duration: 0.1
-    cooldown: 0.15
-    aoe:
-      x: 90
-      y: 2
-    damage: 1
-    knockbackForce: 1
-    movement:
-      x: 0
-      y: 0
-      z: 0
-    value0: 0
-    selectionDirection:
-      x: 0
-      y: 1
-    color: {r: 0.013572444, g: 0.5754717, b: 0.013572444, a: 1}
-    selectionVisual: {fileID: 0}
-    weaponCollider: {fileID: 0}
-    unlocked: 0
-    timeBuffer: 0
-  - duration: 0.4
-    cooldown: 1
-    aoe:
-      x: 1
-      y: 4
-    damage: 6
-    knockbackForce: 7.5
-    movement:
-      x: 0
-      y: 0
-      z: 2.5
-    value0: 0
-    selectionDirection:
-      x: 1
-      y: 1
-    color: {r: 1, g: 0.711, b: 0, a: 1}
-    selectionVisual: {fileID: 0}
-    weaponCollider: {fileID: 0}
-    unlocked: 0
-    timeBuffer: 0
-  - duration: 0.2
-    cooldown: 0.4
-    aoe:
-      x: 120
-      y: 4
-    damage: 2.5
-    knockbackForce: 3.5
-    movement:
-      x: 0
-      y: 0
-      z: 0
-    value0: 0
-    selectionDirection:
-      x: 0
-      y: -1
-    color: {r: 1, g: 0.17174745, b: 0, a: 1}
-    selectionVisual: {fileID: 0}
-    weaponCollider: {fileID: 0}
-    unlocked: 0
-    timeBuffer: 0
-  - duration: 1
-    cooldown: 2
-    aoe:
-      x: 1
-      y: 10
-    damage: 12.5
-    knockbackForce: 7.5
-    movement:
-      x: 0
-      y: 0
-      z: 0
-    value0: 0
-    selectionDirection:
-      x: -1
-      y: 1
-    color: {r: 0.058823522, g: 0.70112956, b: 0.83137256, a: 1}
-    selectionVisual: {fileID: 0}
-    weaponCollider: {fileID: 0}
-    unlocked: 0
-    timeBuffer: 0
+  attacks: []
 --- !u!1 &5125177456831477099
 GameObject:
   m_ObjectHideFlags: 0
