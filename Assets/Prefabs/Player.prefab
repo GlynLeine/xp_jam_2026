@@ -528,6 +528,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9bf233833b7910843b21eb302f2519d2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerController
+  escort: {fileID: 0}
   movementSpeed: 5.335
   rotationSmoothTime: 0.12
   speedChangeRate: 10
@@ -1030,6 +1031,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: WanderingVagrants_Hero
       objectReference: {fileID: 0}
+    - target: {fileID: 7219867370428330978, guid: d54d03bdee525af458649ec5f0283523, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 15161e679abe4034fb1b069f2c670a13, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects:
