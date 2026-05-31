@@ -290,6 +290,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e07e608042a32fd4785b6e652b9f7fe4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
+--- !u!4 &207543754 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 9201438970193530504, guid: d848b3839f282bc41bf81d2a2b160682, type: 3}
+  m_PrefabInstance: {fileID: 207543751}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &223440712
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1169,17 +1174,33 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 2412223702332752629, guid: 6c0e5571f1f692d49a5d143c74f63682, type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 207543754}
+    - target: {fileID: 2412223702332752629, guid: 6c0e5571f1f692d49a5d143c74f63682, type: 3}
       propertyPath: spawnAmount
       value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 2807209817410536402, guid: 6c0e5571f1f692d49a5d143c74f63682, type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 207543754}
+    - target: {fileID: 2807209817410536402, guid: 6c0e5571f1f692d49a5d143c74f63682, type: 3}
       propertyPath: spawnAmount
       value: 5
       objectReference: {fileID: 0}
+    - target: {fileID: 2993765577206241045, guid: 6c0e5571f1f692d49a5d143c74f63682, type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 207543754}
     - target: {fileID: 5263413646879116323, guid: 6c0e5571f1f692d49a5d143c74f63682, type: 3}
       propertyPath: m_Name
       value: Enemies
       objectReference: {fileID: 0}
+    - target: {fileID: 5970398183674195524, guid: 6c0e5571f1f692d49a5d143c74f63682, type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 207543754}
     - target: {fileID: 5970398183674195524, guid: 6c0e5571f1f692d49a5d143c74f63682, type: 3}
       propertyPath: spawnAmount
       value: 2
