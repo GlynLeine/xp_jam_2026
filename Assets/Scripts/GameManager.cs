@@ -13,9 +13,9 @@ public class GameManager : MonoBehaviour
     public DialogNodeGraph[] SamanthaNodes;
     public DialogNodeGraph[] JamesNodes;
     public DialogNodeGraph[] PhoebeNodes;
-    [SerializeField] DialogBehaviour dialogBehaviour;
     public static GameManager instance;
-    int i = 0;
+    [NonSerialized]
+    public int dialogIndex = 0;
     
     [NonSerialized]
     public int nextScene = 1;
@@ -31,29 +31,52 @@ public class GameManager : MonoBehaviour
         LoadNextScene();
     }
 
-
-    public void startDialogue()
+    public bool startDialogue(DialogBehaviour dialogBehaviour)
     {
-        if(i <= 3)
+        int activeSceneIndex = SceneManager.GetActiveScene().buildIndex;
+        if (activeSceneIndex == 2)
         {
-            dialogBehaviour.StartDialog(AntonyNodes[i]);
-            i++;
+            if (!succeededSeason)
+            {
+                return false;
+            }
+            else
+            {
+                dialogIndex = (((nextScene - 1) - 3) * 4) + 3;
+            }
         }
-        if(i <= 7)
+        else
         {
-            dialogBehaviour.StartDialog(SamanthaNodes[(i-4)]);
-            i++;
+            if (dialogIndex >= ((activeSceneIndex - 3) * 4) + 3)
+            {
+                return false;
+            }
         }
-        if(i <= 11)
+
+        if(dialogIndex <= 3)
         {
-            dialogBehaviour.StartDialog(JamesNodes[(i-8)]);
-            i++;
+            dialogBehaviour.StartDialog(AntonyNodes[dialogIndex]);
+            dialogIndex++;
+            return true;
         }
-        if (i <= 15)
+        if(dialogIndex <= 7)
         {
-            dialogBehaviour.StartDialog(PhoebeNodes[(i-12)]);
-            i++;
+            dialogBehaviour.StartDialog(SamanthaNodes[(dialogIndex-4)]);
+            dialogIndex++;
+            return true;
         }
+        if(dialogIndex <= 11)
+        {
+            dialogBehaviour.StartDialog(JamesNodes[(dialogIndex-8)]);
+            dialogIndex++;
+            return true;
+        }
+        if (dialogIndex <= 15)
+        {
+            dialogBehaviour.StartDialog(PhoebeNodes[(dialogIndex-12)]);
+            dialogIndex++;
+        }
+        return true;
     }
 
     public void LoadNextScene()

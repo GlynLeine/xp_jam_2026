@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.02.00">
+	<object class="AudioFile" id="{59140791-c0a9-4043-a453-9ce73f6036e6}">
+		<property name="assetPath">
+			<value>SFX-Footsteps Ground (2).wav</value>
+		</property>
+		<property name="frequencyInKHz">
+			<value>48</value>
+		</property>
+		<property name="channelCount">
+			<value>2</value>
+		</property>
+		<property name="length">
+			<value>0.29606250000000001</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{35580a27-aebc-422f-8004-467b72b5dc65}</destination>
+		</relationship>
+	</object>
+</objects>

@@ -5,7 +5,7 @@ using UnityEngine.SceneManagement;
 [RequireComponent(typeof(CharacterController))]
 public class PlayerController : GameCharacterController
 {
-    [Header("Player Specific")]
+    [Header("Player Specific")] 
     public BlackScreen blackScreen;
     public Transform cameraTarget;
     public Transform aimVisual;
@@ -178,6 +178,7 @@ public class PlayerController : GameCharacterController
     protected override void OnDeath()
     {
         GameManager.instance.succeededSeason = false;
+        GameManager.instance.nextScene = SceneManager.GetActiveScene().buildIndex;
         blackScreen.onFadeFinished = () => SceneManager.LoadScene(2);
         blackScreen.StartFade();
     }
