@@ -105,6 +105,11 @@ public class DayTime : MonoBehaviour
 
     public void Update()
     {
+        for (int i = 0; i < GameManager.instance.fmodEventEmitters.Length; i++)
+        {
+            GameManager.instance.fmodEventEmitters[i].SetParameter("Seasons", season);
+        }
+        
         if (dawnOffsetTime >= dayTimeDuration)
         {
             if (blackScreen.isFading || m_finished)

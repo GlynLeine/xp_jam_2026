@@ -1,25 +1,5 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!114 &-8028854848301933802
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
-  m_Name: bank:/Master.bank
-  m_EditorClassIdentifier: FMODUnityEditor::FMODUnity.EditorBankRef
-  Path: ../../FMOD Studio/WanderingVagrants-Fmod/Build/Desktop/Master.bank
-  Name: Master
-  StudioPath: bank:/Master
-  lastModified: 639158179926529536
-  FileSizes:
-  - Name: Desktop
-    Value: 4230048
-  Exists: 1
 --- !u!114 &-7340738255415734773
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -39,7 +19,7 @@ MonoBehaviour:
     Data3: -356647238
     Data4: -770230381
   Banks:
-  - {fileID: -8028854848301933802}
+  - {fileID: -2411292812219352698}
   IsStream: 1
   Is3D: 0
   IsOneShot: 0
@@ -67,7 +47,7 @@ MonoBehaviour:
     Data3: 1020710313
     Data4: -349408062
   Banks:
-  - {fileID: -8028854848301933802}
+  - {fileID: -2411292812219352698}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
@@ -75,6 +55,26 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 0
+--- !u!114 &-2411292812219352698
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: bank:/Master.bank
+  m_EditorClassIdentifier: FMODUnityEditor::FMODUnity.EditorBankRef
+  Path: Assets/Audio/Project Data/Build/Desktop/Master.bank
+  Name: Master
+  StudioPath: bank:/Master
+  lastModified: 639158255830731297
+  FileSizes:
+  - Name: Desktop
+    Value: 4230048
+  Exists: 1
 --- !u!114 &-739882039981253335
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -94,7 +94,7 @@ MonoBehaviour:
     Data3: -772601976
     Data4: -640284776
   Banks:
-  - {fileID: -8028854848301933802}
+  - {fileID: -2411292812219352698}
   IsStream: 1
   Is3D: 0
   IsOneShot: 1
@@ -122,7 +122,7 @@ MonoBehaviour:
     Data3: -350981224
     Data4: -1495918108
   Banks:
-  - {fileID: -8028854848301933802}
+  - {fileID: -2411292812219352698}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
@@ -149,7 +149,7 @@ MonoBehaviour:
     Data3: 601762474
     Data4: 1758935615
   Banks:
-  - {fileID: -8028854848301933802}
+  - {fileID: -2411292812219352698}
   IsStream: 0
   Is3D: 1
   IsOneShot: 0
@@ -177,7 +177,7 @@ MonoBehaviour:
     Data3: -561083489
     Data4: -1810272535
   Banks:
-  - {fileID: -8028854848301933802}
+  - {fileID: -2411292812219352698}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
@@ -198,8 +198,8 @@ MonoBehaviour:
   m_Name: FMODStudioCache
   m_EditorClassIdentifier: FMODUnityEditor::FMODUnity.EventCache
   EditorBanks:
-  - {fileID: 7668424138830940384}
-  - {fileID: -8028854848301933802}
+  - {fileID: 668159860582532078}
+  - {fileID: -2411292812219352698}
   EditorEvents:
   - {fileID: -7340738255415734773}
   - {fileID: -233113001697709543}
@@ -211,10 +211,10 @@ MonoBehaviour:
   - {fileID: -739882039981253335}
   EditorParameters: []
   MasterBanks:
-  - {fileID: -8028854848301933802}
+  - {fileID: -2411292812219352698}
   StringsBanks:
-  - {fileID: 7668424138830940384}
-  cacheTime: 639158179926560511
+  - {fileID: 668159860582532078}
+  cacheTime: 639158255830741280
   cacheVersion: 131636
 --- !u!114 &262521622557008326
 MonoBehaviour:
@@ -240,6 +240,26 @@ MonoBehaviour:
   IsGlobal: 0
   Labels: []
   Exists: 1
+--- !u!114 &668159860582532078
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: bank:/Master.strings.bank
+  m_EditorClassIdentifier: FMODUnityEditor::FMODUnity.EditorBankRef
+  Path: Assets/Audio/Project Data/Build/Desktop/Master.strings.bank
+  Name: Master.strings
+  StudioPath: bank:/Master.strings
+  lastModified: 639158255830741280
+  FileSizes:
+  - Name: Desktop
+    Value: 1184
+  Exists: 1
 --- !u!114 &2876598405992722768
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -259,7 +279,7 @@ MonoBehaviour:
     Data3: 1628826025
     Data4: -1129281846
   Banks:
-  - {fileID: -8028854848301933802}
+  - {fileID: -2411292812219352698}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
@@ -286,7 +306,7 @@ MonoBehaviour:
     Data3: 1218983599
     Data4: 1423405279
   Banks:
-  - {fileID: -8028854848301933802}
+  - {fileID: -2411292812219352698}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
@@ -341,24 +361,4 @@ MonoBehaviour:
   Type: 0
   IsGlobal: 0
   Labels: []
-  Exists: 1
---- !u!114 &7668424138830940384
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
-  m_Name: bank:/Master.strings.bank
-  m_EditorClassIdentifier: FMODUnityEditor::FMODUnity.EditorBankRef
-  Path: ../../FMOD Studio/WanderingVagrants-Fmod/Build/Desktop/Master.strings.bank
-  Name: Master.strings
-  StudioPath: bank:/Master.strings
-  lastModified: 639158179926560511
-  FileSizes:
-  - Name: Desktop
-    Value: 1184
   Exists: 1
