@@ -17,8 +17,6 @@ public class EnemyBrain : InputDriver
     
     public float visionRange = 15f;
     
-    AudioSource.PlayClipAtPoint(damageSoundClip, transform.position, 1f);
-    
     [HideInInspector] public AttackInfo attackInfo;
     
     private PlayerController m_player;
