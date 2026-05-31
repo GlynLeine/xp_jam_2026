@@ -562,6 +562,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Terrain
       objectReference: {fileID: 0}
+    - target: {fileID: 4378209214594138589, guid: a06ed0f97218af948857718983130d54, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5485397374892297504, guid: a06ed0f97218af948857718983130d54, type: 3}
       propertyPath: m_LocalPosition.x
       value: 93.51
