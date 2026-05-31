@@ -13,7 +13,6 @@ public class GameManager : MonoBehaviour
     public DialogNodeGraph[] SamanthaNodes;
     public DialogNodeGraph[] JamesNodes;
     public DialogNodeGraph[] PhoebeNodes;
-    [SerializeField] DialogBehaviour dialogBehaviour;
     public static GameManager instance;
     int i = 0;
     
@@ -31,28 +30,31 @@ public class GameManager : MonoBehaviour
         LoadNextScene();
     }
 
-
-    public void startDialogue()
+    public void startDialogue(DialogBehaviour dialogBehaviour)
     {
         if(i <= 3)
         {
             dialogBehaviour.StartDialog(AntonyNodes[i]);
             i++;
+            return;
         }
         if(i <= 7)
         {
             dialogBehaviour.StartDialog(SamanthaNodes[(i-4)]);
             i++;
+            return;
         }
         if(i <= 11)
         {
             dialogBehaviour.StartDialog(JamesNodes[(i-8)]);
             i++;
+            return;
         }
         if (i <= 15)
         {
             dialogBehaviour.StartDialog(PhoebeNodes[(i-12)]);
             i++;
+            return;
         }
     }
 

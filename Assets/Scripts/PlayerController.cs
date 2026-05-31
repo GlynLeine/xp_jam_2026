@@ -5,7 +5,7 @@ using UnityEngine.SceneManagement;
 [RequireComponent(typeof(CharacterController))]
 public class PlayerController : GameCharacterController
 {
-    [Header("Player Specific")]
+    [Header("Player Specific")] 
     public BlackScreen blackScreen;
     public Transform cameraTarget;
     public Transform aimVisual;

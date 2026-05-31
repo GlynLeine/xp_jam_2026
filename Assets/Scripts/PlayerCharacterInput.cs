@@ -19,11 +19,19 @@ public class PlayerCharacterInput : InputDriver
 
     public void OnMove(InputValue value)
     {
+        if (dialog.isDialogActive)
+        {
+            return;
+        }
         MoveInput(value.Get<Vector2>());
     }
 
     public void OnAim(InputValue value)
     {
+        if (dialog.isDialogActive)
+        {
+            return;
+        }
         if(cursorInputLocked)
         {
             AimInput(value.Get<Vector2>());
@@ -32,20 +40,34 @@ public class PlayerCharacterInput : InputDriver
 
     public void OnChangeMask(InputValue value)
     {
+        if (dialog.isDialogActive)
+        {
+            return;
+        }
         ChangeMaskInput(value.isPressed);
     }
     
     public void OnDodge(InputValue value)
     {
+        if (dialog.isDialogActive)
+        {
+            return;
+        }
         DodgeInput(value.isPressed);
     }
 
     public void OnAttack(InputValue value)
     {
-        if (value.isPressed)
+        if (dialog.isDialogActive)
         {
-            dialog.moveToNext();
+            if (value.isPressed)
+            {
+                dialog.moveToNext();
+            }
+
+            return;
         }
+
         AttackInput(value.isPressed);
     }
 		
