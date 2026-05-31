@@ -17,6 +17,8 @@ public class EnemyBrain : InputDriver
     
     public float visionRange = 15f;
     
+    AudioSource.PlayClipAtPoint(damageSoundClip, transform.position, 1f);
+    
     [HideInInspector] public AttackInfo attackInfo;
     
     private PlayerController m_player;
@@ -82,7 +84,7 @@ public class EnemyBrain : InputDriver
         {
             m_aimDirection = detectionInfo.toPlayer2D;
         }
-
+        
         bool inReach = detectionInfo.playerDistanceSq > (attackInfo.aoe.y * attackInfo.aoe.y);
         if (inReach || math.all(math.abs(math.normalize(new float2(transform.forward.x, transform.forward.z)) - detectionInfo.toPlayer2D) >= 0.1f))
         {
