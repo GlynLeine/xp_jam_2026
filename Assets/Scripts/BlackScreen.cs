@@ -1,14 +1,18 @@
 using System;
+using Unity.Mathematics;
 using UnityEngine;
 
 public class BlackScreen : MonoBehaviour
 {
+    public FogSettings fogSettings;
     public float fadeDuration = 1f;
     private float m_timeBuffer;
     private bool m_fadeIn;
 
     private MeshRenderer m_meshRenderer;
     private int m_opacityIndex;
+    
+    private float m_startingFogDensity;
 
     public Action onFadeFinished;
 
@@ -23,6 +27,7 @@ public class BlackScreen : MonoBehaviour
     public void StartFade()
     {
         m_timeBuffer = 0f;
+        m_startingFogDensity = fogSettings.density;
     }
     
     private void Update()
@@ -40,6 +45,8 @@ public class BlackScreen : MonoBehaviour
             interpolator = 1f - interpolator;
         }
         m_meshRenderer.material.SetFloat(m_opacityIndex, interpolator);
+        
+        fogSettings.density = math.lerp(m_startingFogDensity, 0f, interpolator);
 
         if (m_timeBuffer > fadeDuration)
         {

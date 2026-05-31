@@ -459,6 +459,17 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4a8255247b5473848957292a84a63e10, type: 3}
+--- !u!114 &466976721 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6645666829772717181, guid: 4a8255247b5473848957292a84a63e10, type: 3}
+  m_PrefabInstance: {fileID: 466976720}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8b68d72d7c8e9284f9863d7fe54790c8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::FogSettings
 --- !u!1001 &663896895
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -467,6 +478,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3871148169954782067, guid: f6d148d888ffbf54b9afe9936dfaec1f, type: 3}
+      propertyPath: fogSettings
+      value: 
+      objectReference: {fileID: 466976721}
     - target: {fileID: 8944336655422409498, guid: f6d148d888ffbf54b9afe9936dfaec1f, type: 3}
       propertyPath: m_Name
       value: GameCamera
@@ -516,6 +531,17 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f6d148d888ffbf54b9afe9936dfaec1f, type: 3}
+--- !u!114 &663896896 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3871148169954782067, guid: f6d148d888ffbf54b9afe9936dfaec1f, type: 3}
+  m_PrefabInstance: {fileID: 663896895}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dcdc23840aebe8e43add48c33f6371a1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: '::'
 --- !u!20 &825837632 stripped
 Camera:
   m_CorrespondingSourceObject: {fileID: 8944336655422409496, guid: f6d148d888ffbf54b9afe9936dfaec1f, type: 3}
@@ -773,6 +799,10 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2788372154915704476, guid: 30814d3db9fc3684bb7e2af9940b10e6, type: 3}
+      propertyPath: blackScreen
+      value: 
+      objectReference: {fileID: 663896896}
     - target: {fileID: 3154560389379384938, guid: 30814d3db9fc3684bb7e2af9940b10e6, type: 3}
       propertyPath: m_Name
       value: EndOfDayMenu
@@ -793,6 +823,10 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5759816588305101597, guid: 30814d3db9fc3684bb7e2af9940b10e6, type: 3}
+      propertyPath: blackScreen
+      value: 
+      objectReference: {fileID: 663896896}
     - target: {fileID: 6270396179533342915, guid: 30814d3db9fc3684bb7e2af9940b10e6, type: 3}
       propertyPath: m_Pivot.x
       value: 0

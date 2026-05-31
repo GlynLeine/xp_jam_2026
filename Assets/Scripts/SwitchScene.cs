@@ -4,9 +4,11 @@ using UnityEngine.SceneManagement;
 public class SwitchScene : MonoBehaviour
 {
     public int targetSceneBuildIndex; 
+    public BlackScreen blackScreen;
     
     public void SwitchActiveScene()
     {
-        SceneManager.LoadScene(targetSceneBuildIndex);
+        blackScreen.onFadeFinished = ()=> SceneManager.LoadScene(targetSceneBuildIndex);
+        blackScreen.StartFade();
     }
 }
