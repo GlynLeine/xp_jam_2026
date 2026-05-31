@@ -471,6 +471,34 @@ PrefabInstance:
       propertyPath: blackScreen
       value: 
       objectReference: {fileID: 663896897}
+    - target: {fileID: 4698433802515116717, guid: 4a8255247b5473848957292a84a63e10, type: 3}
+      propertyPath: onDayEnd.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4698433802515116717, guid: 4a8255247b5473848957292a84a63e10, type: 3}
+      propertyPath: onDayEnd.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4698433802515116717, guid: 4a8255247b5473848957292a84a63e10, type: 3}
+      propertyPath: onDayEnd.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 2531496166119067937, guid: 44d5084922f07e0429c32ff830de3acd, type: 3}
+    - target: {fileID: 4698433802515116717, guid: 4a8255247b5473848957292a84a63e10, type: 3}
+      propertyPath: onDayEnd.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4698433802515116717, guid: 4a8255247b5473848957292a84a63e10, type: 3}
+      propertyPath: onDayEnd.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: startDialogue
+      objectReference: {fileID: 0}
+    - target: {fileID: 4698433802515116717, guid: 4a8255247b5473848957292a84a63e10, type: 3}
+      propertyPath: onDayEnd.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: GameManager, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 4698433802515116717, guid: 4a8255247b5473848957292a84a63e10, type: 3}
+      propertyPath: onDayEnd.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 7345110856010642066, guid: 4a8255247b5473848957292a84a63e10, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
