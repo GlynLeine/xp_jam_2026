@@ -8,6 +8,7 @@ public class ProximitySpawner : MonoBehaviour
     public Transform[] spawnPoints;
     public Transform player;
     public float spawnRadius = 10f;
+    public float spawnAmount = 5f;
 
     private float nextSpawnTime;
     private float enemyCount;
@@ -15,7 +16,7 @@ public class ProximitySpawner : MonoBehaviour
 
     void Update()
     {
-        if (Vector3.Distance(player.position, transform.position) <= spawnRadius && enemyCount <= 5 && spawnerConsumed == false)
+        if (Vector3.Distance(player.position, transform.position) <= spawnRadius && enemyCount <= spawnAmount && spawnerConsumed == false)
         {
             SpawnEnemy();
             enemyCount ++;
