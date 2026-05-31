@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 5417301699679367196}
   - component: {fileID: 9141635267857424515}
   - component: {fileID: 2366188267269780634}
+  - component: {fileID: 6884149837097428763}
   m_Layer: 0
   m_Name: BigRock
   m_TagString: Untagged
@@ -112,3 +113,31 @@ SphereCollider:
   serializedVersion: 3
   m_Radius: 1.0684923
   m_Center: {x: -0.0685265, y: 0.16500077, z: 0.044872567}
+--- !u!205 &6884149837097428763
+LODGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3689984198449677075}
+  serializedVersion: 3
+  m_LocalReferencePoint: {x: 0, y: 0, z: 0}
+  m_Size: 1
+  m_FadeMode: 0
+  m_AnimateCrossFading: 0
+  m_LastLODIsBillboard: 0
+  m_LODs:
+  - screenRelativeHeight: 0.06
+    fadeTransitionWidth: 0
+    renderers:
+    - renderer: {fileID: 9141635267857424515}
+  - screenRelativeHeight: 0.06
+    fadeTransitionWidth: 0
+    renderers:
+    - renderer: {fileID: 9141635267857424515}
+  - screenRelativeHeight: 0.06
+    fadeTransitionWidth: 0
+    renderers:
+    - renderer: {fileID: 9141635267857424515}
+  m_Enabled: 1
+  m_GlobalIlluminationLOD: 0
