@@ -191,7 +191,7 @@ MonoBehaviour:
   weaponType: 0
   attackPreviewDuration: 0.5
   reactionTime: 0.2
-  visionRange: 15
+  visionRange: 10
   attackInfo:
     duration: 1
     cooldown: 2
