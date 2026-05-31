@@ -31,7 +31,8 @@ public class ProximitySpawner : MonoBehaviour
     void SpawnEnemy()
     {
         int spawnIndex = Random.Range(0, spawnPoints.Length);
-        int enemyIndex = Random.Range(0, enemyPrefabs.Length);
+        int enemyIndex = 0;//Random.Range(0, enemyPrefabs.Length);
         Instantiate(enemyPrefabs[enemyIndex], spawnPoints[spawnIndex].position, spawnPoints[spawnIndex].rotation);
+        Debug.Log("Spawn");
     }
 }

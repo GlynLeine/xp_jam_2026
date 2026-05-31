@@ -112,7 +112,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ProximitySpawner
   enemyPrefabs:
-  - {fileID: 3947858327916162365, guid: 48ba2398f5a57fd4b8a2282212b1a336, type: 3}
+  - {fileID: 1280161552222814955, guid: 48ba2398f5a57fd4b8a2282212b1a336, type: 3}
   - {fileID: 4964348896996501086, guid: 4d600e8c9fe02ee4989216618e97e855, type: 3}
   - {fileID: 5972265700481633778, guid: e5c4fc52a7351e14baac03ea79994c6a, type: 3}
   - {fileID: 7484167088853848324, guid: d7c05504356a8a74a88f22f77c6c13ab, type: 3}
