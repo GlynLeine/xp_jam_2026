@@ -12,6 +12,10 @@ PrefabInstance:
       propertyPath: weaponType
       value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: 1277832191396596660, guid: 4d600e8c9fe02ee4989216618e97e855, type: 3}
+      propertyPath: visionRange
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 1953784154354638781, guid: 4d600e8c9fe02ee4989216618e97e855, type: 3}
       propertyPath: m_Avatar
       value: 
