@@ -28,19 +28,6 @@ public class GameManager : MonoBehaviour
         LoadNextScene();
     }
 
-    void findDialogBehaviour()
-    {
-        UnityEngine.Object DialogBehaviour;
-        if(dialogBehaviour == null)
-        {
-            DialogBehaviour = FindAnyObjectByType(typeof(DialogBehaviour));
-            if (DialogBehaviour != null)
-            {
-                dialogBehaviour = DialogBehaviour.GetComponent<DialogBehaviour>();
-            }
-        }
-    }
-
 
     public void startDialogue()
     {
@@ -69,6 +56,5 @@ public class GameManager : MonoBehaviour
     public void LoadNextScene()
     {
         SceneManager.LoadScene(nextScene);
-        findDialogBehaviour();
     }
 }
