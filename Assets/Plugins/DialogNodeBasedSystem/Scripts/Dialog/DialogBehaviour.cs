@@ -199,10 +199,9 @@ namespace cherrydev
             HandleDialogGraphCurrentNode(_currentNode);
         }
 
-        public void moveToNext(InputAction.CallbackContext context)
+        public void moveToNext()
         {
-            if(context.control.IsPressed())
-                nextSentence = true;
+            nextSentence = true;
         }
 
         /// <summary>
