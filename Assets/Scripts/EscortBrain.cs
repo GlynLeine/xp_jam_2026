@@ -36,7 +36,7 @@ public class EscortBrain : InputDriver
 
         isFollowingPlayer = playerDistanceSq < escortRadius * escortRadius;
         
-        if (isFollowingPlayer && math.all(math.abs(math.normalize(new float2(transform.forward.x, transform.forward.z)) - toPlayer2D) >= 0.3f))
+        if (isFollowingPlayer && playerDistanceSq > 25f)
         {
             movementInput = toPlayer2D;
         }

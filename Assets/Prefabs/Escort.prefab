@@ -1203,7 +1203,7 @@ BoxCollider:
   m_Enabled: 1
   serializedVersion: 3
   m_Size: {x: 2.67, y: 4, z: 6.8}
-  m_Center: {x: 0, y: 1.22, z: -3.07}
+  m_Center: {x: 0, y: 1.22, z: -2.26}
 --- !u!114 &9189633433508517700
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1239,7 +1239,7 @@ MonoBehaviour:
     weaponCollider: {fileID: 0}
     unlocked: 0
     timeBuffer: 0
-  escortRadius: 3
+  escortRadius: 10
   isFollowingPlayer: 0
 --- !u!143 &4519250245804450086
 CharacterController:
@@ -1260,12 +1260,12 @@ CharacterController:
   m_Enabled: 1
   serializedVersion: 3
   m_Height: 1.8
-  m_Radius: 0.28
+  m_Radius: 1.5
   m_SlopeLimit: 45
   m_StepOffset: 0.25
   m_SkinWidth: 0.02
   m_MinMoveDistance: 0
-  m_Center: {x: 0, y: 93, z: 0}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &2046709045695910053
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1684,7 +1684,7 @@ Transform:
   m_GameObject: {fileID: 6756423921249604519}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -0.75, z: 0}
+  m_LocalPosition: {x: -0, y: -1.575, z: 0.87}
   m_LocalScale: {x: 0.14, y: 0.14, z: 0.14}
   m_ConstrainProportionsScale: 0
   m_Children:
