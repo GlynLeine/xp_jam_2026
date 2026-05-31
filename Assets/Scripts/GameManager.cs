@@ -31,37 +31,52 @@ public class GameManager : MonoBehaviour
         LoadNextScene();
     }
 
-    public void startDialogue(DialogBehaviour dialogBehaviour)
+    public bool startDialogue(DialogBehaviour dialogBehaviour)
     {
-        if (!succeededSeason && SceneManager.GetActiveScene().buildIndex == 2)
+        int activeSceneIndex = SceneManager.GetActiveScene().buildIndex;
+        if (activeSceneIndex == 2)
         {
-            return;
+            if (!succeededSeason)
+            {
+                return false;
+            }
+            else
+            {
+                dialogIndex = (((nextScene - 1) - 3) * 4) + 3;
+            }
         }
-        
+        else
+        {
+            if (dialogIndex >= ((activeSceneIndex - 3) * 4) + 3)
+            {
+                return false;
+            }
+        }
+
         if(dialogIndex <= 3)
         {
             dialogBehaviour.StartDialog(AntonyNodes[dialogIndex]);
             dialogIndex++;
-            return;
+            return true;
         }
         if(dialogIndex <= 7)
         {
             dialogBehaviour.StartDialog(SamanthaNodes[(dialogIndex-4)]);
             dialogIndex++;
-            return;
+            return true;
         }
         if(dialogIndex <= 11)
         {
             dialogBehaviour.StartDialog(JamesNodes[(dialogIndex-8)]);
             dialogIndex++;
-            return;
+            return true;
         }
         if (dialogIndex <= 15)
         {
             dialogBehaviour.StartDialog(PhoebeNodes[(dialogIndex-12)]);
             dialogIndex++;
-            return;
         }
+        return true;
     }
 
     public void LoadNextScene()

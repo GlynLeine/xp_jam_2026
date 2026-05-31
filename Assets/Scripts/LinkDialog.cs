@@ -35,7 +35,10 @@ public class LinkDialog : MonoBehaviour
     public void startEndOfDayDialogue()
     {
         m_isEndOfDay = true;
-        startDialogue();
+        if (!startDialogue())
+        {
+            endEndOfDayDialogue();
+        }
     }
 
     public void endEndOfDayDialogue()
@@ -55,8 +58,8 @@ public class LinkDialog : MonoBehaviour
         }
     }
 
-    public void startDialogue()
+    public bool startDialogue()
     {
-        GameManager.instance.startDialogue(dialogBehaviour);
+        return GameManager.instance.startDialogue(dialogBehaviour);
     }
 }
