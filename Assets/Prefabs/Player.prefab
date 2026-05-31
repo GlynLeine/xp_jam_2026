@@ -1197,7 +1197,7 @@ PrefabInstance:
     - target: {fileID: -7511558181221131132, guid: 8e20a76cd5552774984c0732b27750ec, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
-      objectReference: {fileID: 2100000, guid: a634590650780114d801370781b9d235, type: 2}
+      objectReference: {fileID: 2100000, guid: 15161e679abe4034fb1b069f2c670a13, type: 2}
     - target: {fileID: 919132149155446097, guid: 8e20a76cd5552774984c0732b27750ec, type: 3}
       propertyPath: m_Name
       value: Sword
