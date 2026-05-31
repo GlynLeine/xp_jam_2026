@@ -289,6 +289,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 5d0824b427ed2aa40a7e208e0ce244c1, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 15161e679abe4034fb1b069f2c670a13, type: 2}
     - target: {fileID: 919132149155446097, guid: 5d0824b427ed2aa40a7e208e0ce244c1, type: 3}
       propertyPath: m_Name
       value: TownEntrance2
@@ -351,6 +355,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 0fb8de052c800c5469c10c0d32e057de, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 15161e679abe4034fb1b069f2c670a13, type: 2}
     - target: {fileID: 919132149155446097, guid: 0fb8de052c800c5469c10c0d32e057de, type: 3}
       propertyPath: m_Name
       value: BigRock
@@ -475,6 +483,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 3cf1060d95dbc3048acad87af768d0c0, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 15161e679abe4034fb1b069f2c670a13, type: 2}
     - target: {fileID: 919132149155446097, guid: 3cf1060d95dbc3048acad87af768d0c0, type: 3}
       propertyPath: m_Name
       value: TowEntrance1Textured
@@ -549,6 +561,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: -5.685
       objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 98c135ec3fa1c7e419787ee0af67d72c, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 15161e679abe4034fb1b069f2c670a13, type: 2}
     - target: {fileID: 919132149155446097, guid: 98c135ec3fa1c7e419787ee0af67d72c, type: 3}
       propertyPath: m_Name
       value: Bridge2
@@ -838,6 +854,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: -4.84
       objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 9e6dc69c3e6a7064e836ae1b8905c2e7, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 15161e679abe4034fb1b069f2c670a13, type: 2}
     - target: {fileID: 919132149155446097, guid: 9e6dc69c3e6a7064e836ae1b8905c2e7, type: 3}
       propertyPath: m_Name
       value: Bridge1
