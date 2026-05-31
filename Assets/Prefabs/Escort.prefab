@@ -1239,6 +1239,8 @@ MonoBehaviour:
     weaponCollider: {fileID: 0}
     unlocked: 0
     timeBuffer: 0
+  escortRadius: 3
+  isFollowingPlayer: 0
 --- !u!143 &4519250245804450086
 CharacterController:
   m_ObjectHideFlags: 0
@@ -1276,6 +1278,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8154b9617434e664bbaf076bc4c3d5f4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EscortController
+  escort: {fileID: 0}
   movementSpeed: 4
   rotationSmoothTime: 0.12
   speedChangeRate: 10

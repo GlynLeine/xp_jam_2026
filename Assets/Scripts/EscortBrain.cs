@@ -1,4 +1,5 @@
 using Unity.Mathematics;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Serialization;
 
@@ -11,9 +12,10 @@ public class EscortBrain : InputDriver
     
     private PlayerController m_player;
     private float m_attackTimeBuffer;
-    public Transform player;
     public float escortRadius = 3f;
-
+    [HideInInspector]
+    public bool isFollowingPlayer;
+    
     private void Awake()
     {
         m_player = FindAnyObjectByType<PlayerController>();
@@ -32,8 +34,9 @@ public class EscortBrain : InputDriver
         float playerDistanceSq = math.lengthsq(toPlayer2D);
         toPlayer2D *= math.rsqrt(playerDistanceSq);
 
-        bool inReach = playerDistanceSq > (attackInfo.aoe.y * attackInfo.aoe.y);
-        if ((Vector3.Distance(player.position, transform.position) <= escortRadius) && inReach || math.all(math.abs(math.normalize(new float2(transform.forward.x, transform.forward.z)) - toPlayer2D) >= 0.1f))
+        isFollowingPlayer = playerDistanceSq < escortRadius * escortRadius;
+        
+        if (isFollowingPlayer && math.all(math.abs(math.normalize(new float2(transform.forward.x, transform.forward.z)) - toPlayer2D) >= 0.3f))
         {
             movementInput = toPlayer2D;
         }
