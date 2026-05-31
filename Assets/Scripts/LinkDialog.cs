@@ -7,9 +7,12 @@ public class LinkDialog : MonoBehaviour
     public DayTime dayTime;
     public cherrydev.DialogBehaviour dialogBehaviour;
     private bool m_isEndOfDay;
+    private bool m_isDenyGame;
     
     private void Start()
     {
+        dialogBehaviour.ExternalFunctionsHandler.BindExternalFunction("DenyGame", denyGame);
+        
         int activeSceneIndex = SceneManager.GetActiveScene().buildIndex;
         if (activeSceneIndex > 1)
         {
@@ -20,6 +23,13 @@ public class LinkDialog : MonoBehaviour
 
             startDialogue();
         }
+    }
+
+    public void denyGame()
+    {
+        GameManager.instance.succeededSeason = false;
+        GameManager.instance.nextScene = SceneManager.GetActiveScene().buildIndex;
+        m_isDenyGame = true;
     }
 
     public void startEndOfDayDialogue()
@@ -35,6 +45,13 @@ public class LinkDialog : MonoBehaviour
             m_isEndOfDay = false;
             dayTime.blackScreen.StartFade();
             dayTime.blackScreen.onFadeFinished = dayTime.StartDay;
+        }
+
+        if (m_isDenyGame)
+        {
+            m_isDenyGame = false;
+            dayTime.blackScreen.onFadeFinished = () => SceneManager.LoadScene(2);
+            dayTime.blackScreen.StartFade();
         }
     }
 
