@@ -19,6 +19,8 @@ public class GameManager : MonoBehaviour
     [NonSerialized]
     public int nextScene = 1;
     
+    [NonSerialized]
+    public bool succeededSeason;
     
     void Start()
     {

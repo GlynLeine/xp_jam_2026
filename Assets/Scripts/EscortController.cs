@@ -1,9 +1,12 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 [RequireComponent(typeof(CharacterController))]
 [RequireComponent(typeof(EscortBrain))]
 public class EscortController : GameCharacterController
 {
+    public BlackScreen blackScreen;
+    
     protected override void OnStart()
     {
         Debug.Assert((m_input as EscortBrain) is not null);
@@ -13,6 +16,8 @@ public class EscortController : GameCharacterController
 
     protected override void OnDeath()
     {
-        Destroy(gameObject);
+        GameManager.instance.succeededSeason = false;
+        blackScreen.onFadeFinished = () => SceneManager.LoadScene(2);
+        blackScreen.StartFade();
     }
 }

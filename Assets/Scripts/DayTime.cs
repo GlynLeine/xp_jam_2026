@@ -1,6 +1,7 @@
 using System;
 using Unity.Mathematics;
 using UnityEngine;
+using UnityEngine.Events;
 
 [RequireComponent(typeof(Light))]
 public class DayTime : MonoBehaviour
@@ -15,6 +16,8 @@ public class DayTime : MonoBehaviour
     public bool loop = false;
     public float debugTimeScale = 1f;
 
+    public BlackScreen blackScreen;
+    public UnityEvent onDayEnd;
     public float seasonInterpolator
     {
         get
@@ -45,6 +48,7 @@ public class DayTime : MonoBehaviour
     private float m_noon;
     private float3 m_south;
     private float m_zenithIntensity;
+    private bool m_finished;
 
     private float time24Hours => (unnormalizedTime / summerDayTimeDuration) * 17f + 5.5f;
 
@@ -77,6 +81,7 @@ public class DayTime : MonoBehaviour
 
         m_light.transform.rotation = m_dawnOrientation;
         unnormalizedTime = dawnTime;
+        m_finished = false;
     }
 
     private Vector3 debugZenith;
@@ -102,11 +107,26 @@ public class DayTime : MonoBehaviour
     {
         if (dawnOffsetTime >= dayTimeDuration)
         {
-            if (loop)
+            if (blackScreen.isFading || m_finished)
             {
-                season = (season + 1) % 4;
-                StartDay();
+                return;
             }
+            
+            blackScreen.onFadeFinished = () =>
+            {
+                if (loop)
+                {
+                    season = (season + 1) % 4;
+                    blackScreen.StartFade();
+                    blackScreen.onFadeFinished = StartDay;
+                }
+                else
+                {
+                    m_finished = true;
+                    onDayEnd?.Invoke();
+                }
+            };
+            blackScreen.StartFade();
             return;
         }
 
