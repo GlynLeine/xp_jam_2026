@@ -15,8 +15,8 @@ MonoBehaviour:
   NodeGraph: {fileID: 11400000}
   Rect:
     serializedVersion: 2
-    x: 550.6667
-    y: 161.33334
+    x: 639.6667
+    y: 275.33334
     width: 190
     height: 135
   IsDragging: 1
@@ -24,7 +24,7 @@ MonoBehaviour:
   _sentence:
     CharacterName: James
     Text: Wonderful. Wonderful. I'll hop in back then.
-    CharacterSprite: {fileID: 0}
+    CharacterSprite: {fileID: 21300000, guid: b3bf87f1daeb5214399d884b319f607b, type: 3}
   ParentNodes:
   - {fileID: -4692483505581286518}
   ChildNode: {fileID: 0}
@@ -47,8 +47,8 @@ MonoBehaviour:
   NodeGraph: {fileID: 11400000}
   Rect:
     serializedVersion: 2
-    x: 331.33322
-    y: 14.000015
+    x: 420.33322
+    y: 128.00002
     width: 190
     height: 135
   IsDragging: 1
@@ -57,7 +57,7 @@ MonoBehaviour:
     CharacterName: James
     Text: Right, my name is James. I'm Antony's grandfather. He sent word that he
       needed my help. No wonder, considering what he knows.
-    CharacterSprite: {fileID: 0}
+    CharacterSprite: {fileID: 21300000, guid: b3bf87f1daeb5214399d884b319f607b, type: 3}
   ParentNodes:
   - {fileID: -2002028832122186851}
   ChildNode: {fileID: 5606345441830195868}
@@ -80,8 +80,8 @@ MonoBehaviour:
   NodeGraph: {fileID: 11400000}
   Rect:
     serializedVersion: 2
-    x: 288.66666
-    y: 181.33333
+    x: 377.66666
+    y: 295.3333
     width: 190
     height: 135
   IsDragging: 1
@@ -109,8 +109,8 @@ MonoBehaviour:
   NodeGraph: {fileID: 11400000}
   Rect:
     serializedVersion: 2
-    x: 95.33324
-    y: 23.333359
+    x: 184.33324
+    y: 137.33336
     width: 190
     height: 135
   IsDragging: 1
@@ -120,7 +120,7 @@ MonoBehaviour:
     Text: You're the nice chap meant to escort me, right? I remember when I used
       to go through these woods. Such good times. You're young, you've got lots of
       time to experince this.
-    CharacterSprite: {fileID: 0}
+    CharacterSprite: {fileID: 21300000, guid: b3bf87f1daeb5214399d884b319f607b, type: 3}
   ParentNodes: []
   ChildNode: {fileID: -5579249690807731896}
   _isExternalFunc: 0
@@ -142,8 +142,8 @@ MonoBehaviour:
   NodeGraph: {fileID: 11400000}
   Rect:
     serializedVersion: 2
-    x: 106.666626
-    y: 179.33334
+    x: 195.66663
+    y: 293.33334
     width: 190
     height: 135
   IsDragging: 1
@@ -152,7 +152,7 @@ MonoBehaviour:
     CharacterName: James
     Text: It's what happens when you've lived here most of your life. Anyway. Off
       we go. Is this your cart?
-    CharacterSprite: {fileID: 0}
+    CharacterSprite: {fileID: 21300000, guid: b3bf87f1daeb5214399d884b319f607b, type: 3}
   ParentNodes:
   - {fileID: 5606345441830195868}
   ChildNode: {fileID: -4692483505581286518}
@@ -200,8 +200,8 @@ MonoBehaviour:
   NodeGraph: {fileID: 11400000}
   Rect:
     serializedVersion: 2
-    x: 549.33325
-    y: 2.6666718
+    x: 638.33325
+    y: 116.66667
     width: 190
     height: 135
   IsDragging: 1
@@ -210,7 +210,7 @@ MonoBehaviour:
     CharacterName: James
     Text: He might know what the fields and the people have, but nobody knows the
       outside like me.
-    CharacterSprite: {fileID: 0}
+    CharacterSprite: {fileID: 21300000, guid: b3bf87f1daeb5214399d884b319f607b, type: 3}
   ParentNodes:
   - {fileID: -5579249690807731896}
   ChildNode: {fileID: -1461939894364798217}

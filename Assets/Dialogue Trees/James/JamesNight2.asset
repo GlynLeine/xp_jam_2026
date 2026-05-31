@@ -15,8 +15,8 @@ MonoBehaviour:
   NodeGraph: {fileID: 11400000}
   Rect:
     serializedVersion: 2
-    x: 290.66656
-    y: -76.66673
+    x: -36.333435
+    y: 135.33327
     width: 190
     height: 135
   IsDragging: 1
@@ -24,7 +24,7 @@ MonoBehaviour:
   _sentence:
     CharacterName: James
     Text: Are we nearly there yet?
-    CharacterSprite: {fileID: 0}
+    CharacterSprite: {fileID: 21300000, guid: b3bf87f1daeb5214399d884b319f607b, type: 3}
   ParentNodes: []
   ChildNode: {fileID: 3965662317673563795}
   _isExternalFunc: 0
@@ -46,8 +46,8 @@ MonoBehaviour:
   NodeGraph: {fileID: 11400000}
   Rect:
     serializedVersion: 2
-    x: 857.3335
-    y: -22.666748
+    x: 1535.3335
+    y: 385.33325
     width: 190
     height: 135
   IsDragging: 1
@@ -56,7 +56,7 @@ MonoBehaviour:
     CharacterName: James
     Text: No need to lie to me boyo. I know about where we are. Don't be so antagonistic.
       Antony's paying you for this.
-    CharacterSprite: {fileID: 0}
+    CharacterSprite: {fileID: 21300000, guid: b3bf87f1daeb5214399d884b319f607b, type: 3}
   ParentNodes:
   - {fileID: 3965662317673563795}
   ChildNode: {fileID: -3321980530096985821}
@@ -79,8 +79,8 @@ MonoBehaviour:
   NodeGraph: {fileID: 11400000}
   Rect:
     serializedVersion: 2
-    x: 386
-    y: 104.00003
+    x: 536
+    y: 587
     width: 190
     height: 135
   IsDragging: 1
@@ -88,7 +88,7 @@ MonoBehaviour:
   _sentence:
     CharacterName: James
     Text: Get some rest now and get me there tomorrow.
-    CharacterSprite: {fileID: 0}
+    CharacterSprite: {fileID: 21300000, guid: b3bf87f1daeb5214399d884b319f607b, type: 3}
   ParentNodes:
   - {fileID: -4339794952202804272}
   - {fileID: -1115603559750129563}
@@ -112,8 +112,8 @@ MonoBehaviour:
   NodeGraph: {fileID: 11400000}
   Rect:
     serializedVersion: 2
-    x: 822.66675
-    y: -152.00006
+    x: 495.66675
+    y: 59.99994
     width: 190
     height: 135
   IsDragging: 1
@@ -121,7 +121,7 @@ MonoBehaviour:
   _sentence:
     CharacterName: James
     Text: Good. Good. You're taking quite your time, so I'd hope so!
-    CharacterSprite: {fileID: 0}
+    CharacterSprite: {fileID: 21300000, guid: b3bf87f1daeb5214399d884b319f607b, type: 3}
   ParentNodes:
   - {fileID: 3965662317673563795}
   ChildNode: {fileID: -3321980530096985821}
@@ -168,8 +168,8 @@ MonoBehaviour:
   NodeGraph: {fileID: 11400000}
   Rect:
     serializedVersion: 2
-    x: 545.33325
-    y: -68.000046
+    x: 218.33325
+    y: 143.99995
     width: 190
     height: 135
   IsDragging: 1

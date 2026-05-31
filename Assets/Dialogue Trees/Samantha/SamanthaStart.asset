@@ -15,8 +15,8 @@ MonoBehaviour:
   NodeGraph: {fileID: 11400000}
   Rect:
     serializedVersion: 2
-    x: 490.66675
-    y: 69.999985
+    x: 493.66675
+    y: 175.99998
     width: 190
     height: 135
   IsDragging: 1
@@ -25,7 +25,7 @@ MonoBehaviour:
     CharacterName: Samantha
     Text: He claimed that you're a very trustworthy, as you managed to bring him
       here quite quickly.
-    CharacterSprite: {fileID: 0}
+    CharacterSprite: {fileID: 21300000, guid: 0113f9e2e34442c4da80457976facc71, type: 3}
   ParentNodes:
   - {fileID: 174349602727342527}
   ChildNode: {fileID: 3143545843350306605}
@@ -48,12 +48,12 @@ MonoBehaviour:
   NodeGraph: {fileID: 11400000}
   Rect:
     serializedVersion: 2
-    x: 236.00009
-    y: 182.00002
+    x: 239.00009
+    y: 288
     width: 190
     height: 135
   IsDragging: 1
-  IsSelected: 1
+  IsSelected: 0
   Answers:
   - Put it in the back of the cart.
   - I'll see what I can do.
@@ -101,8 +101,8 @@ MonoBehaviour:
   NodeGraph: {fileID: 11400000}
   Rect:
     serializedVersion: 2
-    x: 264.66678
-    y: -1.333374
+    x: 267.66678
+    y: 104.666626
     width: 190
     height: 135
   IsDragging: 1
@@ -111,7 +111,7 @@ MonoBehaviour:
     CharacterName: Samantha
     Text: Hello Sir. Sorry to bug you, but I'm Samantha. I was told to come visit
       you for transport? Antony is my mentor.
-    CharacterSprite: {fileID: 0}
+    CharacterSprite: {fileID: 21300000, guid: 0113f9e2e34442c4da80457976facc71, type: 3}
   ParentNodes: []
   ChildNode: {fileID: -4424975317676860127}
   _isExternalFunc: 0
@@ -133,8 +133,8 @@ MonoBehaviour:
   NodeGraph: {fileID: 11400000}
   Rect:
     serializedVersion: 2
-    x: 514.6667
-    y: 204.66667
+    x: 517.6667
+    y: 310.6667
     width: 190
     height: 135
   IsDragging: 1
@@ -143,7 +143,7 @@ MonoBehaviour:
     CharacterName: Samantha
     Text: Thank you so much! I've been worried about this and it'll be a relief to
       have someone so experienced by my side.
-    CharacterSprite: {fileID: 0}
+    CharacterSprite: {fileID: 21300000, guid: 0113f9e2e34442c4da80457976facc71, type: 3}
   ParentNodes:
   - {fileID: -3691058971081669829}
   ChildNode: {fileID: 0}
@@ -166,8 +166,8 @@ MonoBehaviour:
   NodeGraph: {fileID: 11400000}
   Rect:
     serializedVersion: 2
-    x: 702.66675
-    y: 70.66666
+    x: 705.66675
+    y: 176.66666
     width: 190
     height: 135
   IsDragging: 1
@@ -177,7 +177,7 @@ MonoBehaviour:
     Text: He has some research, but he needs to stay here a little longer. Apparently
       he needs the library. I'm bringing all of our research stuff with me. Is that
       okay with you?
-    CharacterSprite: {fileID: 0}
+    CharacterSprite: {fileID: 21300000, guid: 0113f9e2e34442c4da80457976facc71, type: 3}
   ParentNodes:
   - {fileID: -4424975317676860127}
   ChildNode: {fileID: -3691058971081669829}

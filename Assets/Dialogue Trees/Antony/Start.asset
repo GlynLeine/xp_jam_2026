@@ -15,8 +15,8 @@ MonoBehaviour:
   NodeGraph: {fileID: 11400000}
   Rect:
     serializedVersion: 2
-    x: 878.33325
-    y: 192.66675
+    x: 1138.3333
+    y: 179.66675
     width: 190
     height: 155
   IsDragging: 1
@@ -24,7 +24,7 @@ MonoBehaviour:
   _sentence:
     CharacterName: Antony
     Text: How dare you! Fine, I'll travel by myself!
-    CharacterSprite: {fileID: 0}
+    CharacterSprite: {fileID: 21300000, guid: 54a8fe2cde0b87d4492176b014f57b00, type: 3}
   ParentNodes:
   - {fileID: -5663534578279301465}
   ChildNode: {fileID: 0}
@@ -47,8 +47,8 @@ MonoBehaviour:
   NodeGraph: {fileID: 11400000}
   Rect:
     serializedVersion: 2
-    x: -345.99988
-    y: 291.66675
+    x: -78.99988
+    y: 276.66675
     width: 190
     height: 135
   IsDragging: 1
@@ -56,7 +56,7 @@ MonoBehaviour:
   _sentence:
     CharacterName: ???
     Text: Oh sorry, I forgot to introduce myself
-    CharacterSprite: {fileID: 0}
+    CharacterSprite: {fileID: 21300000, guid: 54a8fe2cde0b87d4492176b014f57b00, type: 3}
   ParentNodes:
   - {fileID: -4175255509803241730}
   ChildNode: {fileID: 3681748957732093644}
@@ -79,8 +79,8 @@ MonoBehaviour:
   NodeGraph: {fileID: 11400000}
   Rect:
     serializedVersion: 2
-    x: 604.6665
-    y: 231.00012
+    x: 864.6665
+    y: 218.00012
     width: 190
     height: 135
   IsDragging: 1
@@ -109,8 +109,8 @@ MonoBehaviour:
   NodeGraph: {fileID: 11400000}
   Rect:
     serializedVersion: 2
-    x: 81.99988
-    y: 280.33344
+    x: 341.99988
+    y: 267.33344
     width: 190
     height: 135
   IsDragging: 1
@@ -139,8 +139,8 @@ MonoBehaviour:
   NodeGraph: {fileID: 11400000}
   Rect:
     serializedVersion: 2
-    x: -578.66675
-    y: 291.66675
+    x: -318.66675
+    y: 278.66675
     width: 190
     height: 135
   IsDragging: 1
@@ -149,7 +149,7 @@ MonoBehaviour:
     CharacterName: ???
     Text: Hello dear wanderer. I've got to travel to the city over yonder, but I
       need some help.
-    CharacterSprite: {fileID: 0}
+    CharacterSprite: {fileID: 21300000, guid: 54a8fe2cde0b87d4492176b014f57b00, type: 3}
   ParentNodes: []
   ChildNode: {fileID: -6756416006543893127}
   _isExternalFunc: 0
@@ -171,8 +171,8 @@ MonoBehaviour:
   NodeGraph: {fileID: 11400000}
   Rect:
     serializedVersion: 2
-    x: 908
-    y: 487.66687
+    x: 1168
+    y: 474.66687
     width: 190
     height: 135
   IsDragging: 1
@@ -180,7 +180,7 @@ MonoBehaviour:
   _sentence:
     CharacterName: Antony
     Text: Fantastic! Let's be off!
-    CharacterSprite: {fileID: 0}
+    CharacterSprite: {fileID: 21300000, guid: 54a8fe2cde0b87d4492176b014f57b00, type: 3}
   ParentNodes:
   - {fileID: -4692547792563080294}
   - {fileID: -5663534578279301465}
@@ -231,8 +231,8 @@ MonoBehaviour:
   NodeGraph: {fileID: 11400000}
   Rect:
     serializedVersion: 2
-    x: 369.3335
-    y: 225.66675
+    x: 629.3335
+    y: 212.66675
     width: 190
     height: 135
   IsDragging: 1
@@ -240,7 +240,7 @@ MonoBehaviour:
   _sentence:
     CharacterName: Antony
     Text: What? Whyever not?
-    CharacterSprite: {fileID: 0}
+    CharacterSprite: {fileID: 21300000, guid: 54a8fe2cde0b87d4492176b014f57b00, type: 3}
   ParentNodes:
   - {fileID: -4692547792563080294}
   ChildNode: {fileID: -5663534578279301465}
@@ -263,8 +263,8 @@ MonoBehaviour:
   NodeGraph: {fileID: 11400000}
   Rect:
     serializedVersion: 2
-    x: -126.00012
-    y: 291.00006
+    x: 133.99988
+    y: 278.00006
     width: 190
     height: 135
   IsDragging: 1
@@ -272,7 +272,7 @@ MonoBehaviour:
   _sentence:
     CharacterName: Antony
     Text: My name is Antony. I'm a physician. Now, let's be off, what say you?
-    CharacterSprite: {fileID: 0}
+    CharacterSprite: {fileID: 21300000, guid: 54a8fe2cde0b87d4492176b014f57b00, type: 3}
   ParentNodes:
   - {fileID: -6756416006543893127}
   ChildNode: {fileID: -4692547792563080294}
