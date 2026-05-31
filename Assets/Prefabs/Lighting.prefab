@@ -193,11 +193,28 @@ MonoBehaviour:
   winterDawnTime: 32
   unnormalizedTime: 0
   season: 0
+  loop: 0
   debugTimeScale: 1
+  blackScreen: {fileID: 0}
+  onDayEnd:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: LinkDialog, Assembly-CSharp
+        m_MethodName: startEndOfDayDialogue
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   fogSettings: {fileID: 6645666829772717181}
-  morningDensity: 0.1
+  morningDensity: 0.2
   normalDensity: 0
-  morningFogEndTime: 42
+  morningFogEndTime: 56
 --- !u!1 &6847611256364321091
 GameObject:
   m_ObjectHideFlags: 0
