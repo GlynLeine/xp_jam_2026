@@ -415,10 +415,6 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 663896897}
     - target: {fileID: 4698433802515116717, guid: 4a8255247b5473848957292a84a63e10, type: 3}
-      propertyPath: debugTimeScale
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 4698433802515116717, guid: 4a8255247b5473848957292a84a63e10, type: 3}
       propertyPath: onDayEnd.m_PersistentCalls.m_Calls.Array.size
       value: 1
       objectReference: {fileID: 0}

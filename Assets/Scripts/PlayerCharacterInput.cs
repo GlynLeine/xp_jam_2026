@@ -5,6 +5,7 @@ using UnityEngine.InputSystem;
 public class PlayerCharacterInput : InputDriver
 {
     public cherrydev.DialogBehaviour dialog;
+    public bool dialogOnly;
     public bool cursorLocked { get; private set; } = false;
     public bool cursorInputLocked { get; private set; } = true;
     
@@ -19,7 +20,7 @@ public class PlayerCharacterInput : InputDriver
 
     public void OnMove(InputValue value)
     {
-        if (dialog.isDialogActive)
+        if (dialog.isDialogActive || dialogOnly)
         {
             return;
         }
@@ -28,7 +29,7 @@ public class PlayerCharacterInput : InputDriver
 
     public void OnAim(InputValue value)
     {
-        if (dialog.isDialogActive)
+        if (dialog.isDialogActive || dialogOnly)
         {
             return;
         }
@@ -40,7 +41,7 @@ public class PlayerCharacterInput : InputDriver
 
     public void OnChangeMask(InputValue value)
     {
-        if (dialog.isDialogActive)
+        if (dialog.isDialogActive || dialogOnly)
         {
             return;
         }
@@ -49,7 +50,7 @@ public class PlayerCharacterInput : InputDriver
     
     public void OnDodge(InputValue value)
     {
-        if (dialog.isDialogActive)
+        if (dialog.isDialogActive || dialogOnly)
         {
             return;
         }
@@ -58,7 +59,7 @@ public class PlayerCharacterInput : InputDriver
 
     public void OnAttack(InputValue value)
     {
-        if (dialog.isDialogActive)
+        if (dialog.isDialogActive || dialogOnly)
         {
             if (value.isPressed)
             {
