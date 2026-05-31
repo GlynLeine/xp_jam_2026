@@ -683,7 +683,7 @@ MonoBehaviour:
   HasSourceProject: 0
   HasPlatforms: 1
   sourceProjectPath: 
-  sourceBankPath: ../../FMOD Studio/WanderingVagrants-Fmod/Build
+  sourceBankPath: Assets/Audio/Project Data/Build
   sourceBankPathUnformatted: 
   BankRefreshCooldown: 5
   ShowBankRefreshWindow: 1

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.02.00">
+	<object class="AudioFile" id="{18cfe7f5-806e-4d2e-abff-424864a1ccba}">
+		<property name="assetPath">
+			<value>SFX-LOOP-Water-River.wav</value>
+		</property>
+		<property name="frequencyInKHz">
+			<value>48</value>
+		</property>
+		<property name="channelCount">
+			<value>2</value>
+		</property>
+		<property name="length">
+			<value>3.1578958333333333</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{35580a27-aebc-422f-8004-467b72b5dc65}</destination>
+		</relationship>
+	</object>
+</objects>
