@@ -4,6 +4,7 @@ using UnityEngine.InputSystem;
 [RequireComponent(typeof(PlayerInput))]
 public class PlayerCharacterInput : InputDriver
 {
+    public cherrydev.DialogBehaviour dialog;
     public bool cursorLocked { get; private set; } = false;
     public bool cursorInputLocked { get; private set; } = true;
     
@@ -41,6 +42,10 @@ public class PlayerCharacterInput : InputDriver
 
     public void OnAttack(InputValue value)
     {
+        if (value.isPressed)
+        {
+            dialog.moveToNext();
+        }
         AttackInput(value.isPressed);
     }
 		
