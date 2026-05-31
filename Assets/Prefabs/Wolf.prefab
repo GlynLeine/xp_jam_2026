@@ -516,7 +516,27 @@ MonoBehaviour:
   landingAudioClip: {fileID: 0}
   maxHealth: 0
   attackPreview: {fileID: 0}
-  attacks: []
+  attacks:
+  - duration: 0.1
+    cooldown: 0.15
+    aoe:
+      x: 90
+      y: 2
+    damage: 1
+    knockbackForce: 1
+    movement:
+      x: 0
+      y: 0
+      z: 0
+    value0: 0
+    selectionDirection:
+      x: 0
+      y: 1
+    color: {r: 0.23255605, g: 0.735849, b: 0.3055719, a: 0}
+    selectionVisual: {fileID: 0}
+    weaponCollider: {fileID: 0}
+    unlocked: 0
+    timeBuffer: 0
 --- !u!114 &3235579760689345130
 MonoBehaviour:
   m_ObjectHideFlags: 0
