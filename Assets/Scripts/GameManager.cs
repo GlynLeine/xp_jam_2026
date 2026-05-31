@@ -9,6 +9,8 @@ using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
+    public FMODUnity.StudioEventEmitter[] fmodEventEmitters;
+    
     public DialogNodeGraph[] AntonyNodes;
     public DialogNodeGraph[] SamanthaNodes;
     public DialogNodeGraph[] JamesNodes;

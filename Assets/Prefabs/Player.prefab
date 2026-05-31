@@ -442,6 +442,7 @@ GameObject:
   - component: {fileID: 5700247325176496980}
   - component: {fileID: 3938525429208712838}
   - component: {fileID: 3431601979826423765}
+  - component: {fileID: 8544511098769203186}
   m_Layer: 8
   m_Name: Player
   m_TagString: Player
@@ -678,6 +679,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::PlayerCharacterInput
   analogMovement: 0
   dialog: {fileID: 262460576722147389}
+  dialogOnly: 0
 --- !u!114 &3431601979826423765
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -776,6 +778,20 @@ MonoBehaviour:
   m_DefaultActionMap: Player
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 0}
+--- !u!114 &8544511098769203186
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4964348896996501086}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 86c6556701af9e04380698b89f691b6e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: FMODUnity::FMODUnity.StudioListener
+  nonRigidbodyVelocity: 0
+  attenuationObject: {fileID: 0}
 --- !u!1 &5722312548407276460
 GameObject:
   m_ObjectHideFlags: 0
@@ -1290,33 +1306,9 @@ PrefabInstance:
       value: Dialog Prefab
       objectReference: {fileID: 0}
     - target: {fileID: 7250229689785646963, guid: 0bd08184220c9914a877f3a735221e05, type: 3}
-      propertyPath: _onDialogFinished.m_PersistentCalls.m_Calls.Array.size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7250229689785646963, guid: 0bd08184220c9914a877f3a735221e05, type: 3}
-      propertyPath: _onDialogFinished.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7250229689785646963, guid: 0bd08184220c9914a877f3a735221e05, type: 3}
       propertyPath: _onDialogFinished.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 720982508516209226}
-    - target: {fileID: 7250229689785646963, guid: 0bd08184220c9914a877f3a735221e05, type: 3}
-      propertyPath: _onDialogFinished.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 7250229689785646963, guid: 0bd08184220c9914a877f3a735221e05, type: 3}
-      propertyPath: _onDialogFinished.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: endEndOfDayDialogue
-      objectReference: {fileID: 0}
-    - target: {fileID: 7250229689785646963, guid: 0bd08184220c9914a877f3a735221e05, type: 3}
-      propertyPath: _onDialogFinished.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
-      value: LinkDialog, Assembly-CSharp
-      objectReference: {fileID: 0}
-    - target: {fileID: 7250229689785646963, guid: 0bd08184220c9914a877f3a735221e05, type: 3}
-      propertyPath: _onDialogFinished.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
-      value: UnityEngine.Object, UnityEngine
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

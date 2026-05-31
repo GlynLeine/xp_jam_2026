@@ -15,8 +15,8 @@ MonoBehaviour:
   NodeGraph: {fileID: 11400000}
   Rect:
     serializedVersion: 2
-    x: 149.33342
-    y: 175.33334
+    x: 183.33342
+    y: 336.33334
     width: 190
     height: 135
   IsDragging: 1
@@ -26,7 +26,7 @@ MonoBehaviour:
     Text: But I really hope that I can help with Antony. He's been so good to me
       helping teach me how to become a physician like him. Thank you for being a
       capable guide.
-    CharacterSprite: {fileID: 0}
+    CharacterSprite: {fileID: 21300000, guid: 0113f9e2e34442c4da80457976facc71, type: 3}
   ParentNodes:
   - {fileID: 9180157372039606173}
   ChildNode: {fileID: 0}
@@ -49,8 +49,8 @@ MonoBehaviour:
   NodeGraph: {fileID: 11400000}
   Rect:
     serializedVersion: 2
-    x: 332.66666
-    y: 24.666656
+    x: 366.66666
+    y: 185.66666
     width: 190
     height: 135
   IsDragging: 1
@@ -61,7 +61,7 @@ MonoBehaviour:
       have had you coming through. It's affected everyone I know. The harvests have
       been meager recently, so the taxes and the jobs and everything else is way
       more difficult to get.
-    CharacterSprite: {fileID: 0}
+    CharacterSprite: {fileID: 21300000, guid: 0113f9e2e34442c4da80457976facc71, type: 3}
   ParentNodes:
   - {fileID: 1898891004824113847}
   ChildNode: {fileID: 9180157372039606173}
@@ -107,8 +107,8 @@ MonoBehaviour:
   NodeGraph: {fileID: 11400000}
   Rect:
     serializedVersion: 2
-    x: 138.66672
-    y: 24
+    x: 172.66672
+    y: 185
     width: 190
     height: 135
   IsDragging: 0
@@ -117,7 +117,7 @@ MonoBehaviour:
     CharacterName: Samantha
     Text: We're nearly there. Good job getting us this far! You're a really impressive
       person, you know?
-    CharacterSprite: {fileID: 0}
+    CharacterSprite: {fileID: 21300000, guid: 0113f9e2e34442c4da80457976facc71, type: 3}
   ParentNodes: []
   ChildNode: {fileID: -1726198975545163329}
   _isExternalFunc: 0
@@ -139,8 +139,8 @@ MonoBehaviour:
   NodeGraph: {fileID: 11400000}
   Rect:
     serializedVersion: 2
-    x: 534.6668
-    y: 25.333328
+    x: 568.6668
+    y: 186.33333
     width: 190
     height: 135
   IsDragging: 1
@@ -149,7 +149,7 @@ MonoBehaviour:
     CharacterName: Samantha
     Text: We've had problems with deliveries, but only really from nearby. From across
       the ocean it's still good, so we hope that it'll solve the problems.
-    CharacterSprite: {fileID: 0}
+    CharacterSprite: {fileID: 21300000, guid: 0113f9e2e34442c4da80457976facc71, type: 3}
   ParentNodes:
   - {fileID: -1726198975545163329}
   ChildNode: {fileID: -5660184561618918439}

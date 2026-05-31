@@ -15,8 +15,8 @@ MonoBehaviour:
   NodeGraph: {fileID: 11400000}
   Rect:
     serializedVersion: 2
-    x: 118.000015
-    y: 16.666672
+    x: 453
+    y: 211.66667
     width: 190
     height: 135
   IsDragging: 1
@@ -25,7 +25,7 @@ MonoBehaviour:
     CharacterName: James
     Text: Good going lad. You've really impressed me with your navigation skills.
       Did you know though that you passed a series of mushrooms?
-    CharacterSprite: {fileID: 0}
+    CharacterSprite: {fileID: 21300000, guid: b3bf87f1daeb5214399d884b319f607b, type: 3}
   ParentNodes: []
   ChildNode: {fileID: -1640795302235499274}
   _isExternalFunc: 0
@@ -47,8 +47,8 @@ MonoBehaviour:
   NodeGraph: {fileID: 11400000}
   Rect:
     serializedVersion: 2
-    x: 331.33325
-    y: 0.0000076293945
+    x: 666.33325
+    y: 195
     width: 190
     height: 135
   IsDragging: 1
@@ -57,7 +57,7 @@ MonoBehaviour:
     CharacterName: James
     Text: Yes, yes, I saw them from in here. They're quite visible. If you know what
       to look for it's not that hard. Here. It's shaped like a button.
-    CharacterSprite: {fileID: 0}
+    CharacterSprite: {fileID: 21300000, guid: b3bf87f1daeb5214399d884b319f607b, type: 3}
   ParentNodes:
   - {fileID: -6999645752622608372}
   ChildNode: {fileID: -808306921339381063}
@@ -80,8 +80,8 @@ MonoBehaviour:
   NodeGraph: {fileID: 11400000}
   Rect:
     serializedVersion: 2
-    x: 545.3334
-    y: 6.6666718
+    x: 880.3334
+    y: 201.66667
     width: 190
     height: 135
   IsDragging: 1
@@ -90,7 +90,7 @@ MonoBehaviour:
     CharacterName: James
     Text: Just don't confuse it for the mushroom shaped one. That one can be deadly,
       and I wouldn't recommend eating it.
-    CharacterSprite: {fileID: 0}
+    CharacterSprite: {fileID: 21300000, guid: b3bf87f1daeb5214399d884b319f607b, type: 3}
   ParentNodes:
   - {fileID: -1640795302235499274}
   ChildNode: {fileID: 6508086401499329570}
@@ -136,8 +136,8 @@ MonoBehaviour:
   NodeGraph: {fileID: 11400000}
   Rect:
     serializedVersion: 2
-    x: 112.66669
-    y: 160.66667
+    x: 447.6667
+    y: 355.6667
     width: 190
     height: 135
   IsDragging: 1
@@ -145,7 +145,7 @@ MonoBehaviour:
   _sentence:
     CharacterName: James
     Text: Now excuse me. I'm going to go have a kip.
-    CharacterSprite: {fileID: 0}
+    CharacterSprite: {fileID: 21300000, guid: b3bf87f1daeb5214399d884b319f607b, type: 3}
   ParentNodes:
   - {fileID: -808306921339381063}
   ChildNode: {fileID: 0}

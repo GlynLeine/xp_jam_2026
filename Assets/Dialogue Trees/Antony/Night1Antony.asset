@@ -15,17 +15,17 @@ MonoBehaviour:
   NodeGraph: {fileID: 11400000}
   Rect:
     serializedVersion: 2
-    x: 1019.333
-    y: 121.99986
+    x: 904.333
+    y: 178.99986
     width: 190
     height: 135
   IsDragging: 1
-  IsSelected: 0
+  IsSelected: 1
   _sentence:
     CharacterName: Antony
     Text: I've heard that the prince has far more resources to help with blights.
       I'm going to petition him to see if he can help me.
-    CharacterSprite: {fileID: 0}
+    CharacterSprite: {fileID: 21300000, guid: 54a8fe2cde0b87d4492176b014f57b00, type: 3}
   ParentNodes:
   - {fileID: -4102871990576148316}
   - {fileID: 3597358797059558183}
@@ -49,8 +49,8 @@ MonoBehaviour:
   NodeGraph: {fileID: 11400000}
   Rect:
     serializedVersion: 2
-    x: 515.9996
-    y: 97.33324
+    x: 400.99957
+    y: 154.33324
     width: 190
     height: 135
   IsDragging: 1
@@ -79,8 +79,8 @@ MonoBehaviour:
   NodeGraph: {fileID: 11400000}
   Rect:
     serializedVersion: 2
-    x: 306.66614
-    y: 126.66652
+    x: 191.66614
+    y: 183.66652
     width: 190
     height: 135
   IsDragging: 1
@@ -89,7 +89,7 @@ MonoBehaviour:
     CharacterName: Antony
     Text: Thank you for the assistance. You know, the reason I had to leave was the
       blight.
-    CharacterSprite: {fileID: 0}
+    CharacterSprite: {fileID: 21300000, guid: 54a8fe2cde0b87d4492176b014f57b00, type: 3}
   ParentNodes: []
   ChildNode: {fileID: -4102871990576148316}
   _isExternalFunc: 0
@@ -135,8 +135,8 @@ MonoBehaviour:
   NodeGraph: {fileID: 11400000}
   Rect:
     serializedVersion: 2
-    x: 773.9995
-    y: -10.666786
+    x: 658.9995
+    y: 46.333214
     width: 190
     height: 135
   IsDragging: 1
@@ -144,7 +144,7 @@ MonoBehaviour:
   _sentence:
     CharacterName: Antony
     Text: Yes! The blight! It's been ravaging our fields and killing our livestock!
-    CharacterSprite: {fileID: 0}
+    CharacterSprite: {fileID: 21300000, guid: 54a8fe2cde0b87d4492176b014f57b00, type: 3}
   ParentNodes:
   - {fileID: -4102871990576148316}
   ChildNode: {fileID: -5413117333461001223}
@@ -167,8 +167,8 @@ MonoBehaviour:
   NodeGraph: {fileID: 11400000}
   Rect:
     serializedVersion: 2
-    x: 1359.9999
-    y: 114.66661
+    x: 1244.9999
+    y: 171.66661
     width: 190
     height: 115
   IsDragging: 1
