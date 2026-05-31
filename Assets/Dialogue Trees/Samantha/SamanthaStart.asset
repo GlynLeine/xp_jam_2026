@@ -15,8 +15,8 @@ MonoBehaviour:
   NodeGraph: {fileID: 11400000}
   Rect:
     serializedVersion: 2
-    x: 354.66675
-    y: -18.000015
+    x: 490.66675
+    y: 69.999985
     width: 190
     height: 135
   IsDragging: 1
@@ -48,12 +48,12 @@ MonoBehaviour:
   NodeGraph: {fileID: 11400000}
   Rect:
     serializedVersion: 2
-    x: 129.33345
-    y: 118.66669
+    x: 236.00009
+    y: 182.00002
     width: 190
     height: 135
   IsDragging: 1
-  IsSelected: 0
+  IsSelected: 1
   Answers:
   - Put it in the back of the cart.
   - I'll see what I can do.
@@ -101,11 +101,11 @@ MonoBehaviour:
   NodeGraph: {fileID: 11400000}
   Rect:
     serializedVersion: 2
-    x: 128.66678
-    y: -20.000038
+    x: 264.66678
+    y: -1.333374
     width: 190
     height: 135
-  IsDragging: 0
+  IsDragging: 1
   IsSelected: 0
   _sentence:
     CharacterName: Samantha
@@ -133,8 +133,8 @@ MonoBehaviour:
   NodeGraph: {fileID: 11400000}
   Rect:
     serializedVersion: 2
-    x: 378.6667
-    y: 116.66667
+    x: 514.6667
+    y: 204.66667
     width: 190
     height: 135
   IsDragging: 1
@@ -166,8 +166,8 @@ MonoBehaviour:
   NodeGraph: {fileID: 11400000}
   Rect:
     serializedVersion: 2
-    x: 566.66675
-    y: -17.333344
+    x: 702.66675
+    y: 70.66666
     width: 190
     height: 135
   IsDragging: 1
