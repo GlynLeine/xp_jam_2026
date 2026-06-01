@@ -15,8 +15,8 @@ MonoBehaviour:
   NodeGraph: {fileID: 11400000}
   Rect:
     serializedVersion: 2
-    x: 309.83008
-    y: 339.1667
+    x: 1088.23
+    y: 466.3667
     width: 190
     height: 135
   IsDragging: 1
@@ -48,8 +48,8 @@ MonoBehaviour:
   NodeGraph: {fileID: 11400000}
   Rect:
     serializedVersion: 2
-    x: -157.49805
-    y: 244.5
+    x: 620.902
+    y: 371.7
     width: 190
     height: 135
   IsDragging: 1
@@ -81,8 +81,8 @@ MonoBehaviour:
   NodeGraph: {fileID: 11400000}
   Rect:
     serializedVersion: 2
-    x: 63.833984
-    y: 259.83325
+    x: 842.234
+    y: 387.03326
     width: 190
     height: 135
   IsDragging: 1
@@ -136,8 +136,8 @@ MonoBehaviour:
   NodeGraph: {fileID: 11400000}
   Rect:
     serializedVersion: 2
-    x: -403.49805
-    y: 224.49973
+    x: 374.90198
+    y: 351.69974
     width: 190
     height: 135
   IsDragging: 0
@@ -167,12 +167,12 @@ MonoBehaviour:
   NodeGraph: {fileID: 11400000}
   Rect:
     serializedVersion: 2
-    x: 690.49805
-    y: 289.16675
+    x: 1468.898
+    y: 416.36676
     width: 190
     height: 135
   IsDragging: 1
-  IsSelected: 1
+  IsSelected: 0
   _sentence:
     CharacterName: Antony
     Text: Anyway, it's not too hard to walk on the ice. But it's quite dangerous.
@@ -201,8 +201,8 @@ MonoBehaviour:
   NodeGraph: {fileID: 11400000}
   Rect:
     serializedVersion: 2
-    x: 309.83008
-    y: 211.83325
+    x: 1088.23
+    y: 339.03326
     width: 190
     height: 135
   IsDragging: 1
