@@ -2,6 +2,7 @@ using System;
 using Unity.Mathematics;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.SceneManagement;
 
 [RequireComponent(typeof(Light))]
 public class DayTime : MonoBehaviour
@@ -131,6 +132,7 @@ public class DayTime : MonoBehaviour
                     onDayEnd?.Invoke();
                 }
             };
+            
             blackScreen.StartFade();
             return;
         }

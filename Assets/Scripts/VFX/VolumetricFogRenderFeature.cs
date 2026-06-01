@@ -54,7 +54,7 @@ public class VolumetricFogRenderFeature : ScriptableRendererFeature
         material = new Material(shader);
         renderPass = new VolumetricFogRenderPass(material, settings);
 
-        renderPass.renderPassEvent = RenderPassEvent.AfterRenderingTransparents;
+        renderPass.renderPassEvent = RenderPassEvent.AfterRenderingOpaques;
 
         float nearClipZ = -1;
         if (SystemInfo.usesReversedZBuffer)

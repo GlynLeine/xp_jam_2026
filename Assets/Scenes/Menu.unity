@@ -678,13 +678,25 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 3871148169954782067, guid: f6d148d888ffbf54b9afe9936dfaec1f, type: 3}
-      propertyPath: fogSettings
-      value: 
-      objectReference: {fileID: 771087103}
-    - target: {fileID: 8944336655422409496, guid: f6d148d888ffbf54b9afe9936dfaec1f, type: 3}
-      propertyPath: far clip plane
-      value: 500
+    - target: {fileID: 32079041960549949, guid: f6d148d888ffbf54b9afe9936dfaec1f, type: 3}
+      propertyPath: m_ClearFlags
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 32079041960549949, guid: f6d148d888ffbf54b9afe9936dfaec1f, type: 3}
+      propertyPath: m_BackGroundColor.a
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 32079041960549949, guid: f6d148d888ffbf54b9afe9936dfaec1f, type: 3}
+      propertyPath: m_BackGroundColor.b
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 32079041960549949, guid: f6d148d888ffbf54b9afe9936dfaec1f, type: 3}
+      propertyPath: m_BackGroundColor.g
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 32079041960549949, guid: f6d148d888ffbf54b9afe9936dfaec1f, type: 3}
+      propertyPath: m_BackGroundColor.r
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8944336655422409498, guid: f6d148d888ffbf54b9afe9936dfaec1f, type: 3}
       propertyPath: m_Name
@@ -746,17 +758,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dcdc23840aebe8e43add48c33f6371a1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
---- !u!114 &771087103 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 6645666829772717181, guid: 4a8255247b5473848957292a84a63e10, type: 3}
-  m_PrefabInstance: {fileID: 466976720}
+--- !u!20 &663896897 stripped
+Camera:
+  m_CorrespondingSourceObject: {fileID: 32079041960549949, guid: f6d148d888ffbf54b9afe9936dfaec1f, type: 3}
+  m_PrefabInstance: {fileID: 663896895}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8b68d72d7c8e9284f9863d7fe54790c8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::FogSettings
 --- !u!1001 &784289488
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -830,11 +836,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6df992ccf5e31a94aade97900d477ad3, type: 3}
---- !u!20 &825837632 stripped
-Camera:
-  m_CorrespondingSourceObject: {fileID: 8944336655422409496, guid: f6d148d888ffbf54b9afe9936dfaec1f, type: 3}
-  m_PrefabInstance: {fileID: 663896895}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &895139554
 GameObject:
   m_ObjectHideFlags: 0
@@ -2374,22 +2375,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 545962313977197118, guid: 128a7bca3fb0e644b96efc168dbc1017, type: 3}
-      propertyPath: m_fontColor.b
-      value: 0.85
-      objectReference: {fileID: 0}
-    - target: {fileID: 545962313977197118, guid: 128a7bca3fb0e644b96efc168dbc1017, type: 3}
-      propertyPath: m_fontColor.g
-      value: 0.85
-      objectReference: {fileID: 0}
-    - target: {fileID: 545962313977197118, guid: 128a7bca3fb0e644b96efc168dbc1017, type: 3}
-      propertyPath: m_fontColor.r
-      value: 0.85
-      objectReference: {fileID: 0}
-    - target: {fileID: 545962313977197118, guid: 128a7bca3fb0e644b96efc168dbc1017, type: 3}
-      propertyPath: m_fontColor32.rgba
-      value: 4292467161
-      objectReference: {fileID: 0}
     - target: {fileID: 2549000042380449188, guid: 128a7bca3fb0e644b96efc168dbc1017, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -2425,22 +2410,6 @@ PrefabInstance:
     - target: {fileID: 3978713072826311781, guid: 128a7bca3fb0e644b96efc168dbc1017, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4563056716087612613, guid: 128a7bca3fb0e644b96efc168dbc1017, type: 3}
-      propertyPath: m_fontColor.b
-      value: 0.85
-      objectReference: {fileID: 0}
-    - target: {fileID: 4563056716087612613, guid: 128a7bca3fb0e644b96efc168dbc1017, type: 3}
-      propertyPath: m_fontColor.g
-      value: 0.85
-      objectReference: {fileID: 0}
-    - target: {fileID: 4563056716087612613, guid: 128a7bca3fb0e644b96efc168dbc1017, type: 3}
-      propertyPath: m_fontColor.r
-      value: 0.85
-      objectReference: {fileID: 0}
-    - target: {fileID: 4563056716087612613, guid: 128a7bca3fb0e644b96efc168dbc1017, type: 3}
-      propertyPath: m_fontColor32.rgba
-      value: 4292467161
       objectReference: {fileID: 0}
     - target: {fileID: 6270396179533342915, guid: 128a7bca3fb0e644b96efc168dbc1017, type: 3}
       propertyPath: m_Pivot.x
@@ -2522,26 +2491,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 6653445522947347490, guid: 128a7bca3fb0e644b96efc168dbc1017, type: 3}
-      propertyPath: m_fontColor.b
-      value: 0.85
-      objectReference: {fileID: 0}
-    - target: {fileID: 6653445522947347490, guid: 128a7bca3fb0e644b96efc168dbc1017, type: 3}
-      propertyPath: m_fontColor.g
-      value: 0.85
-      objectReference: {fileID: 0}
-    - target: {fileID: 6653445522947347490, guid: 128a7bca3fb0e644b96efc168dbc1017, type: 3}
-      propertyPath: m_fontColor.r
-      value: 0.85
-      objectReference: {fileID: 0}
-    - target: {fileID: 6653445522947347490, guid: 128a7bca3fb0e644b96efc168dbc1017, type: 3}
-      propertyPath: m_fontColor32.rgba
-      value: 4292467161
-      objectReference: {fileID: 0}
     - target: {fileID: 6964686947285821736, guid: 128a7bca3fb0e644b96efc168dbc1017, type: 3}
       propertyPath: m_Camera
       value: 
-      objectReference: {fileID: 825837632}
+      objectReference: {fileID: 663896897}
     - target: {fileID: 8639420706280519098, guid: 128a7bca3fb0e644b96efc168dbc1017, type: 3}
       propertyPath: blackScreen
       value: 
