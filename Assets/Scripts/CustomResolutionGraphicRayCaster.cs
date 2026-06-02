@@ -337,6 +337,8 @@ public class CustomResolutionGraphicRayCaster : GraphicRaycaster
         for (int i = 0; i < totalCount; ++i)
         {
             Graphic graphic = foundGraphics[i];
+            
+            Debug.Log(graphic.name);
 
             // -1 means it hasn't been processed by the canvas, which means it isn't actually drawn
             if (!graphic.raycastTarget || graphic.canvasRenderer.cull || graphic.depth == -1)

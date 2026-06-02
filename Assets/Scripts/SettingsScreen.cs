@@ -1,10 +1,12 @@
 using System;
 using TMPro;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class SettingsScreen : MonoBehaviour
 {
-    public Action onSettingsChanged;
+    public GameObject[] disableOnSettingScreen;
+    public UnityEvent onSettingsChanged;
 
     public TMP_Dropdown fogResolutionDropdown;
     public TMP_Dropdown fogStepCountDropdown;
@@ -14,6 +16,31 @@ public class SettingsScreen : MonoBehaviour
     [HideInInspector]
     public int fogStepCount;
 
+    private bool[] m_wasActive;
+    
+    public void ToggleSettingsScreen()
+    {
+        if (gameObject.activeSelf)
+        {
+            Debug.Assert(m_wasActive.Length == disableOnSettingScreen.Length);
+            for (int i = 0; i < disableOnSettingScreen.Length; i++)
+            {
+                disableOnSettingScreen[i].SetActive(m_wasActive[i]);
+            }
+        }
+        else
+        {
+            m_wasActive = new bool[disableOnSettingScreen.Length];
+            for (int i = 0; i < disableOnSettingScreen.Length; i++)
+            {
+                m_wasActive[i] = disableOnSettingScreen[i].activeSelf;
+                disableOnSettingScreen[i].SetActive(false);
+            }
+        }
+
+        gameObject.SetActive(!gameObject.activeSelf);
+    }
+    
     private void Start()
     {
         fogResolutionDropdown.onValueChanged.AddListener(OnSettingsChanged);
