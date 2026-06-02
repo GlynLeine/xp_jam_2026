@@ -116,7 +116,7 @@ public class DayTime : MonoBehaviour
         {
             season = GameManager.instance.lastSeason;
             StartDay();
-            unnormalizedTime += math.lerp(morningFogEndTimeWinter, morningFogEndTimeSummer, seasonInterpolator) * (isEndOfSeason ? 0.8f : 0.5f);
+            unnormalizedTime += math.lerp(morningFogEndTimeWinter, morningFogEndTimeSummer, seasonInterpolator) * 0.5f;
         }
         else
         {

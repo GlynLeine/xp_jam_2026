@@ -489,7 +489,7 @@ PrefabInstance:
       objectReference: {fileID: 663896896}
     - target: {fileID: 4698433802515116717, guid: 4a8255247b5473848957292a84a63e10, type: 3}
       propertyPath: debugTimeScale
-      value: 4
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 7345110856010642066, guid: 4a8255247b5473848957292a84a63e10, type: 3}
       propertyPath: m_LocalPosition.x
