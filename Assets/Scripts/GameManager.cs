@@ -25,6 +25,9 @@ public class GameManager : MonoBehaviour
     [NonSerialized]
     public bool succeededSeason;
     
+    [NonSerialized]
+    public int lastSeason;
+    
     void Start()
     {
         instance = this;

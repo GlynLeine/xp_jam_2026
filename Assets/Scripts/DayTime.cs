@@ -15,6 +15,7 @@ public class DayTime : MonoBehaviour
     public int season = 1;
     public Color snowColor;
 
+    public bool isEndOfSeason = false;
     public bool loop = false;
     public float debugTimeScale = 1f;
 
@@ -111,11 +112,16 @@ public class DayTime : MonoBehaviour
         
         m_zenithIntensity = m_light.intensity;
         
-        StartDay();
-
         if (loop)
         {
-            unnormalizedTime += math.lerp(morningFogEndTimeWinter, morningFogEndTimeSummer, seasonInterpolator) * 0.5f;
+            season = GameManager.instance.lastSeason;
+            StartDay();
+            unnormalizedTime += math.lerp(morningFogEndTimeWinter, morningFogEndTimeSummer, seasonInterpolator) * (isEndOfSeason ? 0.8f : 0.5f);
+        }
+        else
+        {
+            StartDay();
+            GameManager.instance.lastSeason = season;
         }
     }
 
@@ -137,7 +143,11 @@ public class DayTime : MonoBehaviour
             {
                 if (loop)
                 {
-                    season = (season + 1) % 4;
+                    if (!isEndOfSeason)
+                    {
+                        season = (season + 1) % 4;
+                    }
+
                     blackScreen.StartFade();
                     StartDay();
                     blackScreen.onFadeFinished = ()=> blackScreen.gameObject.layer = LayerMask.NameToLayer("UI");
