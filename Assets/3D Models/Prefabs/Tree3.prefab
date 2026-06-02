@@ -136,7 +136,7 @@ PrefabInstance:
     - target: {fileID: -7511558181221131132, guid: 85eecc543bb19cd4091a2b7a62ea38ec, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
-      objectReference: {fileID: 2100000, guid: e7feb3f9b41fa204f9032ab171d5b3df, type: 2}
+      objectReference: {fileID: 2100000, guid: aca6ddf1b277b6148bd2eaa39955ba1d, type: 2}
     - target: {fileID: 919132149155446097, guid: 85eecc543bb19cd4091a2b7a62ea38ec, type: 3}
       propertyPath: m_Name
       value: Tree60Bend 1

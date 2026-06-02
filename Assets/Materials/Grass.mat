@@ -83,6 +83,8 @@ Material:
     - _QueueOffset: 0
     - _Saturation: 1
     - _Smoothness: 0.5
+    - _SnowWeight: 0.1
+    - _TerrainSnowWeight: 0.8
     - _WindStrength: 0.125
     m_Colors:
     - _Color: {r: 0.2705882, g: 0.43921566, b: 0.35686272, a: 1}

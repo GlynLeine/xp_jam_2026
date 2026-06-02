@@ -12,7 +12,8 @@ public class DayTime : MonoBehaviour
     public float winterDawnTime = 32f;
     public float unnormalizedTime;
 
-    public float season = 1f;
+    public int season = 1;
+    public Color snowColor;
 
     public bool loop = false;
     public float debugTimeScale = 1f;
@@ -40,7 +41,8 @@ public class DayTime : MonoBehaviour
     [Header("Morning fog")] public FogSettings fogSettings;
     public float morningDensity;
     public float normalDensity;
-    public float morningFogEndTime;
+    public float morningFogEndTimeSummer;
+    public float morningFogEndTimeWinter;
 
     private Light m_light;
     private quaternion m_summerZenithOrientation;
@@ -76,6 +78,12 @@ public class DayTime : MonoBehaviour
         }
     }
 
+    private void OnValidate()
+    {
+        Shader.SetGlobalColor("_SnowColor", snowColor);
+        Shader.SetGlobalInt("_Season", season);
+    }
+
     public void StartDay()
     {
         m_noon = dayTimeDuration * 0.5f;
@@ -83,16 +91,18 @@ public class DayTime : MonoBehaviour
         m_light.transform.rotation = m_dawnOrientation;
         unnormalizedTime = dawnTime;
         m_finished = false;
-    }
 
-    private Vector3 debugZenith;
+        Shader.SetGlobalInt("_Season", season);
+    }
     
     private void Start()
     {
+        Shader.SetGlobalColor("_SnowColor", snowColor);
+        
         m_light = GetComponent<Light>();
         Debug.Assert(m_light.type == LightType.Directional);
 
-        float3 zenithDirection = debugZenith = -m_light.transform.forward;
+        float3 zenithDirection = -m_light.transform.forward;
         m_south = math.normalize(new float3(zenithDirection.x, 0, zenithDirection.z));
 
         m_summerZenithOrientation = m_light.transform.rotation;
@@ -102,6 +112,11 @@ public class DayTime : MonoBehaviour
         m_zenithIntensity = m_light.intensity;
         
         StartDay();
+
+        if (loop)
+        {
+            unnormalizedTime += math.lerp(morningFogEndTimeWinter, morningFogEndTimeSummer, seasonInterpolator) * 0.5f;
+        }
     }
 
     public void Update()
@@ -124,7 +139,8 @@ public class DayTime : MonoBehaviour
                 {
                     season = (season + 1) % 4;
                     blackScreen.StartFade();
-                    blackScreen.onFadeFinished = StartDay;
+                    StartDay();
+                    blackScreen.onFadeFinished = ()=> blackScreen.gameObject.layer = LayerMask.NameToLayer("UI");
                 }
                 else
                 {
@@ -132,6 +148,11 @@ public class DayTime : MonoBehaviour
                     onDayEnd?.Invoke();
                 }
             };
+
+            if (loop)
+            {
+                blackScreen.gameObject.layer = 0;
+            }
             
             blackScreen.StartFade();
             return;
@@ -140,7 +161,7 @@ public class DayTime : MonoBehaviour
         unnormalizedTime += Time.deltaTime * debugTimeScale;
         float time = dawnOffsetTime;
 
-        float morningFogInterp = math.saturate(time / morningFogEndTime);
+        float morningFogInterp = math.saturate(time / math.lerp(morningFogEndTimeWinter, morningFogEndTimeSummer, seasonInterpolator));
         fogSettings.density = math.lerp(morningDensity, normalDensity,
             morningFogInterp * morningFogInterp * morningFogInterp);
 

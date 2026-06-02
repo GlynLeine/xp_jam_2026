@@ -123,7 +123,7 @@ Shader "CustomEffects/Volumetric Fog"
 			{
 				Light light = GetMainLight(TransformWorldToShadowCoord(samplePoint), samplePoint, half4(1, 1, 1, 1));
 				float3 inscatter = _Scattering.rgb * light.color * light.shadowAttenuation * _LightScale * mainLightPhaseFunction * extinction;
-				inscatter += _Scattering.rgb * _AmbientLight.rgb * extinction * INV_TWO_PI;
+				inscatter += _Scattering.rgb * _AmbientLight.rgb * _LightScale * extinction * INV_TWO_PI;
 				
                 // Get additional lights
                 #if defined(_ADDITIONAL_LIGHTS)

@@ -193,6 +193,7 @@ MonoBehaviour:
   winterDawnTime: 32
   unnormalizedTime: 0
   season: 0
+  snowColor: {r: 1, g: 1, b: 1, a: 0}
   loop: 0
   debugTimeScale: 1
   blackScreen: {fileID: 0}
@@ -212,9 +213,10 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
   fogSettings: {fileID: 6645666829772717181}
-  morningDensity: 0.2
+  morningDensity: 0.5
   normalDensity: 0
-  morningFogEndTime: 56
+  morningFogEndTimeSummer: 42
+  morningFogEndTimeWinter: 56
 --- !u!1 &6847611256364321091
 GameObject:
   m_ObjectHideFlags: 0
