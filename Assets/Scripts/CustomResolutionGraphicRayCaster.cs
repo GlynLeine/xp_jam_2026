@@ -4,9 +4,23 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
 
+[RequireComponent(typeof(Canvas))]
 public class CustomResolutionGraphicRayCaster : GraphicRaycaster
 {
-    public Canvas canvas;
+    private Canvas m_canvas;
+
+    public Canvas canvas
+    {
+        get
+        {
+            if (m_canvas is null)
+            {
+                m_canvas = GetComponent<Canvas>();
+            }
+            return m_canvas;
+        }
+    }
+
     [NonSerialized] private List<Graphic> m_raycastResults = new List<Graphic>();
 
     /// <summary>
@@ -338,8 +352,6 @@ public class CustomResolutionGraphicRayCaster : GraphicRaycaster
         {
             Graphic graphic = foundGraphics[i];
             
-            Debug.Log(graphic.name);
-
             // -1 means it hasn't been processed by the canvas, which means it isn't actually drawn
             if (!graphic.raycastTarget || graphic.canvasRenderer.cull || graphic.depth == -1)
                 continue;

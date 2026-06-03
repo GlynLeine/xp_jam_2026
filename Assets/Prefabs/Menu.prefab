@@ -243,7 +243,6 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
-  canvas: {fileID: 6964686947285821736}
 --- !u!1 &3219935562461564106
 GameObject:
   m_ObjectHideFlags: 0
@@ -1348,38 +1347,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 6270396179533342915}
     m_Modifications:
-    - target: {fileID: 1657544222053238821, guid: 0597c0bbcd4ee124086233520dd7438b, type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1657544222053238821, guid: 0597c0bbcd4ee124086233520dd7438b, type: 3}
-      propertyPath: m_AnchorMin.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1657544222053238821, guid: 0597c0bbcd4ee124086233520dd7438b, type: 3}
-      propertyPath: m_SizeDelta.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1657544222053238821, guid: 0597c0bbcd4ee124086233520dd7438b, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2088442734761089696, guid: 0597c0bbcd4ee124086233520dd7438b, type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2088442734761089696, guid: 0597c0bbcd4ee124086233520dd7438b, type: 3}
-      propertyPath: m_AnchorMin.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2088442734761089696, guid: 0597c0bbcd4ee124086233520dd7438b, type: 3}
-      propertyPath: m_SizeDelta.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2088442734761089696, guid: 0597c0bbcd4ee124086233520dd7438b, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 4514769155960289142, guid: 0597c0bbcd4ee124086233520dd7438b, type: 3}
       propertyPath: 'disableOnSettingScreen.Array.data[0]'
       value: 

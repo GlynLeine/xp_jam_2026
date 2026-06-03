@@ -5,6 +5,8 @@ using UnityEngine.Rendering.Universal;
 
 public class FogSettings : MonoBehaviour
 {
+    public SettingsScreen settingsScreen;
+    
     private Volume m_volume;
     private VolumetricFogVolumeComponent m_volumetricFog;
     private float m_historyContribution;
@@ -14,6 +16,13 @@ public class FogSettings : MonoBehaviour
         m_volume = GetComponent<Volume>();
         m_volume.profile.TryGet(out m_volumetricFog);
         m_historyContribution = m_volumetricFog.fogHistoryContribution.value;
+
+        if (settingsScreen != null)
+        {
+            settingsScreen.onSettingsChanged = OnSettingsChanged;
+        }
+
+        OnSettingsChanged();
     }
 
     public float resolution
@@ -43,6 +52,15 @@ public class FogSettings : MonoBehaviour
         }
         get => m_volumetricFog.fogDensity.value;
     }
+    
+    void OnSettingsChanged()
+    {
+        m_volumetricFog.resolutionScale.value = GameManager.instance.fogResolution;
+        m_volumetricFog.resolutionScale.overrideState = true;
+        m_volumetricFog.stepCount.value = GameManager.instance.fogStepCount;
+        m_volumetricFog.stepCount.overrideState = true;
+    }
+
     
     void Update()
     {

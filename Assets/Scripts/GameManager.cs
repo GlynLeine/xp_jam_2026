@@ -28,6 +28,12 @@ public class GameManager : MonoBehaviour
     [NonSerialized]
     public int lastSeason;
     
+    [NonSerialized]
+    public float fogResolution = 1f;
+    
+    [NonSerialized]
+    public int fogStepCount = 100;
+    
     void Start()
     {
         instance = this;
