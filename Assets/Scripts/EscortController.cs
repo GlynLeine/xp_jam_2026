@@ -1,3 +1,5 @@
+using System;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -6,6 +8,7 @@ using UnityEngine.SceneManagement;
 public class EscortController : GameCharacterController
 {
     public BlackScreen blackScreen;
+    public MeshRenderer healthBar;
     
     protected override void OnStart()
     {
@@ -20,5 +23,10 @@ public class EscortController : GameCharacterController
         GameManager.instance.nextScene = SceneManager.GetActiveScene().buildIndex;
         blackScreen.onFadeFinished = () => SceneManager.LoadScene(2);
         blackScreen.StartFade();
+    }
+
+    private void LateUpdate()
+    {
+        healthBar.material.SetFloat("_CurrentWeaponFill", m_health/maxHealth);
     }
 }

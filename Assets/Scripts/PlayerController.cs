@@ -11,6 +11,7 @@ public class PlayerController : GameCharacterController
     public Transform aimVisual;
     public MeshRenderer aimRenderer;
     public Transform aimSelect;
+    public MeshRenderer healthBar;
     public bool unlockAllWeapons;
 
     public Destination[] destinations;
@@ -170,6 +171,9 @@ public class PlayerController : GameCharacterController
     {
         cameraTarget.rotation = m_cameraRotation;
         Shader.SetGlobalVector(m_shaderIDPlayerPosition, cameraTarget.position);
+        
+        healthBar.transform.parent.forward = m_gameCamera.transform.forward;
+        healthBar.material.SetFloat(m_shaderIDPlayerWeaponFill,m_health/maxHealth);
         
         aimRenderer.material.SetColor(m_shaderIDPlayerWeapon, m_attackIndex >= 0 ? attacks[m_attackIndex].color : Color.white);
         aimRenderer.material.SetFloat(m_shaderIDPlayerWeaponFill, m_attackIndex >= 0 ? attacks[m_attackIndex].timeBuffer / (attacks[m_attackIndex].duration + attacks[m_attackIndex].cooldown) : 0f);
