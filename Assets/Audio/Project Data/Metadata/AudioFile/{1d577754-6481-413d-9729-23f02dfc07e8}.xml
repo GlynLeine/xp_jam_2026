@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <objects serializationModel="Studio.02.02.00">
-	<object class="AudioFile" id="{fe32aa54-5282-4cb2-897d-81790b409be7}">
+	<object class="AudioFile" id="{1d577754-6481-413d-9729-23f02dfc07e8}">
 		<property name="assetPath">
-			<value>MSC-DangerCombat.wav</value>
+			<value>MSC-LOOP-JourneyLuteMute.wav</value>
 		</property>
 		<property name="isStreaming">
 			<value>true</value>
@@ -14,7 +14,7 @@
 			<value>2</value>
 		</property>
 		<property name="length">
-			<value>108.08533333333334</value>
+			<value>101.05264583333333</value>
 		</property>
 		<relationship name="masterAssetFolder">
 			<destination>{35580a27-aebc-422f-8004-467b72b5dc65}</destination>
