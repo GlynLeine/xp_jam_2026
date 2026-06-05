@@ -8,7 +8,6 @@ using UnityEngine.SceneManagement;
 public class EscortController : GameCharacterController
 {
     public BlackScreen blackScreen;
-    public MeshRenderer healthBar;
     
     protected override void OnStart()
     {
@@ -19,14 +18,14 @@ public class EscortController : GameCharacterController
 
     protected override void OnDeath()
     {
+        if (m_displayHealth > 0.1f)
+        {
+            return;
+        }
+        
         GameManager.instance.succeededSeason = false;
         GameManager.instance.nextScene = SceneManager.GetActiveScene().buildIndex;
         blackScreen.onFadeFinished = () => SceneManager.LoadScene(2);
         blackScreen.StartFade();
-    }
-
-    private void LateUpdate()
-    {
-        healthBar.material.SetFloat("_CurrentWeaponFill", m_health/maxHealth);
     }
 }

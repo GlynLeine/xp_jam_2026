@@ -11,8 +11,10 @@ public class PlayerController : GameCharacterController
     public Transform aimVisual;
     public MeshRenderer aimRenderer;
     public Transform aimSelect;
-    public MeshRenderer healthBar;
     public bool unlockAllWeapons;
+    public bool hasAggro = false;
+    public float combatMusicFadeDuration = 1f;
+    private float m_combatMusicFadeTime;
 
     public Destination[] destinations;
 
@@ -21,18 +23,16 @@ public class PlayerController : GameCharacterController
     private int m_shaderIDPlayerPosition;
     private int m_shaderIDPlayerWeapon;
     private int m_shaderIDPlayerWeaponFill;
-    private Camera m_gameCamera;
     private Quaternion m_cameraRotation;
     
     private void Awake()
     {
-        m_gameCamera = Camera.main;
-        Debug.Assert(m_gameCamera is not null);
         Shader.SetGlobalFloat("_EnableDither", 1f);
     }
 
     private void OnDestroy()
     {
+        GameManager.instance.combatMusicScalar = 0f;
         Shader.SetGlobalFloat("_EnableDither", 0f);
     }
 
@@ -169,11 +169,26 @@ public class PlayerController : GameCharacterController
 
     private void LateUpdate()
     {
+        if (m_displayHealth <= 0.1f && m_health <= 0f)
+        {
+            return;
+        }
+        
+        if (combatMusicFadeDuration != 0f)
+        {
+            m_combatMusicFadeTime += hasAggro ? Time.deltaTime : -Time.deltaTime;
+            m_combatMusicFadeTime = Mathf.Clamp(m_combatMusicFadeTime, 0.0f, combatMusicFadeDuration);
+
+            GameManager.instance.combatMusicScalar = m_combatMusicFadeTime / combatMusicFadeDuration;
+        }
+        else
+        {
+            GameManager.instance.combatMusicScalar = hasAggro ? 1f : 0f;
+        }
+        hasAggro = false;
+
         cameraTarget.rotation = m_cameraRotation;
         Shader.SetGlobalVector(m_shaderIDPlayerPosition, cameraTarget.position);
-        
-        healthBar.transform.parent.forward = m_gameCamera.transform.forward;
-        healthBar.material.SetFloat(m_shaderIDPlayerWeaponFill,m_health/maxHealth);
         
         aimRenderer.material.SetColor(m_shaderIDPlayerWeapon, m_attackIndex >= 0 ? attacks[m_attackIndex].color : Color.white);
         aimRenderer.material.SetFloat(m_shaderIDPlayerWeaponFill, m_attackIndex >= 0 ? attacks[m_attackIndex].timeBuffer / (attacks[m_attackIndex].duration + attacks[m_attackIndex].cooldown) : 0f);
@@ -181,6 +196,11 @@ public class PlayerController : GameCharacterController
 
     protected override void OnDeath()
     {
+        if (m_displayHealth > 0.1f)
+        {
+            return;
+        }
+        
         GameManager.instance.succeededSeason = false;
         GameManager.instance.nextScene = SceneManager.GetActiveScene().buildIndex;
         blackScreen.onFadeFinished = () => SceneManager.LoadScene(2);

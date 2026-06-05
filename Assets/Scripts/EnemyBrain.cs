@@ -67,6 +67,9 @@ public class EnemyBrain : InputDriver
         }
         
         detectionInfo.playerDetected = m_playerDetected && m_detectionTimeBuffer > reactionTime;
+        
+        m_player.hasAggro |= detectionInfo.playerDetected;
+        
         return detectionInfo;
     }
 

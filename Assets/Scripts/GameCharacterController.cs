@@ -54,7 +54,15 @@ public abstract class GameCharacterController : MonoBehaviour
     public MeshRenderer attackPreview;
     public AttackInfo[] attacks;
 
+    public MeshRenderer healthBar;
+    public float healthInterpolationDuration = 0.5f;
     protected float m_health;
+    protected float m_displayHealth;
+    protected float m_referenceHealth;
+    protected float m_healthInterpolationTime;
+    protected int m_shaderIDHealthFill;
+    
+    protected Camera m_gameCamera;
     
     protected float m_speed;
     protected float m_animationBlend;
@@ -105,6 +113,9 @@ public abstract class GameCharacterController : MonoBehaviour
     
     void Start()
     {
+        m_gameCamera = Camera.main;
+        Debug.Assert(m_gameCamera is not null);
+        
         m_rng.InitState();
         
         m_animator = GetComponent<Animator>();
@@ -127,10 +138,12 @@ public abstract class GameCharacterController : MonoBehaviour
         m_shaderIDPreviewUseArrow = Shader.PropertyToID("_Use_Arrow");
         m_shaderIDPreviewRadius = Shader.PropertyToID("_Cone_Radius");
         
+        m_shaderIDHealthFill = Shader.PropertyToID("_CurrentHealthFill");
+        
         m_characterCollisionLayer = LayerMask.NameToLayer("Character");
         
         m_fallTimeBuffer = 0f;
-        m_health = maxHealth;
+        m_displayHealth = m_referenceHealth =  m_health = maxHealth;
         
         OnStart();
         
@@ -328,6 +341,8 @@ public abstract class GameCharacterController : MonoBehaviour
     public void Hurt(float damage)
     {
         m_health -= damage;
+        m_referenceHealth = m_displayHealth;
+        m_healthInterpolationTime = 0f;
     }
     
     protected virtual bool OnHandleAttacking(ref float3 movement, ref bool doMovement) { return true; }
@@ -559,6 +574,14 @@ public abstract class GameCharacterController : MonoBehaviour
         
         m_animator.SetFloat(m_animIDSpeed, m_animationBlend);
         m_animator.SetFloat(m_animIDMotionSpeed, inputMagnitude);
+
+        m_healthInterpolationTime = math.min(m_healthInterpolationTime + Time.deltaTime, healthInterpolationDuration);
+        m_displayHealth = math.lerp(m_referenceHealth, m_health, m_healthInterpolationTime / healthInterpolationDuration);
+        if (healthBar != null)
+        {
+            healthBar.transform.parent.forward = m_gameCamera.transform.forward;
+            healthBar.material.SetFloat(m_shaderIDHealthFill, m_displayHealth / maxHealth);
+        }
 
         if (m_health <= 0f)
         {

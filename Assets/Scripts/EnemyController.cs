@@ -17,6 +17,11 @@ public class EnemyController : GameCharacterController
 
     protected override void OnDeath()
     {
+        if (m_displayHealth > 0.1f)
+        {
+            return;
+        }
+        
         Destroy(gameObject);
     }
 }

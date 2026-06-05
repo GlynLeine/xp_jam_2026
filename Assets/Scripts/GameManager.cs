@@ -34,12 +34,23 @@ public class GameManager : MonoBehaviour
     [NonSerialized]
     public int fogStepCount = 100;
     
+    [NonSerialized]
+    public float combatMusicScalar = 0f;
+    
     void Start()
     {
         instance = this;
         nextScene = 1;
         DontDestroyOnLoad(gameObject);
         LoadNextScene();
+    }
+
+    private void Update()
+    {
+        for (int i = 0; i < fmodEventEmitters.Length; i++)
+        {
+            fmodEventEmitters[i].SetParameter("Action", combatMusicScalar);
+        }
     }
 
     public bool startDialogue(DialogBehaviour dialogBehaviour)
