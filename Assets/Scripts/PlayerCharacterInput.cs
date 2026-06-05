@@ -8,6 +8,7 @@ public class PlayerCharacterInput : InputDriver
     public bool dialogOnly;
     public bool cursorLocked { get; private set; } = false;
     public bool cursorInputLocked { get; private set; } = true;
+    public GameObject pauseMenu;
     
     private PlayerInput m_playerInput;
 
@@ -20,7 +21,7 @@ public class PlayerCharacterInput : InputDriver
 
     public void OnMove(InputValue value)
     {
-        if (dialog.isDialogActive || dialogOnly)
+        if (dialog.isDialogActive || dialogOnly || GameManager.instance.isPaused)
         {
             return;
         }
@@ -29,7 +30,7 @@ public class PlayerCharacterInput : InputDriver
 
     public void OnAim(InputValue value)
     {
-        if (dialog.isDialogActive || dialogOnly)
+        if (dialog.isDialogActive || dialogOnly || GameManager.instance.isPaused)
         {
             return;
         }
@@ -41,7 +42,7 @@ public class PlayerCharacterInput : InputDriver
 
     public void OnChangeMask(InputValue value)
     {
-        if (dialog.isDialogActive || dialogOnly)
+        if (dialog.isDialogActive || dialogOnly || GameManager.instance.isPaused)
         {
             return;
         }
@@ -50,7 +51,7 @@ public class PlayerCharacterInput : InputDriver
     
     public void OnDodge(InputValue value)
     {
-        if (dialog.isDialogActive || dialogOnly)
+        if (dialog.isDialogActive || dialogOnly || GameManager.instance.isPaused)
         {
             return;
         }
@@ -59,7 +60,7 @@ public class PlayerCharacterInput : InputDriver
 
     public void OnAttack(InputValue value)
     {
-        if (dialog.isDialogActive || dialogOnly)
+        if (dialog.isDialogActive || dialogOnly || GameManager.instance.isPaused)
         {
             if (value.isPressed)
             {
@@ -71,7 +72,31 @@ public class PlayerCharacterInput : InputDriver
 
         AttackInput(value.isPressed);
     }
-		
+
+    public void OnPause(InputValue value)
+    {
+        if (dialog.isDialogActive || dialogOnly)
+        {
+            return;
+        }
+        
+        if (value.isPressed)
+        {
+            TogglePauseGame();
+        }
+    }
+
+    public void TogglePauseGame()
+    {
+        pauseMenu.SetActive(!pauseMenu.activeSelf);
+        GameManager.instance.isPaused = !GameManager.instance.isPaused;
+            
+        AttackInput(false);
+        DodgeInput(false);
+        ChangeMaskInput(false);
+        MoveInput(Vector2.zero);
+    }
+    
     private void OnApplicationFocus(bool hasFocus)
     {
         SetCursorState(cursorLocked);

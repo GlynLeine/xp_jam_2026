@@ -28,18 +28,21 @@ public class EscortBrain : InputDriver
         }
         
         float2 movementInput = float2.zero;
-        float3 toPlayer = m_player.transform.position - transform.position;
-        float2 toPlayer2D = new float2(toPlayer.x, toPlayer.z);
-        float playerDistanceSq = math.lengthsq(toPlayer2D);
-        toPlayer2D *= math.rsqrt(playerDistanceSq);
-
-        isFollowingPlayer = playerDistanceSq < escortRadius * escortRadius;
-        
-        if (isFollowingPlayer && playerDistanceSq > 25f)
+        if (!GameManager.instance.isPaused)
         {
-            movementInput = toPlayer2D;
+            float3 toPlayer = m_player.transform.position - transform.position;
+            float2 toPlayer2D = new float2(toPlayer.x, toPlayer.z);
+            float playerDistanceSq = math.lengthsq(toPlayer2D);
+            toPlayer2D *= math.rsqrt(playerDistanceSq);
+
+            isFollowingPlayer = playerDistanceSq < escortRadius * escortRadius;
+
+            if (isFollowingPlayer && playerDistanceSq > 25f)
+            {
+                movementInput = toPlayer2D;
+            }
         }
-        
+
         MoveInput(movementInput);
     }
 }

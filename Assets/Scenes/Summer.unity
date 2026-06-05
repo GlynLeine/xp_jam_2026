@@ -131,6 +131,14 @@ PrefabInstance:
       propertyPath: dayTime
       value: 
       objectReference: {fileID: 2064561839}
+    - target: {fileID: 763511764379653338, guid: d848b3839f282bc41bf81d2a2b160682, type: 3}
+      propertyPath: blackScreen
+      value: 
+      objectReference: {fileID: 663896897}
+    - target: {fileID: 3075309543683807201, guid: d848b3839f282bc41bf81d2a2b160682, type: 3}
+      propertyPath: m_Camera
+      value: 
+      objectReference: {fileID: 663896896}
     - target: {fileID: 4964348896996501086, guid: d848b3839f282bc41bf81d2a2b160682, type: 3}
       propertyPath: m_Name
       value: Player
@@ -155,6 +163,14 @@ PrefabInstance:
       propertyPath: m_Camera
       value: 
       objectReference: {fileID: 663896896}
+    - target: {fileID: 7321845425773991141, guid: d848b3839f282bc41bf81d2a2b160682, type: 3}
+      propertyPath: blackScreen
+      value: 
+      objectReference: {fileID: 663896897}
+    - target: {fileID: 8385553475607497168, guid: d848b3839f282bc41bf81d2a2b160682, type: 3}
+      propertyPath: blackScreen
+      value: 
+      objectReference: {fileID: 663896897}
     - target: {fileID: 9201438970193530504, guid: d848b3839f282bc41bf81d2a2b160682, type: 3}
       propertyPath: m_LocalPosition.x
       value: -38.53

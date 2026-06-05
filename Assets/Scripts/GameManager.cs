@@ -37,6 +37,9 @@ public class GameManager : MonoBehaviour
     [NonSerialized]
     public float combatMusicScalar = 0f;
     
+    [NonSerialized]
+    public bool isPaused = false;
+    
     void Start()
     {
         instance = this;

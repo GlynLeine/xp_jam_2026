@@ -122,17 +122,20 @@ public class EnemyBrain : InputDriver
     {
         float2 movementInput = float2.zero;
 
-        PlayerDetectionInfo detectionInfo = DetectPlayer();
+        if (!GameManager.instance.isPaused)
+        {
+            PlayerDetectionInfo detectionInfo = DetectPlayer();
 
-        if (detectionInfo.playerDetected)
-        {
-            Fight(detectionInfo, ref movementInput);
+            if (detectionInfo.playerDetected)
+            {
+                Fight(detectionInfo, ref movementInput);
+            }
+            else
+            {
+                Wander(ref movementInput);
+            }
         }
-        else
-        {
-            Wander(ref movementInput);
-        }
-        
+
         AimInput(m_aimDirection);
         MoveInput(movementInput);
     }

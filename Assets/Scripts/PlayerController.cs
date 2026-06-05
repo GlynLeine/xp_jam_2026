@@ -38,6 +38,8 @@ public class PlayerController : GameCharacterController
 
     protected override void OnStart()
     {
+        GameManager.instance.nextScene = SceneManager.GetActiveScene().buildIndex;
+        
         m_rng.InitState();
         
         m_cameraRotation = cameraTarget.rotation;
