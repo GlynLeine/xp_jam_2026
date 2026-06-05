@@ -999,6 +999,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2805724181060209183, guid: 1fe972577ab6f4e4c854120c6978fadf, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5103350488655530155, guid: 1fe972577ab6f4e4c854120c6978fadf, type: 3}
       propertyPath: m_Name
       value: Escort
@@ -1357,6 +1361,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Wolf
       objectReference: {fileID: 0}
+    - target: {fileID: 6393621179943400724, guid: 48ba2398f5a57fd4b8a2282212b1a336, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6804410920415333225, guid: 48ba2398f5a57fd4b8a2282212b1a336, type: 3}
       propertyPath: m_LocalPosition.x
       value: 144.46
@@ -1632,6 +1640,10 @@ PrefabInstance:
     - target: {fileID: 3059778629920810934, guid: 101e235409a5c7c4f81a8e2717a92c94, type: 3}
       propertyPath: m_Name
       value: Rifle Enemy
+      objectReference: {fileID: 0}
+    - target: {fileID: 7539381455616601052, guid: 101e235409a5c7c4f81a8e2717a92c94, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
