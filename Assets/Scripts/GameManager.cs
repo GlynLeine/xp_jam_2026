@@ -106,6 +106,7 @@ public class GameManager : MonoBehaviour
 
     public void LoadNextScene()
     {
+        isPaused = false;
         SceneManager.LoadScene(nextScene);
     }
 

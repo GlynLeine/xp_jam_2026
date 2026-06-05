@@ -16,6 +16,9 @@ public class PlayerController : GameCharacterController
     public float combatMusicFadeDuration = 1f;
     private float m_combatMusicFadeTime;
 
+    public GameObject[] weaponVisuals;
+    private int m_activeWeaponVisual;
+
     public Destination[] destinations;
 
     public MaskPedestal interactingPedestal { get; set; }
@@ -49,6 +52,7 @@ public class PlayerController : GameCharacterController
         m_shaderIDPlayerWeaponFill = Shader.PropertyToID("_CurrentWeaponFill");
         
         Debug.Assert(attacks.Length == 4);
+        Debug.Assert(weaponVisuals.Length == 4);
 
         for (int i = 0; i < 4; ++i)
         {
@@ -64,6 +68,14 @@ public class PlayerController : GameCharacterController
 
             m_attackIndex = 0;
         }
+        
+        for (int i = 0; i < 4; ++i)
+        {
+            weaponVisuals[i].SetActive(false);
+        }
+        weaponVisuals[m_attackIndex].SetActive(true);
+        m_activeWeaponVisual = m_attackIndex;
+
         
         Debug.Assert(destinations.Length == 2);
 
@@ -174,6 +186,16 @@ public class PlayerController : GameCharacterController
         if (m_displayHealth <= 0.1f && m_health <= 0f)
         {
             return;
+        }
+
+        if (m_attackIndex != m_activeWeaponVisual)
+        { 
+            for (int i = 0; i < 4; ++i)
+            {
+                weaponVisuals[i].SetActive(false);
+            }
+            weaponVisuals[m_attackIndex].SetActive(true);
+            m_activeWeaponVisual = m_attackIndex;
         }
         
         if (combatMusicFadeDuration != 0f)
