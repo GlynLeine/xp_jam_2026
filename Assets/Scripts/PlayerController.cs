@@ -35,7 +35,11 @@ public class PlayerController : GameCharacterController
 
     private void OnDestroy()
     {
-        GameManager.instance.combatMusicScalar = 0f;
+        if (GameManager.instance != null)
+        {
+            GameManager.instance.combatMusicScalar = 0f;
+        }
+
         Shader.SetGlobalFloat("_EnableDither", 0f);
     }
 

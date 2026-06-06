@@ -9,9 +9,9 @@ Shader "CustomEffects/Volumetric Fog"
         }
         LOD 100
         ZWrite Off Cull Off
-        Blend Off
         Pass
         {
+			Blend Off
             Name "FogRenderPass"
 
             HLSLPROGRAM
@@ -73,11 +73,6 @@ Shader "CustomEffects/Volumetric Fog"
             	hpositionCS.xy = (hpositionCS.xy / hpositionCS.w) * 0.5 + float2(0.5, 0.5);
             	hpositionCS.y = 1.0 - hpositionCS.y;
 				return hpositionCS.xy;
-            }
-
-            float3 SampleSceneRadiance(float2 texcoord)
-            {
-                return SAMPLE_TEXTURE2D(_BlitTexture, sampler_LinearClamp, texcoord).rgb;
             }
 
             // Phase function
@@ -270,6 +265,7 @@ Shader "CustomEffects/Volumetric Fog"
 
         Pass
         {
+			Blend SrcAlpha One, One Zero
             Name "FogCompositeRenderPass"
 
             HLSLPROGRAM
@@ -283,9 +279,7 @@ Shader "CustomEffects/Volumetric Fog"
             float4 CompositeFog (Varyings input) : SV_Target
             {
                 float4 fogData = SAMPLE_TEXTURE2D(_FogTexture, sampler_LinearClamp, input.texcoord);
-                float3 transmittance;
-
-                transmittance = fogData.aaa;
+            	
                 // uint compressedTransmittance = asuint(fogData.a);
                 // uint transmittanceR = (compressedTransmittance >> 21) & 0x000007FF;
                 // uint transmittanceG = (compressedTransmittance >> 10) & 0x000007FF;
@@ -294,7 +288,7 @@ Shader "CustomEffects/Volumetric Fog"
                 // transmittance.g = transmittanceG / 2047.0;
                 // transmittance.b = transmittanceB / 1023.0;
 
-                return float4(transmittance * SAMPLE_TEXTURE2D(_BlitTexture, sampler_LinearClamp, input.texcoord).rgb + fogData.rgb, 1);
+                return fogData;
             }
             
             #pragma vertex Vert

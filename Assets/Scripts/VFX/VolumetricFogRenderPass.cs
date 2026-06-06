@@ -154,7 +154,6 @@ public class VolumetricFogRenderPass : ScriptableRenderPass
         
             
         TextureHandle srcCamColor = resourceData.activeColorTexture;
-        TextureHandle sceneColorTexture = UniversalRenderer.CreateRenderGraphTexture(renderGraph, sceneColorTextureDescriptor, sceneColorTextureName, false);
         TextureHandle fogTexture;
         
         if (cameraData.historyManager != null)
@@ -185,59 +184,15 @@ public class VolumetricFogRenderPass : ScriptableRenderPass
         }
 
         // This check is to avoid an error from the material preview in the scene
-        if (!srcCamColor.IsValid() || !sceneColorTexture.IsValid() || !fogTexture.IsValid())
+        if (!srcCamColor.IsValid() || !fogTexture.IsValid())
             return;
 
-        renderGraph.AddCopyPass(srcCamColor, sceneColorTexture);
-
-        RenderGraphUtils.BlitMaterialParameters fogPassParams = new(srcCamColor, fogTexture, material, 0);
+        RenderGraphUtils.BlitMaterialParameters fogPassParams = new(TextureHandle.nullHandle, fogTexture, material, 0);
         renderGraph.AddBlitPass(fogPassParams, fogPassName);
 
-        RenderGraphUtils.BlitMaterialParameters compositePassParams = new(sceneColorTexture, srcCamColor, material, 1);
-        using (var builder = renderGraph.AddUnsafePass<CompositePassData>(compositePassName, out var passData))
-        {
-            var destinationDesc = renderGraph.GetTextureDesc(compositePassParams.destination);
-
-            // Fill in unspecified parameters automatically based on the texture descriptor
-            int destinationMaxWidth = math.max(math.max(destinationDesc.width, destinationDesc.height), destinationDesc.slices);
-            int destinationTotalMipChainLevels = (int)math.log2(destinationMaxWidth) + 1;
-            if (compositePassParams.numSlices == -1)
-            {
-                compositePassParams.numSlices = destinationDesc.slices - compositePassParams.destinationSlice;
-            }
-
-            if (compositePassParams.numMips == -1)
-            {
-                compositePassParams.numMips = destinationTotalMipChainLevels - compositePassParams.destinationMip;
-            }
-            
-            passData.sourceTexturePropertyID = compositePassParams.sourceTexturePropertyID;
-            passData.source = compositePassParams.source;
-            passData.fogDataTexturePropertyID = fogTextureId;
-            passData.fogData = fogTexture;
-            passData.destination = compositePassParams.destination;
-            passData.scale = compositePassParams.scale;
-            passData.offset = compositePassParams.offset;
-            passData.material = compositePassParams.material;
-            passData.shaderPass = compositePassParams.shaderPass;
-            passData.propertyBlock = compositePassParams.propertyBlock;
-            passData.sourceSlice = compositePassParams.sourceSlice;
-            passData.destinationSlice = compositePassParams.destinationSlice;
-            passData.numSlices = compositePassParams.numSlices;
-            passData.sourceMip = compositePassParams.sourceMip;
-            passData.destinationMip = compositePassParams.destinationMip;
-            passData.numMips = compositePassParams.numMips;
-            passData.geometry = compositePassParams.geometry;
-            passData.sourceSlicePropertyID = compositePassParams.sourceSlicePropertyID;
-            passData.sourceMipPropertyID = compositePassParams.sourceMipPropertyID;
-            passData.scaleBiasPropertyID = compositePassParams.scaleBiasPropertyID;
-            
-            builder.AllowPassCulling(false);
-            builder.UseTexture(fogTexture, AccessFlags.Read);
-            builder.UseTexture(compositePassParams.source, AccessFlags.Read);
-            builder.UseTexture(compositePassParams.destination, AccessFlags.Write);
-            builder.SetRenderFunc((CompositePassData data, UnsafeGraphContext context) => CompositeMaterialRenderFunc(data, context));
-        }
+        RenderGraphUtils.BlitMaterialParameters compositePassParams = new(fogTexture, srcCamColor, material, 1);
+        compositePassParams.sourceTexturePropertyID = fogTextureId;
+        renderGraph.AddBlitPass(compositePassParams, compositePassName);
     }
 
     private bool UpdateSettings(RenderGraph renderGraph, UniversalCameraData cameraData, UniversalResourceData resourceData)
