@@ -127,6 +127,8 @@ public class VolumetricFogRenderPass : ScriptableRenderPass
         RenderTextureFormat.ARGBFloat, 0);
         sceneColorTextureDescriptor = new RenderTextureDescriptor(Screen.width, Screen.height,
         RenderTextureFormat.Default, 0);
+        
+        requiresIntermediateTexture = true;
     }
 
     static Vector3 prevWorldSpaceCameraPos;
