@@ -668,7 +668,11 @@ MonoBehaviour:
   unlockAllWeapons: 1
   hasAggro: 0
   combatMusicFadeDuration: 0
-  weaponVisuals: []
+  weaponVisuals:
+  - {fileID: 7445116144908434673}
+  - {fileID: 6188046991937676777}
+  - {fileID: 68608267808252504}
+  - {fileID: 7597810573717950578}
   destinations:
   - {fileID: 0}
   - {fileID: 0}
@@ -1115,6 +1119,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5997d07edd20e534196510f52a94f636, type: 3}
+--- !u!1 &68608267808252504 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 5997d07edd20e534196510f52a94f636, type: 3}
+  m_PrefabInstance: {fileID: 879001318517153545}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &844546390698621154 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 5997d07edd20e534196510f52a94f636, type: 3}
@@ -1568,6 +1577,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8e20a76cd5552774984c0732b27750ec, type: 3}
+--- !u!1 &6188046991937676777 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 8e20a76cd5552774984c0732b27750ec, type: 3}
+  m_PrefabInstance: {fileID: 6422469682192947384}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &6821699273028992851 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 8e20a76cd5552774984c0732b27750ec, type: 3}
@@ -1653,6 +1667,11 @@ PrefabInstance:
 --- !u!4 &7078260974550649544 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: d3eca0a406ad4a5428423483889489cd, type: 3}
+  m_PrefabInstance: {fileID: 7327833403169402147}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &7597810573717950578 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: d3eca0a406ad4a5428423483889489cd, type: 3}
   m_PrefabInstance: {fileID: 7327833403169402147}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &7438134573360785230
