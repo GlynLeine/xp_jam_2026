@@ -4,10 +4,9 @@ public class Quit : MonoBehaviour
 {
     private void Start()
     {
-        if (Application.platform == RuntimePlatform.WebGLPlayer) 
-        {
+#if UNITY_WEBGL
             gameObject.SetActive(false);
-        }
+#endif
     }
 
     public void QuitGame()

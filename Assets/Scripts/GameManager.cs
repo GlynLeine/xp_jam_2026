@@ -1,14 +1,18 @@
 using cherrydev;
-using NUnit.Framework;
 using System;
 using System.Collections;
-using Unity.VisualScripting;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
 
 public class GameManager : MonoBehaviour
 {
+    // List of Banks to load
+    [FMODUnity.BankRef]
+    public List<string> banks = new List<string>();
+    public GameObject eventEmittersPrefab;
+    [NonSerialized]
     public FMODUnity.StudioEventEmitter[] fmodEventEmitters;
     
     public DialogNodeGraph[] AntonyNodes;
@@ -45,11 +49,64 @@ public class GameManager : MonoBehaviour
         instance = this;
         nextScene = 1;
         DontDestroyOnLoad(gameObject);
-        LoadNextScene();
+        
+        StartCoroutine(LoadGameAsync());
+    }
+
+    IEnumerator LoadGameAsync()
+    {
+        // Iterate all the Studio Banks and start them loading in the background
+        // including the audio sample data
+        foreach (var bank in banks)
+        {
+            FMODUnity.RuntimeManager.LoadBank(bank, true);
+            Debug.Log($"Loading: {bank}");
+        }
+
+        // Keep yielding the co-routine until all the bank loading is done
+        // (for platforms with asynchronous bank loading)
+        while (!FMODUnity.RuntimeManager.HaveAllBanksLoaded)
+        {
+            yield return null;
+        }
+
+        // Keep yielding the co-routine until all the sample data loading is done
+        while (FMODUnity.RuntimeManager.AnySampleDataLoading())
+        {
+            yield return null;
+        }
+        
+        Debug.Log($"Loaded Audio!");
+
+        Instantiate(eventEmittersPrefab, transform);
+
+        fmodEventEmitters = GetComponentsInChildren<FMODUnity.StudioEventEmitter>();
+
+        for (int i = 0; i < fmodEventEmitters.Length; i++)
+        {
+            fmodEventEmitters[i].Play();
+        }
+
+        // Start an asynchronous operation to load the scene
+        AsyncOperation async = SceneManager.LoadSceneAsync(nextScene);
+
+        // Keep yielding the co-routine until scene loading and activation is done.
+        while (!async.isDone)
+        {
+            yield return null;
+        }
+        
+        async.allowSceneActivation = true;
+        isPaused = false;
     }
 
     private void Update()
     {
+        if (SceneManager.GetActiveScene().buildIndex == 0)
+        {
+            return;
+        }
+        
         for (int i = 0; i < fmodEventEmitters.Length; i++)
         {
             fmodEventEmitters[i].SetParameter("Action", combatMusicScalar);
