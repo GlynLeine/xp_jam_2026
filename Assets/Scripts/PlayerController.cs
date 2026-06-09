@@ -100,7 +100,7 @@ public class PlayerController : GameCharacterController
         {
             if (m_input.isCurrentDeviceMouse)
             {
-                result = m_gameCamera.ScreenToViewportPoint(m_input.aimInput);
+                result = Camera.main.ScreenToViewportPoint(m_input.aimInput);
                 result = math.normalize(new float3(result.x - 0.5f, 0f, result.y - 0.5f));
             }
             else
@@ -111,7 +111,7 @@ public class PlayerController : GameCharacterController
             if (!m_isAttacking)
             {
                 result.y = math.atan2(result.x, result.z) +
-                         math.radians(m_gameCamera.transform.eulerAngles.y);
+                         math.radians(Camera.main.transform.eulerAngles.y);
             }
         }
 
@@ -120,13 +120,13 @@ public class PlayerController : GameCharacterController
 
     protected override void OnAim()
     {
-        if (m_gameCamera == null)
+        if (Camera.main == null)
         {
             return;
         }
         
         aimVisual.forward = m_aimDirection;
-        aimSelect.forward = math.mul(quaternion.Euler(0.0f, math.radians(m_gameCamera.transform.eulerAngles.y), 0.0f), math.forward());
+        aimSelect.forward = math.mul(quaternion.Euler(0.0f, math.radians(Camera.main.transform.eulerAngles.y), 0.0f), math.forward());
     }
 
     private void UnlockWeapon(int index)
@@ -182,7 +182,7 @@ public class PlayerController : GameCharacterController
     protected override float GetTargetRotation()
     {
         float3 inputDirection = math.normalize(new float3(m_input.move.x, 0.0f, m_input.move.y));
-        return math.atan2(inputDirection.x, inputDirection.z) + math.radians(m_gameCamera.transform.eulerAngles.y);
+        return math.atan2(inputDirection.x, inputDirection.z) + math.radians(Camera.main.transform.eulerAngles.y);
     }
 
     private void LateUpdate()

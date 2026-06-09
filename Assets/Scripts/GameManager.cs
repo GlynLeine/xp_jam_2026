@@ -3,6 +3,8 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
+using UnityEngine.InputSystem.UI;
 using UnityEngine.SceneManagement;
 
 
@@ -44,6 +46,9 @@ public class GameManager : MonoBehaviour
     [NonSerialized]
     public bool isPaused = false;
     
+    [NonSerialized]
+    public bool hideHealthBars = true;
+    
     void Start()
     {
         instance = this;
@@ -51,50 +56,6 @@ public class GameManager : MonoBehaviour
         DontDestroyOnLoad(gameObject);
         
         StartCoroutine(LoadGameAsync());
-    }
-
-    private IEnumerator LoadGameAsync()
-    {
-        // Iterate all the Studio Banks and start them loading in the background
-        // including the audio sample data
-        foreach (var bank in banks)
-        {
-            FMODUnity.RuntimeManager.LoadBank(bank, true);
-        }
-
-        // Keep yielding the co-routine until all the bank loading is done
-        // (for platforms with asynchronous bank loading)
-        while (!FMODUnity.RuntimeManager.HaveAllBanksLoaded)
-        {
-            yield return null;
-        }
-
-        // Keep yielding the co-routine until all the sample data loading is done
-        while (FMODUnity.RuntimeManager.AnySampleDataLoading())
-        {
-            yield return null;
-        }
-        
-        Instantiate(eventEmittersPrefab, transform);
-
-        fmodEventEmitters = GetComponentsInChildren<FMODUnity.StudioEventEmitter>();
-
-        for (int i = 0; i < fmodEventEmitters.Length; i++)
-        {
-            fmodEventEmitters[i].Play();
-        }
-
-        // Start an asynchronous operation to load the scene
-        AsyncOperation async = SceneManager.LoadSceneAsync(nextScene);
-
-        // Keep yielding the co-routine until scene loading and activation is done.
-        while (!async.isDone)
-        {
-            yield return null;
-        }
-        
-        async.allowSceneActivation = true;
-        isPaused = false;
     }
 
     private void Update()
@@ -161,6 +122,60 @@ public class GameManager : MonoBehaviour
     private int m_targetScene = 0;
     private bool m_isLoadingScene = false;
 
+    private Scene m_lastLoadedScene;
+    private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+    {
+        SceneManager.sceneLoaded -= OnSceneLoaded;
+        SceneManager.SetActiveScene(scene);
+        m_lastLoadedScene = scene;
+    }
+    
+    private IEnumerator LoadGameAsync()
+    {
+        // Iterate all the Studio Banks and start them loading in the background
+        // including the audio sample data
+        foreach (var bank in banks)
+        {
+            FMODUnity.RuntimeManager.LoadBank(bank, true);
+        }
+
+        // Keep yielding the co-routine until all the bank loading is done
+        // (for platforms with asynchronous bank loading)
+        while (!FMODUnity.RuntimeManager.HaveAllBanksLoaded)
+        {
+            yield return null;
+        }
+
+        // Keep yielding the co-routine until all the sample data loading is done
+        while (FMODUnity.RuntimeManager.AnySampleDataLoading())
+        {
+            yield return null;
+        }
+        
+        Instantiate(eventEmittersPrefab, transform);
+
+        fmodEventEmitters = GetComponentsInChildren<FMODUnity.StudioEventEmitter>();
+
+        for (int i = 0; i < fmodEventEmitters.Length; i++)
+        {
+            fmodEventEmitters[i].Play();
+        }
+
+        m_targetScene = nextScene;
+        m_isLoadingScene = true;
+        SceneManager.sceneLoaded += OnSceneLoaded;
+        
+        // Start an asynchronous operation to load the scene
+        AsyncOperation asyncLoad = SceneManager.LoadSceneAsync(m_targetScene, LoadSceneMode.Single);
+        while (asyncLoad.progress < 0.899f)
+        {
+            yield return null;
+        }
+        
+        isPaused = false;
+        m_isLoadingScene = false;
+    }
+
     public void StartLoadingScene(int targetScene)
     {
         if (m_isLoadingScene)
@@ -181,22 +196,42 @@ public class GameManager : MonoBehaviour
         StartCoroutine(LoadTargetSceneAsync());
     }
     
+    private Scene m_previousScene;
     private IEnumerator LoadTargetSceneAsync()
     {
         m_isLoadingScene = true;
         isPaused = true;
         
+        m_previousScene = m_lastLoadedScene;
+        SceneManager.sceneLoaded += OnSceneLoaded;
+        
         // Start an asynchronous operation to load the scene
-        AsyncOperation async = SceneManager.LoadSceneAsync(m_targetScene);
-
-        // Keep yielding the co-routine until scene loading and activation is done.
-        while (!async.isDone)
+        AsyncOperation asyncLoad = SceneManager.LoadSceneAsync(m_targetScene, LoadSceneMode.Additive);
+        while (!asyncLoad.isDone)
         {
             yield return null;
         }
         
-        async.allowSceneActivation = true;
+        AsyncOperation asyncUnload = SceneManager.UnloadSceneAsync(m_previousScene, UnloadSceneOptions.UnloadAllEmbeddedSceneObjects);
+        
+        while (asyncUnload.progress < 0.899f)
+        {
+            yield return null;
+        }
+        
+        Resources.UnloadUnusedAssets();
+
+        PlayerInput playerInput = FindAnyObjectByType<PlayerInput>();
+        if (playerInput != null)
+        {
+            playerInput.enabled = false;
+            yield return null;
+            playerInput.enabled = true;
+        }
+
         isPaused = false;
         m_isLoadingScene = false;
+
+        hideHealthBars = SceneManager.GetActiveScene().buildIndex <= 2;
     }
 }

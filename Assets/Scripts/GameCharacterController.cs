@@ -62,8 +62,6 @@ public abstract class GameCharacterController : MonoBehaviour
     protected float m_healthInterpolationTime;
     protected int m_shaderIDHealthFill;
     
-    protected Camera m_gameCamera;
-    
     protected float m_speed;
     protected float m_animationBlend;
     protected float m_targetRotation;
@@ -113,9 +111,6 @@ public abstract class GameCharacterController : MonoBehaviour
     
     void Start()
     {
-        m_gameCamera = Camera.main;
-        Debug.Assert(m_gameCamera is not null);
-        
         m_rng.InitState();
         
         m_animator = GetComponent<Animator>();
@@ -558,6 +553,13 @@ public abstract class GameCharacterController : MonoBehaviour
     
     void Update()
     {
+        healthBar.transform.parent.gameObject.SetActive(!GameManager.instance.hideHealthBars);
+        
+        if (GameManager.instance.isPaused)
+        {
+            return;
+        }
+        
         bool doMovement = true;
         HandleAim();
         HandleFallingAndLanding();
@@ -579,7 +581,7 @@ public abstract class GameCharacterController : MonoBehaviour
         m_displayHealth = math.lerp(m_referenceHealth, m_health, m_healthInterpolationTime / healthInterpolationDuration);
         if (healthBar != null)
         {
-            healthBar.transform.parent.forward = m_gameCamera.transform.forward;
+            healthBar.transform.parent.forward = Camera.main.transform.forward;
             healthBar.material.SetFloat(m_shaderIDHealthFill, m_displayHealth / maxHealth);
         }
 

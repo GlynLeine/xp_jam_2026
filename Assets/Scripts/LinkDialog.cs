@@ -35,6 +35,8 @@ public class LinkDialog : MonoBehaviour
     public void startEndOfDayDialogue()
     {
         dayTime.blackScreen.gameObject.layer = 0;
+        GameManager.instance.hideHealthBars = true;
+        GameManager.instance.isPaused = true;
         m_isEndOfDay = true;
         if (!startDialogue())
         {
@@ -47,7 +49,9 @@ public class LinkDialog : MonoBehaviour
         if (m_isEndOfDay)
         {
             m_isEndOfDay = false;
-            dayTime.blackScreen.FadeOut(()=> dayTime.blackScreen.gameObject.layer = LayerMask.NameToLayer("UI"));
+            dayTime.blackScreen.gameObject.layer = LayerMask.NameToLayer("UI");
+            GameManager.instance.hideHealthBars = false;
+            dayTime.blackScreen.FadeOut(() => { GameManager.instance.isPaused = false;});
             dayTime.StartDay();
         }
 
