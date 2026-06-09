@@ -221,7 +221,8 @@ public class PlayerController : GameCharacterController
         aimRenderer.material.SetColor(m_shaderIDPlayerWeapon, m_attackIndex >= 0 ? attacks[m_attackIndex].color : Color.white);
         aimRenderer.material.SetFloat(m_shaderIDPlayerWeaponFill, m_attackIndex >= 0 ? attacks[m_attackIndex].timeBuffer / (attacks[m_attackIndex].duration + attacks[m_attackIndex].cooldown) : 0f);
     }
-
+    
+    bool m_isAlreadyDead = false;
     protected override void OnDeath()
     {
         if (m_displayHealth > 0.1f)
@@ -229,9 +230,14 @@ public class PlayerController : GameCharacterController
             return;
         }
         
+        if (m_isAlreadyDead)
+        {
+            return;
+        }
+        m_isAlreadyDead = true;
+        
         GameManager.instance.succeededSeason = false;
         GameManager.instance.nextScene = SceneManager.GetActiveScene().buildIndex;
-        blackScreen.onFadeFinished = () => SceneManager.LoadScene(2);
-        blackScreen.StartFade();
+        blackScreen.FadeIn(() => GameManager.instance.StartLoadingScene(2));
     }
 }

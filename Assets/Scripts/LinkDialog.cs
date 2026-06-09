@@ -47,17 +47,14 @@ public class LinkDialog : MonoBehaviour
         if (m_isEndOfDay)
         {
             m_isEndOfDay = false;
-            dayTime.blackScreen.StartFade();
-            dayTime.blackScreen.onFadeFinished = ()=>
-                dayTime.blackScreen.gameObject.layer = LayerMask.NameToLayer("UI");
+            dayTime.blackScreen.FadeOut(()=> dayTime.blackScreen.gameObject.layer = LayerMask.NameToLayer("UI"));
             dayTime.StartDay();
         }
 
         if (m_isDenyGame)
         {
             m_isDenyGame = false;
-            dayTime.blackScreen.onFadeFinished = () => SceneManager.LoadScene(2);
-            dayTime.blackScreen.StartFade();
+            dayTime.blackScreen.FadeIn(() => GameManager.instance.StartLoadingScene(2));
         }
     }
 

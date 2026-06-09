@@ -138,8 +138,13 @@ public class DayTime : MonoBehaviour
             {
                 return;
             }
+
+            if (loop)
+            {
+                blackScreen.gameObject.layer = 0;
+            }
             
-            blackScreen.onFadeFinished = () =>
+            blackScreen.FadeIn(() =>
             {
                 if (loop)
                 {
@@ -148,23 +153,15 @@ public class DayTime : MonoBehaviour
                         season = (season + 1) % 4;
                     }
 
-                    blackScreen.StartFade();
+                    blackScreen.FadeOut(() => blackScreen.gameObject.layer = LayerMask.NameToLayer("UI"));
                     StartDay();
-                    blackScreen.onFadeFinished = ()=> blackScreen.gameObject.layer = LayerMask.NameToLayer("UI");
                 }
                 else
                 {
                     m_finished = true;
                     onDayEnd?.Invoke();
                 }
-            };
-
-            if (loop)
-            {
-                blackScreen.gameObject.layer = 0;
-            }
-            
-            blackScreen.StartFade();
+            });
             return;
         }
 

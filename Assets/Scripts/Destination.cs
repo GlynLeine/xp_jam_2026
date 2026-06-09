@@ -11,7 +11,6 @@ public class Destination : MonoBehaviour
     {
         GameManager.instance.nextScene = SceneManager.GetActiveScene().buildIndex + 1;
         GameManager.instance.succeededSeason = true;
-        blackScreen.onFadeFinished = () => SceneManager.LoadScene(2);
-        blackScreen.StartFade();
+        blackScreen.FadeIn(() => GameManager.instance.StartLoadingScene(2));
     }
 }

@@ -9,7 +9,6 @@ public class SwitchScene : MonoBehaviour
     public void SwitchActiveScene()
     {
         GameManager.instance.isPaused = false;
-        blackScreen.onFadeFinished = ()=> SceneManager.LoadScene(targetSceneBuildIndex);
-        blackScreen.StartFade();
+        blackScreen.FadeIn(() => GameManager.instance.StartLoadingScene(targetSceneBuildIndex));
     }
 }

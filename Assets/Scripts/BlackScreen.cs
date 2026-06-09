@@ -9,28 +9,50 @@ public class BlackScreen : MonoBehaviour
     private bool m_fadeIn;
 
     private MeshRenderer m_meshRenderer;
-    private int m_opacityIndex;
+    private int m_opacityProperyID;
 
-    public Action onFadeFinished;
+    private Action m_onFadeFinished;
 
+    private Action m_fadeInQueue;
+    private Action m_fadeOutQueue;
+    
     public bool isFading => m_timeBuffer < fadeDuration;
     
     private void Start()
     {
         m_meshRenderer = GetComponent<MeshRenderer>();
-        m_opacityIndex = Shader.PropertyToID("_Opacity");
+        m_opacityProperyID = Shader.PropertyToID("_Opacity");
     }
 
-    public void StartFade()
+    public void FadeIn(Action onFadeFinished)
     {
         if (isFading)
         {
-            m_meshRenderer.material.SetFloat(m_opacityIndex, m_fadeIn ? 1f : 0f);
-        
-            onFadeFinished?.Invoke();
-            m_fadeIn = !m_fadeIn;
+            if (m_fadeInQueue != null)
+            {
+                m_fadeInQueue = onFadeFinished;
+            }
+            return;
         }
         
+        m_onFadeFinished = onFadeFinished;
+        m_fadeIn = true;
+        m_timeBuffer = 0f;
+    }
+    
+    public void FadeOut(Action onFadeFinished)
+    {
+        if (isFading)
+        {
+            if (m_fadeOutQueue != null)
+            {
+                m_fadeOutQueue = onFadeFinished;
+            }
+            return;
+        }
+        
+        m_onFadeFinished = onFadeFinished;
+        m_fadeIn = false;
         m_timeBuffer = 0f;
     }
     
@@ -49,11 +71,31 @@ public class BlackScreen : MonoBehaviour
         {
             interpolator = 1f - interpolator;
         }
-        m_meshRenderer.material.SetFloat(m_opacityIndex, interpolator);
+        m_meshRenderer.material.SetFloat(m_opacityProperyID, interpolator);
 
         if (m_timeBuffer > fadeDuration)
         {
-            onFadeFinished?.Invoke();
+            m_onFadeFinished?.Invoke();
+
+            if (m_fadeIn)
+            {
+                if (m_fadeOutQueue != null)
+                {
+                    FadeOut(m_fadeOutQueue);
+                    m_fadeOutQueue = null;
+                    return;
+                }
+            }
+            else
+            {
+                if (m_fadeInQueue != null)
+                {
+                    FadeIn(m_fadeInQueue);
+                    m_fadeInQueue = null;
+                    return;
+                }
+            }
+            
             m_fadeIn = !m_fadeIn;
         }
     }

@@ -16,16 +16,22 @@ public class EscortController : GameCharacterController
         EscortBrain brain = m_input as EscortBrain;
     }
 
+    bool m_isAlreadyDead = false;
     protected override void OnDeath()
     {
         if (m_displayHealth > 0.1f)
         {
             return;
         }
+
+        if (m_isAlreadyDead)
+        {
+            return;
+        }
+        m_isAlreadyDead = true;
         
         GameManager.instance.succeededSeason = false;
         GameManager.instance.nextScene = SceneManager.GetActiveScene().buildIndex;
-        blackScreen.onFadeFinished = () => SceneManager.LoadScene(2);
-        blackScreen.StartFade();
+        blackScreen.FadeIn(() => GameManager.instance.StartLoadingScene(2));
     }
 }

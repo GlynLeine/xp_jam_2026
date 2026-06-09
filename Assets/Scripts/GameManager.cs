@@ -53,14 +53,13 @@ public class GameManager : MonoBehaviour
         StartCoroutine(LoadGameAsync());
     }
 
-    IEnumerator LoadGameAsync()
+    private IEnumerator LoadGameAsync()
     {
         // Iterate all the Studio Banks and start them loading in the background
         // including the audio sample data
         foreach (var bank in banks)
         {
             FMODUnity.RuntimeManager.LoadBank(bank, true);
-            Debug.Log($"Loading: {bank}");
         }
 
         // Keep yielding the co-routine until all the bank loading is done
@@ -76,8 +75,6 @@ public class GameManager : MonoBehaviour
             yield return null;
         }
         
-        Debug.Log($"Loaded Audio!");
-
         Instantiate(eventEmittersPrefab, transform);
 
         fmodEventEmitters = GetComponentsInChildren<FMODUnity.StudioEventEmitter>();
@@ -161,10 +158,45 @@ public class GameManager : MonoBehaviour
         return true;
     }
 
-    public void LoadNextScene()
-    {
-        isPaused = false;
-        SceneManager.LoadScene(nextScene);
-    }
+    private int m_targetScene = 0;
+    private bool m_isLoadingScene = false;
 
+    public void StartLoadingScene(int targetScene)
+    {
+        if (m_isLoadingScene)
+        {
+            return;
+        }
+        m_targetScene = targetScene;
+        StartCoroutine(LoadTargetSceneAsync());
+    }
+    
+    public void StartLoadingNextScene()
+    {
+        if (m_isLoadingScene)
+        {
+            return;
+        }
+        m_targetScene = nextScene;
+        StartCoroutine(LoadTargetSceneAsync());
+    }
+    
+    private IEnumerator LoadTargetSceneAsync()
+    {
+        m_isLoadingScene = true;
+        isPaused = true;
+        
+        // Start an asynchronous operation to load the scene
+        AsyncOperation async = SceneManager.LoadSceneAsync(m_targetScene);
+
+        // Keep yielding the co-routine until scene loading and activation is done.
+        while (!async.isDone)
+        {
+            yield return null;
+        }
+        
+        async.allowSceneActivation = true;
+        isPaused = false;
+        m_isLoadingScene = false;
+    }
 }
