@@ -129,7 +129,14 @@ public class DayTime : MonoBehaviour
     {
         for (int i = 0; i < GameManager.instance.fmodEventEmitters.Length; i++)
         {
-            GameManager.instance.fmodEventEmitters[i].SetParameter("Seasons", season);
+            if (i == 0 && season == 2)
+            {
+                GameManager.instance.fmodEventEmitters[i].SetParameter("Seasons", 1);
+            }
+            else
+            {
+                GameManager.instance.fmodEventEmitters[i].SetParameter("Seasons", season);
+            }
         }
         
         if (dawnOffsetTime >= dayTimeDuration)
