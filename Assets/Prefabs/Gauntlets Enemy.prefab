@@ -103,6 +103,7 @@ GameObject:
   - component: {fileID: 6294500351162068181}
   - component: {fileID: 1277832191396596660}
   - component: {fileID: 5158528936017337711}
+  - component: {fileID: 7018421161851413601}
   m_Layer: 8
   m_Name: Gauntlets Enemy
   m_TagString: Untagged
@@ -127,6 +128,7 @@ Transform:
   - {fileID: 7150035367903228421}
   - {fileID: 4947475108918144507}
   - {fileID: 1366503897898102011}
+  - {fileID: 7241718641761855587}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!95 &1953784154354638781
@@ -230,18 +232,7 @@ MonoBehaviour:
   movementSpeed: 5.335
   rotationSmoothTime: 0.12
   speedChangeRate: 10
-  footstepAudioClips:
-  - {fileID: 8300000, guid: 72f526a6a9890f643a88e85a61c86c8a, type: 3}
-  - {fileID: 8300000, guid: 85016e0f2b01da248b9663dd49a161b0, type: 3}
-  - {fileID: 8300000, guid: 186de84b3207156479abe98f4958fed0, type: 3}
-  - {fileID: 8300000, guid: 1a91fcd19acf1e54bba0945d9f390849, type: 3}
-  - {fileID: 8300000, guid: 14e8a8d2158bec840b56c54f5266e692, type: 3}
-  - {fileID: 8300000, guid: 29841e7d5bbfb5b419c9ad16ca8bc4c1, type: 3}
-  - {fileID: 8300000, guid: dd1af302b8902684d9381de1f2d3a5af, type: 3}
-  - {fileID: 8300000, guid: 67c8b33e424ccdc4486edf538ab91c5a, type: 3}
-  - {fileID: 8300000, guid: 274649b0e221539409070ebf6c18918b, type: 3}
-  - {fileID: 8300000, guid: a3194b8bbc96ef84fab1f98f4b7dae3e, type: 3}
-  footstepAudioVolume: 0.3
+  footStepEventEmitter: {fileID: 4482903905991019460}
   dodgeDistance: 4.268
   dodgeTime: 0.6
   dodgeTimeout: 0.8
@@ -253,7 +244,6 @@ MonoBehaviour:
   groundLayers:
     serializedVersion: 2
     m_Bits: 129
-  landingAudioClip: {fileID: 8300000, guid: ff697d3070687ce4583faa0561a145a2, type: 3}
   maxHealth: 10
   attackPreview: {fileID: 8053789333969817757}
   attacks:
@@ -339,6 +329,37 @@ MonoBehaviour:
     timeBuffer: 0
   healthBar: {fileID: 3852681383951173623}
   healthInterpolationDuration: 0.5
+--- !u!114 &7018421161851413601
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4964348896996501086}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: FMODUnity::FMODUnity.StudioEventEmitter
+  CollisionTag: 
+  EventReference:
+    Guid:
+      Data1: -374782306
+      Data2: 1199504904
+      Data3: 1020710313
+      Data4: -349408062
+    Path: event:/Footsteps Dirt
+  Event: 
+  EventPlayTrigger: 0
+  EventStopTrigger: 0
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  NonRigidbodyVelocity: 0
+  Params: []
+  OverrideAttenuation: 0
+  OverrideMinDistance: 1
+  OverrideMaxDistance: 20
 --- !u!1001 &353695305543813640
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -424,6 +445,87 @@ PrefabInstance:
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 642d4865f04ab164b9f9e68f1b0cc781, type: 3}
   m_PrefabInstance: {fileID: 353695305543813640}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &4556100886649970229
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 9201438970193530504}
+    m_Modifications:
+    - target: {fileID: 3760373069913300002, guid: 0991f58a9f44e564e9a0171d98d634ae, type: 3}
+      propertyPath: playerController
+      value: 
+      objectReference: {fileID: 5158528936017337711}
+    - target: {fileID: 3760373069913300002, guid: 0991f58a9f44e564e9a0171d98d634ae, type: 3}
+      propertyPath: characterController
+      value: 
+      objectReference: {fileID: 5158528936017337711}
+    - target: {fileID: 6576738840895501910, guid: 0991f58a9f44e564e9a0171d98d634ae, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6576738840895501910, guid: 0991f58a9f44e564e9a0171d98d634ae, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6576738840895501910, guid: 0991f58a9f44e564e9a0171d98d634ae, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6576738840895501910, guid: 0991f58a9f44e564e9a0171d98d634ae, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6576738840895501910, guid: 0991f58a9f44e564e9a0171d98d634ae, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6576738840895501910, guid: 0991f58a9f44e564e9a0171d98d634ae, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6576738840895501910, guid: 0991f58a9f44e564e9a0171d98d634ae, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6576738840895501910, guid: 0991f58a9f44e564e9a0171d98d634ae, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6576738840895501910, guid: 0991f58a9f44e564e9a0171d98d634ae, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6576738840895501910, guid: 0991f58a9f44e564e9a0171d98d634ae, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7640637840421073377, guid: 0991f58a9f44e564e9a0171d98d634ae, type: 3}
+      propertyPath: m_Name
+      value: FootSteps
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 0991f58a9f44e564e9a0171d98d634ae, type: 3}
+--- !u!114 &4482903905991019460 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 75713213094909425, guid: 0991f58a9f44e564e9a0171d98d634ae, type: 3}
+  m_PrefabInstance: {fileID: 4556100886649970229}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: FMODUnity::FMODUnity.StudioEventEmitter
+--- !u!4 &7241718641761855587 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 6576738840895501910, guid: 0991f58a9f44e564e9a0171d98d634ae, type: 3}
+  m_PrefabInstance: {fileID: 4556100886649970229}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &6149317313725624786
 PrefabInstance:

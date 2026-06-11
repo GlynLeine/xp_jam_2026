@@ -1160,6 +1160,7 @@ Transform:
   m_Children:
   - {fileID: 4444620982244079031}
   - {fileID: 3614716232916356304}
+  - {fileID: 5670740197084312578}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: -88.686, z: 0}
 --- !u!95 &6170748436524980557
@@ -1283,18 +1284,7 @@ MonoBehaviour:
   movementSpeed: 4
   rotationSmoothTime: 0.12
   speedChangeRate: 10
-  footstepAudioClips:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  footstepAudioVolume: 0.3
+  footStepEventEmitter: {fileID: 1511870060522198949}
   dodgeDistance: 4.268
   dodgeTime: 0.6
   dodgeTimeout: 0.8
@@ -1306,7 +1296,6 @@ MonoBehaviour:
   groundLayers:
     serializedVersion: 2
     m_Bits: 129
-  landingAudioClip: {fileID: 8300000, guid: ff697d3070687ce4583faa0561a145a2, type: 3}
   maxHealth: 15
   attackPreview: {fileID: 0}
   attacks: []
@@ -2348,6 +2337,83 @@ Transform:
   - {fileID: 5905761245875224481}
   m_Father: {fileID: 1788089109729052681}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &1582946048855900756
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 7017002954961105557}
+    m_Modifications:
+    - target: {fileID: 3760373069913300002, guid: 0991f58a9f44e564e9a0171d98d634ae, type: 3}
+      propertyPath: characterController
+      value: 
+      objectReference: {fileID: 2046709045695910053}
+    - target: {fileID: 6576738840895501910, guid: 0991f58a9f44e564e9a0171d98d634ae, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6576738840895501910, guid: 0991f58a9f44e564e9a0171d98d634ae, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6576738840895501910, guid: 0991f58a9f44e564e9a0171d98d634ae, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6576738840895501910, guid: 0991f58a9f44e564e9a0171d98d634ae, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6576738840895501910, guid: 0991f58a9f44e564e9a0171d98d634ae, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6576738840895501910, guid: 0991f58a9f44e564e9a0171d98d634ae, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6576738840895501910, guid: 0991f58a9f44e564e9a0171d98d634ae, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6576738840895501910, guid: 0991f58a9f44e564e9a0171d98d634ae, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6576738840895501910, guid: 0991f58a9f44e564e9a0171d98d634ae, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6576738840895501910, guid: 0991f58a9f44e564e9a0171d98d634ae, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7640637840421073377, guid: 0991f58a9f44e564e9a0171d98d634ae, type: 3}
+      propertyPath: m_Name
+      value: FootSteps
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 0991f58a9f44e564e9a0171d98d634ae, type: 3}
+--- !u!114 &1511870060522198949 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 75713213094909425, guid: 0991f58a9f44e564e9a0171d98d634ae, type: 3}
+  m_PrefabInstance: {fileID: 1582946048855900756}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: FMODUnity::FMODUnity.StudioEventEmitter
+--- !u!4 &5670740197084312578 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 6576738840895501910, guid: 0991f58a9f44e564e9a0171d98d634ae, type: 3}
+  m_PrefabInstance: {fileID: 1582946048855900756}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &3302468657041934445
 PrefabInstance:
   m_ObjectHideFlags: 0

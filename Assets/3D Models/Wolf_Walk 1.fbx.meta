@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 685337f8e0da5d4499624f3e653438d9
+guid: 0cdb18b1c51b8e64fa911becdb78c2ef
 ModelImporter:
   serializedVersion: 24200
   internalIDToNameTable: []
@@ -35,14 +35,14 @@ ModelImporter:
       takeName: WolfRig|WolfRigAction
       internalID: -1974525497163272145
       firstFrame: 0
-      lastFrame: 20
+      lastFrame: 1
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
       cycleOffset: 0
       loop: 0
       hasAdditiveReferencePose: 0
-      loopTime: 1
+      loopTime: 0
       loopBlend: 0
       loopBlendOrientation: 0
       loopBlendPositionY: 0
@@ -54,35 +54,7 @@ ModelImporter:
       mirror: 0
       bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
       curves: []
-      events:
-      - time: 0.19849867
-        functionName: OnFootstep
-        data: 
-        objectReferenceParameter: {instanceID: 0}
-        floatParameter: 0
-        intParameter: 0
-        messageOptions: 0
-      - time: 0.52278817
-        functionName: OnFootstep
-        data: 
-        objectReferenceParameter: {instanceID: 0}
-        floatParameter: 0
-        intParameter: 0
-        messageOptions: 0
-      - time: 0.7008043
-        functionName: OnFootstep
-        data: 
-        objectReferenceParameter: {instanceID: 0}
-        floatParameter: 0
-        intParameter: 0
-        messageOptions: 0
-      - time: 0.9976407
-        functionName: OnFootstep
-        data: 
-        objectReferenceParameter: {instanceID: 0}
-        floatParameter: 0
-        intParameter: 0
-        messageOptions: 0
+      events: []
       transformMask: []
       maskType: 3
       maskSource: {instanceID: 0}

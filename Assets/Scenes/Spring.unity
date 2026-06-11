@@ -223,6 +223,10 @@ PrefabInstance:
       propertyPath: blackScreen
       value: 
       objectReference: {fileID: 663896897}
+    - target: {fileID: 9042029228143171878, guid: d848b3839f282bc41bf81d2a2b160682, type: 3}
+      propertyPath: dayTime
+      value: 
+      objectReference: {fileID: 2064561839}
     - target: {fileID: 9201438970193530504, guid: d848b3839f282bc41bf81d2a2b160682, type: 3}
       propertyPath: m_LocalPosition.x
       value: 130.1

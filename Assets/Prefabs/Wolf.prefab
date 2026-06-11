@@ -2534,6 +2534,26 @@ PrefabInstance:
       propertyPath: m_Name
       value: AttackColliders
       objectReference: {fileID: 0}
+    - target: {fileID: 8140403844211893586, guid: b969e75b51ec0c9438bb6ff3c4e5a8b4, type: 3}
+      propertyPath: EventReference.Path
+      value: event:/Footsteps Dirt
+      objectReference: {fileID: 0}
+    - target: {fileID: 8140403844211893586, guid: b969e75b51ec0c9438bb6ff3c4e5a8b4, type: 3}
+      propertyPath: EventReference.Guid.Data1
+      value: -374782306
+      objectReference: {fileID: 0}
+    - target: {fileID: 8140403844211893586, guid: b969e75b51ec0c9438bb6ff3c4e5a8b4, type: 3}
+      propertyPath: EventReference.Guid.Data2
+      value: 1199504904
+      objectReference: {fileID: 0}
+    - target: {fileID: 8140403844211893586, guid: b969e75b51ec0c9438bb6ff3c4e5a8b4, type: 3}
+      propertyPath: EventReference.Guid.Data3
+      value: 1020710313
+      objectReference: {fileID: 0}
+    - target: {fileID: 8140403844211893586, guid: b969e75b51ec0c9438bb6ff3c4e5a8b4, type: 3}
+      propertyPath: EventReference.Guid.Data4
+      value: -349408062
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
