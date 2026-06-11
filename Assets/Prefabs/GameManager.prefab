@@ -45,7 +45,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aad944e284be4534cacc6e9feef17ff6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GameManager
-  uiInputModule: {fileID: 3747684986759484032}
   banks:
   - Master
   eventEmittersPrefab: {fileID: 3279462192712286547, guid: dbedda0474e9781468b2a5893b191ef5, type: 3}
@@ -69,6 +68,12 @@ MonoBehaviour:
   - {fileID: 11400000, guid: eed94b9002b25154094e0f5ee34d56c3, type: 2}
   - {fileID: 11400000, guid: e7b7b93627be40f49b2e5fc5a90211fd, type: 2}
   - {fileID: 11400000, guid: 624a6045d54ef414698bfe0ee45dfefb, type: 2}
+  riverLocationTexture: {fileID: 2800000, guid: 27cdb21214f090f4fb362fa956427a90, type: 3}
+  riverLocationMaterial: {fileID: -876546973899608171, guid: 05e6d4b9fd9816f4ab3e2b6efc8eabc9, type: 3}
+  terrainData: {fileID: 15600000, guid: 63611a6afbdcc8848b6ad2d1bea3782d, type: 2}
+  riverLocationResolution: 256
+  textureAsset: {fileID: 0}
+  isBusyRendering: 1
 --- !u!1001 &5108686487481449338
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -131,14 +136,3 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 8063073397250431797, guid: f0271df749728104eac22c3d897fd8ce, type: 3}
   m_PrefabInstance: {fileID: 5108686487481449338}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &3747684986759484032 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 8279798545678494202, guid: f0271df749728104eac22c3d897fd8ce, type: 3}
-  m_PrefabInstance: {fileID: 5108686487481449338}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 01614664b831546d2ae94a42149d80ac, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 

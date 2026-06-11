@@ -78,7 +78,7 @@ Shader "CustomEffects/Volumetric Fog"
             // Phase function
             // https://www.pbr-book.org/3ed-2018/Volume_Scattering/Phase_Functions
             float HenyeyGreenstein(float g, float cosTheta) {
-	            return (1.0 / (4.0 * 3.1415926)) * ((1.0 - g * g) / pow(max(0.0, 1.0 + g * g - 2.0 * g * cosTheta), 1.5));
+	            return (1.0 / (4.0 * PI)) * ((1.0 - g * g) / pow(max(0.0, 1.0 + g * g - 2.0 * g * cosTheta), 1.5));
             }
 
             struct DensityData
@@ -109,7 +109,7 @@ Shader "CustomEffects/Volumetric Fog"
             
             float3 AdditionalLightInscatter(float3 rayDir, float extinction, Light light)
             {
-                float cosTheta = dot(rayDir, normalize(light.direction));
+                float cosTheta = dot(-rayDir, normalize(light.direction));
 				float phaseFunction = lerp(HenyeyGreenstein(-0.3, cosTheta), HenyeyGreenstein(0.3, cosTheta), 0.7);
                 return _Scattering.rgb * light.color * light.distanceAttenuation * light.shadowAttenuation * _LightScale * phaseFunction * extinction;
             }
@@ -160,7 +160,7 @@ Shader "CustomEffects/Volumetric Fog"
 
                 float3 rayDir = GetRay(texcoord);
 
-                float cosTheta = dot(rayDir, _MainLightPosition.xyz);
+                float cosTheta = dot(-rayDir, _MainLightPosition.xyz);
 	            float mainLightPhaseFunction = lerp(HenyeyGreenstein(-0.3, cosTheta), HenyeyGreenstein(0.3, cosTheta), 0.7);
 
 	            float3 radiance = float3(0, 0, 0);

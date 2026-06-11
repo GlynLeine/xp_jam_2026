@@ -2,9 +2,9 @@ using cherrydev;
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.Mathematics;
 using UnityEngine;
 using UnityEngine.InputSystem;
-using UnityEngine.InputSystem.UI;
 using UnityEngine.SceneManagement;
 
 
@@ -49,6 +49,10 @@ public class GameManager : MonoBehaviour
     [NonSerialized]
     public bool hideHealthBars = true;
     
+    public Texture2D riverLocationTexture;
+
+    private float2[,] m_closestRiverLocations;
+    
     void Start()
     {
         instance = this;
@@ -56,8 +60,24 @@ public class GameManager : MonoBehaviour
         DontDestroyOnLoad(gameObject);
         
         StartCoroutine(LoadGameAsync());
+
+        m_closestRiverLocations = new float2[256, 256];
+        Color[] colors = riverLocationTexture.GetPixels();
+        for (int y = 0; y < 256; y++)
+        { 
+            for (int x = 0; x < 256; x++)
+            {
+                Color color = colors[x  + y * 256];
+                m_closestRiverLocations[x, y] = new float2(color.r, color.g);
+            }
+        }
     }
 
+    public float2 GetNearestRiverLocation(float2 position)
+    {
+        return m_closestRiverLocations[(int)(position.x * 255f), (int)(position.y * 255f)];
+    }
+    
     private void Update()
     {
         if (SceneManager.GetActiveScene().buildIndex == 0)
