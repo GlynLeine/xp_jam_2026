@@ -4,4 +4,6 @@ public class WeaponCollider : MonoBehaviour
 {
     [HideInInspector]
     public GameCharacterController characterController;
+    
+    public FMODUnity.StudioEventEmitter fmodEventEmitter;
 }

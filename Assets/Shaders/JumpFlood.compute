@@ -1,0 +1,76 @@
+#pragma target 6.0
+#pragma only_renderers d3d11
+#pragma kernel CSMain
+
+RWTexture2D<float2> seeds;
+RWTexture2D<float2> jumpFloodBuffer;
+RWTexture2D<float2> result;
+
+uint jumpSteps;
+bool initialize;
+
+#define EMPTY_VALUE float2(-2.0, -2.0)
+
+uint2 readCoords(float2 value)
+{
+    return (uint2)(value * 255.0);
+}
+
+float2 writeCoords(uint2 coords)
+{
+    return ((float2)coords) / 255.0;
+}
+
+void initializeJumpFlood(uint2 sourceCoords)
+{
+    const float2 seedValue = seeds[sourceCoords];
+    jumpFloodBuffer[sourceCoords] = (readCoords(seedValue) == sourceCoords) ? seedValue : EMPTY_VALUE;
+}
+
+[numthreads(16,16,1)]
+void CSMain(uint3 id : SV_DispatchThreadID)
+{
+    const uint2 sourceCoords = id.xy;
+    if (initialize)
+    {
+        initializeJumpFlood(sourceCoords);
+    }
+    
+    const float2 sourceValue = writeCoords(sourceCoords);
+    GroupMemoryBarrierWithGroupSync();
+    for (uint i = 0u; i <= jumpSteps; i++)
+    {
+        const float jumpSize = 1u << max(jumpSteps - i, 0u);
+        if (jumpSize == 0.0)
+        {
+            break;
+        }
+        float2 closestValue = jumpFloodBuffer[sourceCoords];
+        float closestDistance = distance(closestValue, sourceValue);
+        for (uint axis = 0u; axis < 2u; axis++)
+        {
+            for (int sign = -1; sign <= 1; sign += 2)
+            {
+                uint2 readCoords = sourceCoords;
+                readCoords[axis] += sign * jumpSize;
+                if (readCoords[axis] >= 256u)
+                {
+                    continue;
+                }
+    
+                const float2 readValue = jumpFloodBuffer[readCoords];                
+                const float readDistance = distance(readValue, sourceValue);
+                if (readDistance < closestDistance)
+                {
+                    closestValue = readValue;
+                    closestDistance = readDistance;
+                }
+            }
+        }
+        GroupMemoryBarrierWithGroupSync();
+        jumpFloodBuffer[sourceCoords] = closestValue;
+        GroupMemoryBarrierWithGroupSync();
+    }
+
+    result[sourceCoords] = jumpFloodBuffer[sourceCoords];
+}

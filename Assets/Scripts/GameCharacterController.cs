@@ -32,8 +32,7 @@ public abstract class GameCharacterController : MonoBehaviour
     public float movementSpeed = 5.335f;
     [Range(0.0f, 0.3f)] public float rotationSmoothTime = 0.12f;
     public float speedChangeRate = 10.0f;
-    public AudioClip[] footstepAudioClips;
-    [Range(0, 1)] public float footstepAudioVolume = 0.5f;
+    public FMODUnity.StudioEventEmitter footStepEventEmitter;
 
     [Header("Dodge")]
     public float dodgeDistance = 2.0f;
@@ -47,14 +46,19 @@ public abstract class GameCharacterController : MonoBehaviour
     public float groundedOffset = -0.14f;
     public float groundedRadius = 0.28f;
     public LayerMask groundLayers;
-    public AudioClip landingAudioClip;
 
     [Header("Attacks")]
     public float maxHealth;
     public MeshRenderer attackPreview;
     public AttackInfo[] attacks;
 
+    public MeshRenderer healthBar;
+    public float healthInterpolationDuration = 0.5f;
     protected float m_health;
+    protected float m_displayHealth;
+    protected float m_referenceHealth;
+    protected float m_healthInterpolationTime;
+    protected int m_shaderIDHealthFill;
     
     protected float m_speed;
     protected float m_animationBlend;
@@ -127,10 +131,12 @@ public abstract class GameCharacterController : MonoBehaviour
         m_shaderIDPreviewUseArrow = Shader.PropertyToID("_Use_Arrow");
         m_shaderIDPreviewRadius = Shader.PropertyToID("_Cone_Radius");
         
+        m_shaderIDHealthFill = Shader.PropertyToID("_CurrentHealthFill");
+        
         m_characterCollisionLayer = LayerMask.NameToLayer("Character");
         
         m_fallTimeBuffer = 0f;
-        m_health = maxHealth;
+        m_displayHealth = m_referenceHealth =  m_health = maxHealth;
         
         OnStart();
         
@@ -328,6 +334,8 @@ public abstract class GameCharacterController : MonoBehaviour
     public void Hurt(float damage)
     {
         m_health -= damage;
+        m_referenceHealth = m_displayHealth;
+        m_healthInterpolationTime = 0f;
     }
     
     protected virtual bool OnHandleAttacking(ref float3 movement, ref bool doMovement) { return true; }
@@ -374,6 +382,11 @@ public abstract class GameCharacterController : MonoBehaviour
                     transform.forward = m_aimDirection;
                     m_isAttacking = true;
                     currentAttack.weaponCollider.SetActive(true);
+                    FMODUnity.StudioEventEmitter attackAudio = currentAttack.weaponCollider.GetComponent<WeaponCollider>().fmodEventEmitter;
+                    if (attackAudio != null)
+                    {
+                        attackAudio.Play();
+                    }
                 }
             }
 
@@ -543,6 +556,13 @@ public abstract class GameCharacterController : MonoBehaviour
     
     void Update()
     {
+        healthBar.transform.parent.gameObject.SetActive(!GameManager.instance.hideHealthBars);
+        
+        if (GameManager.instance.isPaused)
+        {
+            return;
+        }
+        
         bool doMovement = true;
         HandleAim();
         HandleFallingAndLanding();
@@ -560,6 +580,14 @@ public abstract class GameCharacterController : MonoBehaviour
         m_animator.SetFloat(m_animIDSpeed, m_animationBlend);
         m_animator.SetFloat(m_animIDMotionSpeed, inputMagnitude);
 
+        m_healthInterpolationTime = math.min(m_healthInterpolationTime + Time.deltaTime, healthInterpolationDuration);
+        m_displayHealth = math.lerp(m_referenceHealth, m_health, m_healthInterpolationTime / healthInterpolationDuration);
+        if (healthBar != null)
+        {
+            healthBar.transform.parent.forward = Camera.main.transform.forward;
+            healthBar.material.SetFloat(m_shaderIDHealthFill, m_displayHealth / maxHealth);
+        }
+
         if (m_health <= 0f)
         {
             OnDeath();
@@ -570,11 +598,7 @@ public abstract class GameCharacterController : MonoBehaviour
     {
         if (animationEvent.animatorClipInfo.weight > 0.5f)
         {
-            if (footstepAudioClips.Length > 0)
-            {
-                var index = m_rng.NextInt(0, footstepAudioClips.Length);
-                AudioSource.PlayClipAtPoint(footstepAudioClips[index], transform.TransformPoint(m_controller.center), footstepAudioVolume);
-            }
+            footStepEventEmitter?.Play();
         }
     }
 
@@ -582,7 +606,7 @@ public abstract class GameCharacterController : MonoBehaviour
     {
         if (animationEvent.animatorClipInfo.weight > 0.5f)
         {
-            AudioSource.PlayClipAtPoint(landingAudioClip, transform.TransformPoint(m_controller.center), footstepAudioVolume);
+            footStepEventEmitter?.Play();
         }
     }
 }

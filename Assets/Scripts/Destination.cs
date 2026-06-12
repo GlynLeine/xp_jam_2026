@@ -9,9 +9,13 @@ public class Destination : MonoBehaviour
     
     public void EndScene()
     {
+        if (GameManager.instance.isPaused)
+        {
+            return;
+        }
+        
         GameManager.instance.nextScene = SceneManager.GetActiveScene().buildIndex + 1;
         GameManager.instance.succeededSeason = true;
-        blackScreen.onFadeFinished = () => SceneManager.LoadScene(2);
-        blackScreen.StartFade();
+        blackScreen.FadeIn(() => GameManager.instance.StartLoadingScene(2));
     }
 }

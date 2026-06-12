@@ -9,9 +9,9 @@ Shader "CustomEffects/Volumetric Fog"
         }
         LOD 100
         ZWrite Off Cull Off
-        Blend Off
         Pass
         {
+			Blend Off
             Name "FogRenderPass"
 
             HLSLPROGRAM
@@ -75,15 +75,10 @@ Shader "CustomEffects/Volumetric Fog"
 				return hpositionCS.xy;
             }
 
-            float3 SampleSceneRadiance(float2 texcoord)
-            {
-                return SAMPLE_TEXTURE2D(_BlitTexture, sampler_LinearClamp, texcoord).rgb;
-            }
-
             // Phase function
             // https://www.pbr-book.org/3ed-2018/Volume_Scattering/Phase_Functions
             float HenyeyGreenstein(float g, float cosTheta) {
-	            return (1.0 / (4.0 * 3.1415926)) * ((1.0 - g * g) / pow(max(0.0, 1.0 + g * g - 2.0 * g * cosTheta), 1.5));
+	            return (1.0 / (4.0 * PI)) * ((1.0 - g * g) / pow(max(0.0, 1.0 + g * g - 2.0 * g * cosTheta), 1.5));
             }
 
             struct DensityData
@@ -114,7 +109,7 @@ Shader "CustomEffects/Volumetric Fog"
             
             float3 AdditionalLightInscatter(float3 rayDir, float extinction, Light light)
             {
-                float cosTheta = dot(rayDir, normalize(light.direction));
+                float cosTheta = dot(-rayDir, normalize(light.direction));
 				float phaseFunction = lerp(HenyeyGreenstein(-0.3, cosTheta), HenyeyGreenstein(0.3, cosTheta), 0.7);
                 return _Scattering.rgb * light.color * light.distanceAttenuation * light.shadowAttenuation * _LightScale * phaseFunction * extinction;
             }
@@ -165,7 +160,7 @@ Shader "CustomEffects/Volumetric Fog"
 
                 float3 rayDir = GetRay(texcoord);
 
-                float cosTheta = dot(rayDir, _MainLightPosition.xyz);
+                float cosTheta = dot(-rayDir, _MainLightPosition.xyz);
 	            float mainLightPhaseFunction = lerp(HenyeyGreenstein(-0.3, cosTheta), HenyeyGreenstein(0.3, cosTheta), 0.7);
 
 	            float3 radiance = float3(0, 0, 0);
@@ -270,6 +265,7 @@ Shader "CustomEffects/Volumetric Fog"
 
         Pass
         {
+			Blend SrcAlpha One, One Zero
             Name "FogCompositeRenderPass"
 
             HLSLPROGRAM
@@ -283,9 +279,7 @@ Shader "CustomEffects/Volumetric Fog"
             float4 CompositeFog (Varyings input) : SV_Target
             {
                 float4 fogData = SAMPLE_TEXTURE2D(_FogTexture, sampler_LinearClamp, input.texcoord);
-                float3 transmittance;
-
-                transmittance = fogData.aaa;
+            	
                 // uint compressedTransmittance = asuint(fogData.a);
                 // uint transmittanceR = (compressedTransmittance >> 21) & 0x000007FF;
                 // uint transmittanceG = (compressedTransmittance >> 10) & 0x000007FF;
@@ -294,7 +288,7 @@ Shader "CustomEffects/Volumetric Fog"
                 // transmittance.g = transmittanceG / 2047.0;
                 // transmittance.b = transmittanceB / 1023.0;
 
-                return float4(transmittance * SAMPLE_TEXTURE2D(_BlitTexture, sampler_LinearClamp, input.texcoord).rgb + fogData.rgb, 1);
+                return fogData;
             }
             
             #pragma vertex Vert

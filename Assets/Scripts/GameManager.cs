@@ -1,14 +1,20 @@
 using cherrydev;
-using NUnit.Framework;
 using System;
 using System.Collections;
-using Unity.VisualScripting;
+using System.Collections.Generic;
+using Unity.Mathematics;
 using UnityEngine;
+using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
 
 
 public class GameManager : MonoBehaviour
 {
+    // List of Banks to load
+    [FMODUnity.BankRef]
+    public List<string> banks = new List<string>();
+    public GameObject eventEmittersPrefab;
+    [NonSerialized]
     public FMODUnity.StudioEventEmitter[] fmodEventEmitters;
     
     public DialogNodeGraph[] AntonyNodes;
@@ -34,12 +40,55 @@ public class GameManager : MonoBehaviour
     [NonSerialized]
     public int fogStepCount = 100;
     
+    [NonSerialized]
+    public float combatMusicScalar = 0f;
+    
+    [NonSerialized]
+    public bool isPaused = false;
+    
+    [NonSerialized]
+    public bool hideHealthBars = true;
+    
+    public Texture2D riverLocationTexture;
+
+    private float2[,] m_closestRiverLocations;
+    
     void Start()
     {
         instance = this;
         nextScene = 1;
         DontDestroyOnLoad(gameObject);
-        LoadNextScene();
+        
+        StartCoroutine(LoadGameAsync());
+
+        m_closestRiverLocations = new float2[256, 256];
+        Color[] colors = riverLocationTexture.GetPixels();
+        for (int y = 0; y < 256; y++)
+        { 
+            for (int x = 0; x < 256; x++)
+            {
+                Color color = colors[x  + y * 256];
+                m_closestRiverLocations[x, y] = new float2(color.r, color.g);
+            }
+        }
+    }
+
+    public float2 GetNearestRiverLocation(float2 position)
+    {
+        return m_closestRiverLocations[(int)(position.x * 255f), (int)(position.y * 255f)];
+    }
+    
+    private void Update()
+    {
+        if (SceneManager.GetActiveScene().buildIndex == 0)
+        {
+            return;
+        }
+        
+        for (int i = 0; i < fmodEventEmitters.Length; i++)
+        {
+            fmodEventEmitters[i].SetParameter("Action", combatMusicScalar);
+        }
     }
 
     public bool startDialogue(DialogBehaviour dialogBehaviour)
@@ -90,9 +139,119 @@ public class GameManager : MonoBehaviour
         return true;
     }
 
-    public void LoadNextScene()
+    private int m_targetScene = 0;
+    private bool m_isLoadingScene = false;
+
+    private Scene m_lastLoadedScene;
+    private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
-        SceneManager.LoadScene(nextScene);
+        SceneManager.sceneLoaded -= OnSceneLoaded;
+        SceneManager.SetActiveScene(scene);
+        m_lastLoadedScene = scene;
+    }
+    
+    private IEnumerator LoadGameAsync()
+    {
+        // Iterate all the Studio Banks and start them loading in the background
+        // including the audio sample data
+        foreach (var bank in banks)
+        {
+            FMODUnity.RuntimeManager.LoadBank(bank, true);
+        }
+
+        // Keep yielding the co-routine until all the bank loading is done
+        // (for platforms with asynchronous bank loading)
+        while (!FMODUnity.RuntimeManager.HaveAllBanksLoaded)
+        {
+            yield return null;
+        }
+
+        // Keep yielding the co-routine until all the sample data loading is done
+        while (FMODUnity.RuntimeManager.AnySampleDataLoading())
+        {
+            yield return null;
+        }
+        
+        Instantiate(eventEmittersPrefab, transform);
+
+        fmodEventEmitters = GetComponentsInChildren<FMODUnity.StudioEventEmitter>();
+
+        for (int i = 0; i < fmodEventEmitters.Length; i++)
+        {
+            fmodEventEmitters[i].Play();
+        }
+
+        m_targetScene = nextScene;
+        m_isLoadingScene = true;
+        SceneManager.sceneLoaded += OnSceneLoaded;
+        
+        // Start an asynchronous operation to load the scene
+        AsyncOperation asyncLoad = SceneManager.LoadSceneAsync(m_targetScene, LoadSceneMode.Single);
+        while (asyncLoad.progress < 0.899f)
+        {
+            yield return null;
+        }
+        
+        isPaused = false;
+        m_isLoadingScene = false;
     }
 
+    public void StartLoadingScene(int targetScene)
+    {
+        if (m_isLoadingScene)
+        {
+            return;
+        }
+        m_targetScene = targetScene;
+        StartCoroutine(LoadTargetSceneAsync());
+    }
+    
+    public void StartLoadingNextScene()
+    {
+        if (m_isLoadingScene)
+        {
+            return;
+        }
+        m_targetScene = nextScene;
+        StartCoroutine(LoadTargetSceneAsync());
+    }
+    
+    private Scene m_previousScene;
+    private IEnumerator LoadTargetSceneAsync()
+    {
+        m_isLoadingScene = true;
+        isPaused = true;
+        
+        m_previousScene = m_lastLoadedScene;
+        SceneManager.sceneLoaded += OnSceneLoaded;
+        
+        // Start an asynchronous operation to load the scene
+        AsyncOperation asyncLoad = SceneManager.LoadSceneAsync(m_targetScene, LoadSceneMode.Additive);
+        while (!asyncLoad.isDone)
+        {
+            yield return null;
+        }
+        
+        AsyncOperation asyncUnload = SceneManager.UnloadSceneAsync(m_previousScene, UnloadSceneOptions.UnloadAllEmbeddedSceneObjects);
+        
+        while (asyncUnload.progress < 0.899f)
+        {
+            yield return null;
+        }
+        
+        Resources.UnloadUnusedAssets();
+
+        PlayerInput playerInput = FindAnyObjectByType<PlayerInput>();
+        if (playerInput != null)
+        {
+            playerInput.enabled = false;
+            yield return null;
+            playerInput.enabled = true;
+        }
+
+        isPaused = false;
+        m_isLoadingScene = false;
+
+        hideHealthBars = SceneManager.GetActiveScene().buildIndex <= 2;
+    }
 }

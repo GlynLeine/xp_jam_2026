@@ -8,7 +8,6 @@ using UnityEngine.SceneManagement;
 public class EscortController : GameCharacterController
 {
     public BlackScreen blackScreen;
-    public MeshRenderer healthBar;
     
     protected override void OnStart()
     {
@@ -17,16 +16,22 @@ public class EscortController : GameCharacterController
         EscortBrain brain = m_input as EscortBrain;
     }
 
+    bool m_isAlreadyDead = false;
     protected override void OnDeath()
     {
+        if (m_displayHealth > 0.1f)
+        {
+            return;
+        }
+
+        if (m_isAlreadyDead)
+        {
+            return;
+        }
+        m_isAlreadyDead = true;
+        
         GameManager.instance.succeededSeason = false;
         GameManager.instance.nextScene = SceneManager.GetActiveScene().buildIndex;
-        blackScreen.onFadeFinished = () => SceneManager.LoadScene(2);
-        blackScreen.StartFade();
-    }
-
-    private void LateUpdate()
-    {
-        healthBar.material.SetFloat("_CurrentWeaponFill", m_health/maxHealth);
+        blackScreen.FadeIn(() => GameManager.instance.StartLoadingScene(2));
     }
 }

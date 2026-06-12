@@ -129,7 +129,14 @@ public class DayTime : MonoBehaviour
     {
         for (int i = 0; i < GameManager.instance.fmodEventEmitters.Length; i++)
         {
-            GameManager.instance.fmodEventEmitters[i].SetParameter("Seasons", season);
+            if (i == 0 && season == 2)
+            {
+                GameManager.instance.fmodEventEmitters[i].SetParameter("Seasons", 1);
+            }
+            else
+            {
+                GameManager.instance.fmodEventEmitters[i].SetParameter("Seasons", season);
+            }
         }
         
         if (dawnOffsetTime >= dayTimeDuration)
@@ -138,8 +145,13 @@ public class DayTime : MonoBehaviour
             {
                 return;
             }
+
+            if (loop)
+            {
+                blackScreen.gameObject.layer = 0;
+            }
             
-            blackScreen.onFadeFinished = () =>
+            blackScreen.FadeIn(() =>
             {
                 if (loop)
                 {
@@ -148,23 +160,15 @@ public class DayTime : MonoBehaviour
                         season = (season + 1) % 4;
                     }
 
-                    blackScreen.StartFade();
+                    blackScreen.FadeOut(() => blackScreen.gameObject.layer = LayerMask.NameToLayer("UI"));
                     StartDay();
-                    blackScreen.onFadeFinished = ()=> blackScreen.gameObject.layer = LayerMask.NameToLayer("UI");
                 }
                 else
                 {
                     m_finished = true;
                     onDayEnd?.Invoke();
                 }
-            };
-
-            if (loop)
-            {
-                blackScreen.gameObject.layer = 0;
-            }
-            
-            blackScreen.StartFade();
+            });
             return;
         }
 
