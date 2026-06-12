@@ -40,7 +40,6 @@
 			<destination>{91b6512e-71ec-4a5d-be57-a59940affd2d}</destination>
 		</relationship>
 		<relationship name="parameters">
-			<destination>{9a6ccdbb-91bd-4555-825e-fdd11f9423ec}</destination>
 			<destination>{dacf84d3-5ca3-4060-b205-ad4d6b4eee21}</destination>
 		</relationship>
 		<relationship name="banks">
@@ -176,11 +175,6 @@
 			<destination>{bb4eb108-b87c-495d-af7e-5c193f00f3d3}</destination>
 			<destination>{56851697-174a-4e0f-b2a6-dfe3585305f9}</destination>
 			<destination>{34124a77-25c6-4e7f-b9ed-684cbf3d4640}</destination>
-		</relationship>
-	</object>
-	<object class="ParameterProxy" id="{9a6ccdbb-91bd-4555-825e-fdd11f9423ec}">
-		<relationship name="preset">
-			<destination>{6be5d74e-7a5a-416a-be32-c3475a55b198}</destination>
 		</relationship>
 	</object>
 	<object class="ParameterProxy" id="{dacf84d3-5ca3-4060-b205-ad4d6b4eee21}">
@@ -427,7 +421,6 @@
 		<property name="length">
 			<value>108.08533333333334</value>
 		</property>
-		<property name="name" />
 		<relationship name="audioFile">
 			<destination>{fe32aa54-5282-4cb2-897d-81790b409be7}</destination>
 		</relationship>
