@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &810553917635772651
+--- !u!1 &2740538578294021496
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,38 +8,37 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 2513542193167543223}
-  - component: {fileID: 3791899900088874196}
-  - component: {fileID: 8573640376018060751}
+  - component: {fileID: 7272799797283818674}
+  - component: {fileID: 5081012535719267713}
   m_Layer: 0
-  m_Name: River Sound
+  m_Name: Atmos Sound
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &2513542193167543223
+--- !u!4 &7272799797283818674
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 810553917635772651}
+  m_GameObject: {fileID: 2740538578294021496}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 29.68185, y: -2.60279, z: 55.87542}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 1
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 90, y: 45, z: -10}
---- !u!114 &3791899900088874196
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &5081012535719267713
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 810553917635772651}
+  m_GameObject: {fileID: 2740538578294021496}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
@@ -48,11 +47,11 @@ MonoBehaviour:
   CollisionTag: 
   EventReference:
     Guid:
-      Data1: 283442290
-      Data2: 1333455432
-      Data3: 601762474
-      Data4: 1758935615
-    Path: event:/River Sound
+      Data1: 643777204
+      Data2: 1256800139
+      Data3: 574269069
+      Data4: 1192273018
+    Path: event:/Season Amb 2D
   Event: 
   EventPlayTrigger: 1
   EventStopTrigger: 2
@@ -63,20 +62,6 @@ MonoBehaviour:
   Params:
   - Name: Seasons
     Value: 0
-  OverrideAttenuation: 1
-  OverrideMinDistance: 0
-  OverrideMaxDistance: 40
---- !u!114 &8573640376018060751
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 810553917635772651}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7cb9d5d99bd082d4e9fe3a302b7c11dd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: '::'
-  playerTransform: {fileID: 0}
-  terrain: {fileID: 0}
+  OverrideAttenuation: 0
+  OverrideMinDistance: 1
+  OverrideMaxDistance: 20
