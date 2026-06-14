@@ -238,6 +238,7 @@ public class PlayerController : GameCharacterController
         
         GameManager.instance.succeededSeason = false;
         GameManager.instance.nextScene = SceneManager.GetActiveScene().buildIndex;
+        GameManager.instance.isPaused = true;
         blackScreen.FadeIn(() => GameManager.instance.StartLoadingScene(2));
     }
 }
